@@ -37,7 +37,6 @@ const TABLE_PRESETS = [
 
 const STORAGE_KEY = 'merch-draft-v1'
 const AUTH_TOKEN_KEY = 'merch-auth-token'
-const STORE_ID_KEY = 'merch-store-id'
 let catalog = []
 let categories = []
 
@@ -53,13 +52,16 @@ let lastCfg = null
 let lastDrawOpts = null
 let dragIndex = null
 let activeCategory = 'all'
-let auth = { token: null, user: null, stores: [], activeStoreId: null }
+let auth = { token: null, user: null }
 let currentLayoutId = null
 let serverRules = []
 
 // ── Init ────────────────────────────────────────────────────────────────────
-export function initUI() {
-  const { items, cats } = buildCatalog()
+export function initUI() {  // Auth guard: redirect to login page if no token
+  if (!localStorage.getItem(AUTH_TOKEN_KEY)) {
+    window.location.href = '/app/account/'
+    return
+  }  const { items, cats } = buildCatalog()
   catalog = items; categories = cats
   renderSceneTabs()
   renderPresets()
@@ -640,29 +642,17 @@ function bindEvents() {
     }
   })
 
-  const loginBtn = document.getElementById('login-btn')
-  const registerBtn = document.getElementById('register-btn')
   const logoutBtn = document.getElementById('logout-btn')
   const saveBtn = document.getElementById('save-layout-btn')
   const loadBtn = document.getElementById('load-layout-btn')
   const replayBtn = document.getElementById('replay-layout-btn')
-  const storeSel = document.getElementById('store-select')
   const ruleCreateBtn = document.getElementById('rule-create-btn')
   const ruleReviewBtn = document.getElementById('rule-review-btn')
   const rulePublishBtn = document.getElementById('rule-publish-btn')
-  if (loginBtn) loginBtn.onclick = doLogin
-  if (registerBtn) registerBtn.onclick = doRegister
   if (logoutBtn) logoutBtn.onclick = doLogout
   if (saveBtn) saveBtn.onclick = saveLayout
   if (loadBtn) loadBtn.onclick = loadLayouts
   if (replayBtn) replayBtn.onclick = replayCurrentLayout
-  if (storeSel) {
-    storeSel.onchange = () => {
-      auth.activeStoreId = storeSel.value || null
-      if (auth.activeStoreId) localStorage.setItem(STORE_ID_KEY, auth.activeStoreId)
-      renderAuth()
-    }
-  }
   if (ruleCreateBtn) ruleCreateBtn.onclick = createRuleDraftFromCurrent
   if (ruleReviewBtn) ruleReviewBtn.onclick = submitRuleToReview
   if (rulePublishBtn) rulePublishBtn.onclick = publishRuleFromReview
@@ -676,50 +666,26 @@ window.__assortGroups = assortGroups
 
 function renderAuth() {
   const status = document.getElementById('auth-status')
-  renderStoreSelect()
   if (!status) return
   if (!auth.user) {
-    status.textContent = '未登录（请到账号页）'
+    status.textContent = '未登录'
     return
   }
-  const active = auth.activeStoreId
-    ? auth.stores.find(s => s.id === auth.activeStoreId)?.name || auth.activeStoreId.slice(0, 8)
-    : '未选门店'
-  status.textContent = `已登录 · ${active}`
-}
-
-function renderStoreSelect() {
-  const sel = document.getElementById('store-select')
-  if (!sel) return
-  const stores = auth.stores || []
-  if (!stores.length) {
-    sel.innerHTML = '<option value="">无门店</option>'
-    sel.value = ''
-    return
-  }
-  sel.innerHTML = stores.map(s => `<option value="${s.id}">${s.name}</option>`).join('')
-  const saved = localStorage.getItem(STORE_ID_KEY)
-  auth.activeStoreId = saved && stores.some(s => s.id === saved) ? saved : stores[0].id
-  sel.value = auth.activeStoreId
+  status.textContent = `已登录 · ${auth.user.email}`
 }
 
 async function restoreSession() {
   const token = localStorage.getItem(AUTH_TOKEN_KEY)
-  if (!token) return
+  if (!token) { window.location.href = '/app/account/'; return }
   try {
     const me = await fetchMe(token)
     auth.token = token
     auth.user = { id: me.id, email: me.email, name: me.name }
-    auth.stores = (me.memberships || []).map(m => ({ id: m.store.id, name: m.store.name, role: m.role }))
-    const saved = localStorage.getItem(STORE_ID_KEY)
-    auth.activeStoreId = saved && auth.stores.some(s => s.id === saved) ? saved : auth.stores[0]?.id || null
     renderAuth()
     await syncRulesFromCloud()
   } catch (e) {
     localStorage.removeItem(AUTH_TOKEN_KEY)
-    localStorage.removeItem(STORE_ID_KEY)
-    auth = { token: null, user: null, stores: [], activeStoreId: null }
-    renderAuth()
+    window.location.href = '/app/account/'
   }
 }
 
@@ -733,55 +699,10 @@ async function syncRulesFromCloud() {
   } catch (_) {}
 }
 
-async function doLogin() {
-  const email = prompt('邮箱')
-  const pwd = prompt('密码')
-  if (!email || !pwd) return
-  try {
-    const res = await login(email, pwd)
-    localStorage.setItem(AUTH_TOKEN_KEY, res.token)
-    auth.token = res.token
-    auth.user = res.user
-    const me = await fetchMe(res.token)
-    auth.stores = (me.memberships || []).map(m => ({ id: m.store.id, name: m.store.name, role: m.role }))
-    auth.activeStoreId = auth.stores[0]?.id || null
-    renderAuth()
-    await syncRulesFromCloud()
-    alert('登录成功')
-  } catch (e) {
-    alert(e.message || '登录失败')
-  }
-}
-
-async function doRegister() {
-  const email = prompt('注册邮箱')
-  const pwd = prompt('注册密码（至少8位）')
-  const storeName = prompt('门店名（可留空）')
-  if (!email || !pwd) return
-  try {
-    const res = await register({ email, password: pwd, storeName: storeName || undefined })
-    localStorage.setItem(AUTH_TOKEN_KEY, res.token)
-    auth.token = res.token
-    auth.user = res.user
-    const me = await fetchMe(res.token)
-    auth.stores = (me.memberships || []).map(m => ({ id: m.store.id, name: m.store.name, role: m.role }))
-    auth.activeStoreId = auth.stores[0]?.id || null
-    renderAuth()
-    await syncRulesFromCloud()
-    alert('注册并登录成功')
-  } catch (e) {
-    alert(e.message || '注册失败')
-  }
-}
-
 function doLogout() {
   localStorage.removeItem(AUTH_TOKEN_KEY)
-  localStorage.removeItem(STORE_ID_KEY)
-  auth = { token: null, user: null, stores: [], activeStoreId: null }
-  currentLayoutId = null
-  serverRules = []
-  renderRuleVersions()
-  renderAuth()
+  auth = { token: null, user: null }
+  window.location.href = '/app/account/'
 }
 
 function buildInputPayload() {
@@ -799,8 +720,7 @@ function buildInputPayload() {
 async function saveLayout() {
   const inputPayload = buildInputPayload()
   saveDraft()
-  if (!auth.token) { alert('请先登录'); return }
-  if (!auth.activeStoreId) { alert('请先选择门店'); return }
+  if (!auth.token) { window.location.href = '/app/account/'; return }
   const name = prompt('布局名称（可留空）') || undefined
   try {
     if (currentLayoutId) {
@@ -810,7 +730,6 @@ async function saveLayout() {
       })
     } else {
       const created = await createLayout(auth.token, {
-        storeId: auth.activeStoreId,
         scene: currentScene,
         name,
         ruleVersion: inputPayload.ruleVersion,
@@ -825,10 +744,9 @@ async function saveLayout() {
 }
 
 async function loadLayouts() {
-  if (!auth.token) { alert('请先登录'); return }
-  if (!auth.activeStoreId) { alert('请先选择门店'); return }
+  if (!auth.token) { window.location.href = '/app/account/'; return }
   try {
-    const list = await fetchLayouts(auth.token, auth.activeStoreId)
+    const list = await fetchLayouts(auth.token, null)
     if (!list.length) { alert('暂无云端布局'); return }
     const names = list.map((l, i) => `${i+1}. ${l.name || l.id}`).join('\\n')
     const pick = prompt(`选择布局序号:\\n${names}`)
