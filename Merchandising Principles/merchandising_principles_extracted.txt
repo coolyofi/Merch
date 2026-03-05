@@ -1,0 +1,699 @@
+
+===== PAGE 1 =====
+TECHNOLOGY & MERCHANDISING 
+Merchandising Principles 
+UPDATED NOV 13, 2025 
+Originally Posted: Jun 14, 2022 • PR54476
+35 MIN READ 
+Stores • All Roles • Global 
+Change Log
+Use the Table of Contents feature in Hello to select a topic and quickly jump to that 
+section of this page. The Table of Contents feature icon is three dots with three lines 
+and is located at the top left of the page.
+Objective 
+The Apple Retail customer experience requires accurate product placement and 
+ﬂawless execution. This guide helps you correctly space, place, and cable manage 
+demo products throughout the store. Use Plano to identify product placement, 
+orientation, and order. 
+Great visual merchandising blends analytics with intuition. Don’t rely only on math — 
+understand the merchandising strategy ﬁrst. Check if the spacing looks right and 
+aligns with the strategy. Reﬂect on the overall impact, review your work, and adjust as 
+needed to achieve balance.
+Before getting started, use these steps to achieve ﬂawless product merchandising. 
+Slow down and focus on the details.
+1.Use Plano to identify products, solutions of products, and necessary elements.
+2.Use the spacing principles (provided in this guide) to determine product 
+placement.
+3.Use category-speciﬁc merchandising guidance (provided in this guide) to cable 
+manage each device and complete merchandising.
+4.Use guidance in Under Table Cable Management to align and tighten cables. 
+5.Conﬁrm merchandising and use materials in Hello, such as APPLE Guides and 
+other engagement guides, to share strategy changes with your team.
+
+===== PAGE 2 =====
+Energy Label Placement: Select EMEIA Countries (AT, BE, CH, DE, ES, FR, IT, 
+NL, SE, R313-Belfast)
+Apply these Merchandising Principles as well as referring to the Energy Label 
+Placement Guide to correctly place energy labels for iPhone and iPad.
+Solutions of Products 
+A solution of products is deﬁned as a hero product merchandised with other hero 
+products, accessories, or elements (including 2x3 product signage) as one complete 
+solution. Solutions are identiﬁed via Plano, and examples are provided in the image 
+below.
+If working with a solution of products, ﬁnd the spacing within that solution ﬁrst, and 
+treat the entire solution as one unit when measuring.
+If a printer is on the wall, start your merchandising spacing by excluding the printer 
+(select stores in APAC).
+For more information on the correct spacing between products in a solution, 
+reference the appropriate category-speciﬁc merchandising section via the table of 
+contents.
+Spacing Principles 
+General Spacing Principle 
+Use the General Spacing Principle to identify the correct length of space between 
+products on a wall, table, accessory ﬁxture, or Avenue counter when the product is 
+plugged in under the table or inside of a wall. This principle applies to any product, 
+regardless of product size or surface size, and should be adjusted according to table 
+length (A). Ensure that products are never placed over the ﬂitch. (See “X÷2” in the 
+image below to locate the ﬂitch on a table).
+
+
+===== PAGE 3 =====
+The only exception to the General Spacing Principle would be when tables are 
+merchandised with 2x3 product signage. Read the ”2x3 Product Signage Spacing 
+Guidance” section for various Product Zone tables.
+(A – B) ÷ C  =  X
+A = Length of table, wall, or Avenue counter
+B = Sum of the width of all solutions
+C = Number of solutions
+Note 
+
+
+===== PAGE 4 =====
+When spacing a wall counter, A is the entire length of the counter. Proceed with the 
+math equation. To determine the location for the product on each end of the wall, 
+divide X in half.
+iPhone 
+1-Device MagSafe Risers have speciﬁc spacing requirements. Spacing for these can 
+be found under “iPhone MagSafe Riser Merchandising” in this guide.
+2x3 Product Signage Spacing Guidance 
+Refer to the General Spacing Principle for Product Zone walls with 2x3 product 
+signage. 
+Use the spacing guidance below to identify the correct length of space between 
+products on a Product Zone table merchandised with 2x3 product signage for:
+•iPad Tables. 
+•When there are a diﬀerent number of devices, such as one side has ﬁve devices 
+and the other side has six.
+For MacBook Comparison Tables, reference the “Table Corner 2x3 Product Signage 
+Spacing Guidance” within the “Mac Portable Merchandising” section.
+Begin by measuring the table size to identify X. This measurement will be used in the 
+spacing guidance below.
+Table Size X = Space Between Table Edge to Product Solution
+7-foot table 7 inches
+8-foot table 7 inches
+10-foot and larger tables 8 inches
+
+===== PAGE 5 =====
+(A – B) ÷ C  =  Length of space between each solution.
+X = Space between the table edge to the product solution. Space varies by table size. 
+(See the chart above.)
+A = Length from the front of the ﬁrst solution to the end of the last solution. 
+B = Sum of the width of all solutions. 
+C = Number of spaces between solutions (in this example, C = 4).
+Note 
+2x3 Product Signage is always placed to the left of a hero device or hero grouping 
+and is included as part of the solution.
+Dual-language countries should only have one sign merchandised per hero device or 
+hero grouping.
+For setup guidance, reference 2x3 Product Signage: Setup Guide.
+Complete Product Spacing 
+Set the side of the table with larger solutions ﬁrst. 
+If there’s a diﬀerent number of solutions per side, measure each side separately.
+
+
+===== PAGE 6 =====
+Once one side of the table is complete, set the other side by centering the remaining 
+devices directly across the table.
+The center of every solution should line up across the table, no matter the size or 
+orientation. On rare occasions, you may ﬁnd it necessary to adjust the product 1 to 
+1.5 inches to the right or left to accommodate solutions. If this is the case, prioritize 
+merchandising principles and overall strategy when making adjustments.
+Once the product is spaced correctly, use the appropriate category-speciﬁc 
+merchandising section in this guide for placement and cable management.
+iPhone Merchandising 
+For riser assembly, reference the MagSafe iPhone Riser Setup Guide and iPhone 
+Riser Setup Guide.
+Product Spacing 
+iPhone Comparison Tables: 
+
+
+===== PAGE 7 =====
+To ensure all risers are perfectly and evenly spaced on an iPhone Comparison table or 
+wall, use the "General Spacing Principle." This method works for any type of riser (like 
+4-up or 2-up), no matter how many you're placing.
+iPhone Assortment Tables:
+On an iPhone Assortment Table, each group of risers is called a 'solution'.
+First, space the 1-device risers within each ‘solution’. Refer to the graph below to 
+determine the spacing (Y) between each 1-device riser, within a ‘solution’.
+Table Size Space Between 1-Device Risers in a Solution (Y)
+7 feet 2 inches
+8 feet 3 inches
+10 or 20 feet 4 inches
+12 or 15 feet 5 inches
+
+===== PAGE 8 =====
+After you've set up the internal spacing for each 'solution', use the General Spacing 
+Principle to evenly position these entire solutions on your table or wall.
+Note 
+If one side of the table has more risers than the other side, space the side of the 
+table with more risers ﬁrst. Once that side is spaced properly, simply line up the 
+risers on the opposite side of the table. 
+Product Placement 
+Riser Placement 
+Place the front of each riser on line one of the table or wall.
+Wireless Charger Placement
+MagSafe Wireless Chargers are only merchandised on select tables (see Plano).  
+Place MagSafe Chargers three inches from the 4-Device MagSafe Riser and center to 
+the middle of the riser. Use the MagSafe Charger table adhesives (946-37871) to 
+adhere the chargers to the table or wall.
+Headphone Stand
+Center the headphone stand to the right end of the MagSafe iPhone Riser. Place the 
+headphone stand four inches from the back of the riser.
+Cable Management 
+Use the appropriate puck locator for security cable placement on each device.
+Run cables straight back into the wall or table.  For hole tables, cables in a ‘solution’ 
+should all run into the same hole on the table.
+
+
+===== PAGE 9 =====
+If a cash drawer or other equipment prevents cables from being run straight into the 
+table, pull the aﬀected cables to a single, central point. Running cables straight back 
+is preferred. 
+Secure cables around Velcro beneath the table or behind the wall. (Reference Under 
+Table Cable Management.) Cables should be taut, like a guitar string, on the top of 
+the table. Velcro shouldn’t be visible.
+For accessories, keep the charging cable tucked into the wall or table. The cable 
+shouldn’t be visible to customers. Pull the cable out after close to charge wireless 
+accessories overnight.
+iPad Merchandising 
+Product Placement 
+
+
+===== PAGE 10 =====
+Refer to the chart below for Y and Z measurements.
+Note 
+iPad product placement direction diﬀers across Product Zone, Apple Watch, and 
+Apple Vision Pro merchandising, and Avenue and Feature Bay counter 
+merchandising. Refer to the appropriate sections below.
+iPad Landscape with Keyboard
+Place the front of the solution on line 1. 
+iPad Landscape with Smart Folio
+For iPad mini with Smart Folio, place the front of the solution on line 2. Ensure iPad 
+mini is standing with the Apple Pencil attached on top. Reference the “Smart Folio 
+Positioning” section below. 
+iPad with Riser
+Use the appropriate riser for the iPad size and table type. If an iPad is paired with a 
+keyboard, don’t use a riser. Reference the iPad Security Cable and Riser Setup Guide 
+for proper riser placement and usage. The bottom edge of the iPad should be directly 
+on line 1 when placed on the riser.
+2x3 Product Signage with iPad 
+Place the front of 2x3 product signage on line 1. Signage is always to the left of the 
+iPad device or iPad grouping, and placed one inch away.
+
+
+===== PAGE 11 =====
+Reference the 2x3 Product Signage Setup Guide for additional details on signage 
+setup. 
+Spacing for Groups of iPad Devices
+Spacing between iPad devices vary by table size and whether the grouping includes 
+2x3 product signage in between hero devices. Reference the chart below:
+Apple Pencil
+Place the Apple Pencil pointed down or to the right. Do not charge the Apple Pencil 
+overnight. Pair the Apple Pencil and charge for 10 minutes before store opening.
+Screen Angle
+For Magic Keyboard, angle the screen to 65 degrees.
+Smart Folio Positioning 
+1. Covered 
+2. Standing 
+3. Leaning
+Cable Management 
+Table Size Y = Space Between iPad DevicesZ = Space Between iPad Devices 
+with 2x3 Product Signage in Between
+7-foot table 3 inches 5 inches
+8-foot table 4 inches 6 inches
+10-foot and larger tables 5 inches 6 inches
+
+
+===== PAGE 12 =====
+Use the appropriate puck locator for security cable placement on iPad devices. For 
+additional information, use the iPad Security Cable and Riser Setup Guide. 
+Run the cable to the right of the iPad when on a riser. For an iPad merchandised with 
+a keyboard or folio, guide the cable straight back and into the table, wall, or nearest 
+hole.
+Secure cables under the table or behind a wall. Cables should be long enough for any 
+person to lift and fully experience the iPad.
+Best Practices 
+Tape the cable to the edge of the table prior to securing it underneath. This will ensure 
+enough cable length while creating consistency in leash length.
+For headphones, keep the charging cable tucked into the wall or table. Cables 
+shouldn’t be visible to customers. Pull the cable out after closing to charge 
+headphones. In rare occasions, the iPad cable may run over the base of the 
+headphone stand.
+Mac Portable Merchandising 
+Table Corner 2x3 Product Signage Spacing Guidance 
+Use the spacing guidance below to identify the correct length of space between 
+products on a Product Zone Table merchandised with the product signage for:
+
+
+===== PAGE 13 =====
+•MacBook Comparison Tables.
+•Mixed product tables (example, Mac | iPad Comparison Tables) when there are 
+the same number of devices per side. If there aren’t the same amount of 
+devices on each side, then refer to the “2x3 Product Signage Spacing 
+Guidance” section. 
+Reference the steps with images and the spacing solution below. 
+1.Begin with the two outer corner product solutions that lead with the product signage. The space between 
+the table edge to the product signage will vary depending on table type and table size. See below chart 
+for “X”. Place the device one inch to the right of the 2x3 product signage.
+2.Devices should line up directly across the table. Center the adjacent device to 
+the outer corner product solutions (from step 1). Then, place the 2x3 product 
+signage one inch to the left of the device.
+Table Type Table Size X = Space Between Table Edge to 
+Product Solution
+Mac | iPad Comparison Table All Table Sizes 5 inches
+MacBook Comparison Table 7 and 8-foot tables 5 inches
+MacBook Comparison Table 10-foot and larger tables 8 inches
+
+
+===== PAGE 14 =====
+3.Measure the space for the remaining solutions: 
+•Start with the side of the table with larger devices. 
+•Measure the space labeled A in the image below. Start from the right edge 
+of the device in the ﬁrst solution to the left edge of the 2x3 product signage 
+in the last solution.
+Note 
+Use Plano to determine if products are grouped as one solution. When the grouping 
+includes 2x3 product signage in between hero devices, space hero devices six inches 
+apart. Treat the grouping as one solution.
+4.Reference the image and spacing solution below to identify the space between 
+solutions.
+
+
+===== PAGE 15 =====
+Spacing Solution 
+(A – B) ÷ C  =   Length of space between each solution
+A = Total space between the ﬁrst product solution to the edge of the last product 
+solution. (Reference details in step 3.) 
+B = Total sum of solutions (including signage). Exclude the ﬁrst and last solution. 
+C = Total number of spaces between solutions (in this example, C = 4).
+5.Once the side with the larger devices is complete, then align all devices across 
+the table.
+
+
+===== PAGE 16 =====
+Product Placement 
+Placement
+Place the front of the Mac Portable on line 1.
+2x3 Product Signage with Mac Portable
+Place the front of the 2x3 product signage on line 1. Signage is always to the left of 
+the MacBook, and placed one inch away. 
+
+
+===== PAGE 17 =====
+Reference the 2x3 Product Signage Setup Guide for additional details on signage 
+setup. 
+Spacing for Groups of Mac Portables with 2x3 Product Signage 
+When the grouping includes 2x3 product signage in between hero devices, space 
+hero devices six inches apart. Treat the grouping as one solution. 
+Screen Angle
+Angle each screen to 76 degrees.
+Headphone Stand
+Place the center of the headphone stand on line 3 and 1 inch from the portable. Use 
+Plano to determine if the headphones are to the right or left of the portable.
+Cable Management 
+Use the appropriate puck locator to place the security cables. For additional 
+information, use the MacBook with MagSafe Security Guide.
+Cables should run straight back into the wall or meet the table holes at the corners. 
+Use Velcro under the table or wall to secure cables in place, but allow enough slack in 
+the cables to pick up devices.
+In some cases, the cable for the Mac Portable may run over the headphone stand. 
+Keep the charging cable for headphones tucked into the wall or table. Cables 
+
+
+===== PAGE 18 =====
+shouldn’t be visible to customers. Pull the cable out after closing to charge 
+headphones overnight.
+iMac Merchandising 
+Product Placement 
+Placement
+Place the front edge of the iMac base on line 3.
+2x3 Product Signage with Mac
+Place the front of the 2x3 product signage on line 1. Signage is always to the left of 
+the keyboard. Align the right side of the 2x3 product signage to the left side of the 
+iMac screen. 
+Smaller tables or walls may require the 2x3 product signage to shift slightly past the 
+screen and closer to the keyboard. 
+Use Plano to determine if the iMac has 2x3 product signage. 
+Reference the 2x3 Product Signage Setup Guide for additional details on signage 
+setup.
+
+
+===== PAGE 19 =====
+Screen Angle
+Angle each screen to 76 degrees.
+Peripherals
+Place the mice, trackpads, and keyboards on line 1. Place the keyboards and 
+trackpads or mice two inches apart. Ensure the peripheral solutions are centered to 
+the display.
+Cable Management 
+Run cables into the holes of the table or wall. Tighten excess slack, but not so taut 
+that it strains the cable, or unplugs the cable when adjusting the screen.
+No other cables should be attached to the iMac other than the power cable.
+Mac with Display Merchandising 
+Product Placement 
+Placement and Spacing
+Place the front of the display base on line 3. Set the screen height to the lowest 
+setting.
+
+
+===== PAGE 20 =====
+Place the front of the Mac Pro on line 1, ﬁve inches away from the display.
+Place the front of Mac mini or Mac Studio on line 3, and align the side of the device to 
+the display screen edge. Place the Mac Portable on line 1, and align the side of the 
+device to the display screen edge.
+Use Plano to determine the placement of the Mac and display. 
+2x3 Product Signage with Desktops and Displays
+Place the front of the 2x3 product signage on line 1. Signage is always to the left of 
+the keyboard. Align the right side of the 2x3 product signage to the left side of the 
+display screen. 
+Smaller tables or walls may require the 2x3 product signage to shift slightly past the 
+screen and closer to the keyboard. 
+Use Plano to determine if the desktop with display has 2x3 product signage.
+Reference the 2x3 Product Signage Setup Guide for additional details on signage 
+setup.
+Screen Angle
+Angle each screen to 76 degrees.
+Peripherals
+Place the mice, trackpads, and keyboards on line 1. Place the keyboards and 
+trackpads or mice 1 inch apart. Ensure peripheral solutions are centered to the 
+display.
+Cable Management 
+1.Use the leftmost port on the back of Mac mini, Mac Studio, or Mac Pro when 
+connecting to the display. Use black zip ties to neatly manage cables. Zip ties 
+should be six inches apart, and cables should run straight without twisting or 
+crossing over one another.
+2.Use a puck locator to attach a top-hat security cable in the upper-left corner of 
+the portable. Connect the black USB-C cable that ships with the display. Cable 
+manage the two cables together with black zip ties. Place the ﬁrst zip tie one 
+inch behind the portable, and continue placing the zip ties six inches apart. 
+Cables shouldn’t twist or cross.
+
+
+===== PAGE 21 =====
+Apple Watch Merchandising 
+Element Placement and Spacing (Vintage C and Vintage D) 
+Watch Center Display Plinth 
+Center the Apple Watch Center Display plinth on the table.
+Powered Apple Watch Dock and iPad Spacing Principle 
+
+
+===== PAGE 22 =====
+Place the front edge of the Apple Watch Dock and iPad on line 1.
+Space the iPad four inches away from the Apple Watch Dock. Set all solutions using 
+this spacing principle.
+Place the iPad charging port toward the back of the store. Run cables straight back 
+into the table. If a cash drawer or other equipment prevents cables from being run 
+straight into the table, cables may be pulled together at a single, central point.
+Personalization Mat Placement 
+
+
+===== PAGE 23 =====
+Measurements diﬀer depending on your table size. Use the General Spacing Principle 
+to determine where to place Personalization Mats.
+Only large mats should be used for the Personalization Table. Place the front of the 
+mat on line 1.
+Combined Personalization and Discovery Table 
+Cable Management 
+Powered Apple Watch Dock and iPad
+Run cables straight back into the table. 
+Tighten the cable, leaving just enough slack to avoid the cable being strained or 
+unplugged. 
+Discovery Table iPad devices should be plugged in and powered. Under the table, 
+there are two table panels that can be easily removed — they’re attached with 
+magnets. Remove the panels and locate four empty plugs. If four plugs aren’t 
+available, use the Apple 35W USB-C Port Adapter to allow for multiple iPad devices 
+to be plugged into one plug.
+Run the cable into the center slot and plug into the power adaptor under the table.
+iPad devices on Discovery and Personalization Tables are plugged in and charged 
+throughout the day.
+Apple Watch Experience Room 
+
+
+===== PAGE 24 =====
+Use this guide for product spacing on counters and tabletops to merchandise Apple 
+Watch in the Vintage E Experience Room. For detailed demo product placement, 
+reference Plano.
+Watch Experience Room Tabletop 
+Personalization Mat and iPad Placement
+Determine the distance between the iPad devices and Personalization Mats using the 
+General Spacing Principle.
+Place the mats four inches from the front of the table. Center the iPad risers between 
+the mats, ensuring the front of the iPad devices are four inches from the front of the 
+table.
+Apple Watch Comparison Riser
+Place Apple Watch Comparison Risers one inch from Personalization Mats.
+Center the risers to adjacent mats.
+Note 
+Devices won’t be cable managed to charge while on the tabletop. For information on 
+the charging strategy for all tabletop demo devices, reference the Vintage E 
+Experience Room — Apple Watch Table Setup Guide.
+Watch Experience Room Demo 
+Counters 
+
+
+===== PAGE 25 =====
+Apple Watch Dock, Personalization Mat, and iPad Placement 
+Center a Personalization Mat, Apple Watch Dock, and iPad as a single solution using 
+the General Spacing Principle.
+Place all elements 1.5 inches from the front of the counter.
+Space all elements four inches apart from each other.
+Set iPad charging cables on the opposite side from the Apple Watch Dock. Run the 
+charging cables straight back behind the counter. Secure cables with Velcro beneath 
+the table or behind the wall. Reference “Counter Preparation” below for cable 
+management.
+Counter Preparation
+Cut a roll of Velcro in half lengthwise. Adhere a continuous strip of the rough side of 
+the Velcro under the counter. Ensure the strips don’t obstruct the rolling mechanisms 
+and aren’t visible when the counter is closed or visible in the reﬂection of the stainless 
+steel. 
+Where applicable, place an alarm box every ﬁve feet in the trough behind the counter. 
+Place power strips as needed. These items don’t need to be adhered. 
+Cut six-inch strips of soft Velcro. Remove the ﬁlm and fold the strip lengthwise so it 
+adheres to itself and both sides of the strip are soft. Secure cables taught behind the 
+counters, using this strip of soft Velcro. Excess cable should be coiled into individual 
+circles and secured with two 4-inch natural zip ties.
+Apple Vision Pro Merchandising 
+
+
+===== PAGE 26 =====
+Element Placement and Spacing 
+Center Display Plinth
+Reference the Apple Vision Pro Center Display Installation Guide – One 
+Device or Apple Vision Pro Center Display Setup Guid – Two Device for assembly and 
+installation directions.
+Center the Apple Vision Pro Center Display plinth on the table using General Spacing 
+Principle guidance. 
+ 
+Two Center Display Plinths and T-Light Tables (Select Stores, T-Light 8 Feet and 
+10 Feet Only) 
+
+
+===== PAGE 27 =====
+Use the General Spacing Principle to identify the correct length of space between 
+plinths. Disregard the T-Light (indicated by the orange box) when measuring the 
+length of the table. Center each plinth down the length of the table using General 
+Spacing Principle guidance.
+Center Display Plinth, H-Light Tables (Select Stores, 12 feet Only) 
+Place plinths ﬁve inches from the outside of the H-Light post (indicated by orange 
+boxes). Center each plinth down the length of the table using General Spacing 
+Principle guidance.
+Wall (Select Stores) 
+Use the General Spacing Principle to identify the space between the products.
+For 15-foot walls, there are three solutions. For 10-foot walls, there will be no space 
+for an Apple Vision Pro accessories mat, so there will be two solutions and no 
+accessories mat. 
+Place the front of the 1-Up Display plinth on line 2.
+Place iPad devices on line 1.
+Center the Apple Vision Pro accessories mat between the iPad solutions on the wall. 
+Then place the front of the mat on line 1.
+
+
+===== PAGE 28 =====
+Cable Management 
+Run the power cables for the Center Display under the plinth and directly down into 
+the table slot or grommet holes. Follow the images above for stores with grommet 
+holes where the power cable may route from under the plinth. Prioritize cabling in 
+grommets opposite the store entrance.
+Product Placement 
+iPad with Riser 
+
+
+===== PAGE 29 =====
+Space evenly using General Spacing Principle guidance. Use the appropriate riser for 
+the iPad size and table type. Reference the iPad Security Cable and Riser Setup 
+Guide for more information about proper riser placement and usage. The bottom 
+edge of the iPad should be directly on line 1 when placed on the riser.
+Cable Management 
+Place the iPad charging port toward the back of the store. Run cables straight back 
+into the table or wall. If a cash drawer or other equipment prevents cables from being 
+run straight into the table, cables may be pulled together at a single, central point.
+Use the appropriate puck locator for security cable placement on iPad devices. For 
+additional information, use the iPad Security Cable and Riser Setup Guide. Each 
+section of this guide has speciﬁcs for cable management per ﬁxture or merchandising 
+strategy.
+Experience Room Merchandising 
+(Select Stores) 
+Experience Room Tabletop 
+Center Display Plinth
+Center the Apple Vision Pro Center Display plinth on the tabletop using General 
+Spacing Principle guidance. Adjust placement so the front edge of the plinth is 13 
+inches from the front of the tabletop.
+
+
+===== PAGE 30 =====
+iPad
+Set the iPad on the riser so the bottom edge is 2.5 inches from the edge of the 
+tabletop. Align outer edges of the iPad to outer edges of the Center Display plinth.
+Cable Management
+Run the cable toward the outside of the tabletop and under the Center Display plinth.
+Experience Room Demo Counters 
+iPad
+Space evenly using General Spacing Principle guidance. Set the bottom edge of the 
+iPad 4.5 inches from the front of the counter when placed on the riser.
+Cable Management 
+Run the charging cable straight back and to the side of the iPad, toward the outer 
+edge of the bay. Secure cables with Velcro behind the wall.
+Apple TV Merchandising 
+Product Placement 
+
+
+===== PAGE 31 =====
+Television Placement
+Place the front of the television on line 3.
+Demo Placement
+Place the front of the Apple TV tray on line 1, centered in front of the TV. Space demo 
+accessories two inches from the tray, on line 1. Place the back of 1-Device MagSafe 
+iPhone Risers on line 2, ﬁve inches from the television. 
+Reference the Apple TV 4K Tray Setup Guide for additional instruction.  
+Services Customer Handoﬀ Element (SCH Element) 
+Place the SCH Element base two inches from the hero solution(s). Align the front of 
+the element to the front of the hero product in the solution. Refer to Plano for exact 
+placement.
+HomePod
+Center HomePod and iPad as a solution on the wall with the center of the product on 
+line 2. Space HomePod ﬁve inches from the iPad. 
+ 
+Place the iPad charging port toward the back of the store. 
+Cable Management
+Run cables straight back to the wall.
+Use the black cable clips for Apple TV cable management.
+For wireless accessories, keep the charging cable tucked into the wall or table. 
+Cables and Velcro shouldn’t be visible to customers. Pull the cable out after closing to 
+charge the accessories overnight.
+Multi-Hero Solution Merchandising 
+
+===== PAGE 32 =====
+Spacing
+Hero products shown together as one solution should be measured together as one 
+unit. Within a solution, space the hero product ﬁve inches apart (unless speciﬁed 
+otherwise). 
+  
+ iPhone Riser Placement
+On tables, place the front of the MagSafe iPhone Risers on line 1. On walls, place the 
+back of 1-Device MagSafe iPhone Risers on line 2.
+Product Placement
+Place the Mac Portables and iPad Landscape with Keyboard or Folio on line 1. 
+Center the headphone stand on line 3. Refer to the “iPad with Riser” placement 
+guidance to place the iPad.
+Cable Management 
+
+
+===== PAGE 33 =====
+Use the appropriate puck locator to place security cables on devices.
+Cables should run straight back into the wall, or meet table holes at the corners. Use 
+Velcro under the table or behind the wall to secure cables in place, but allow enough 
+slack in the cables to pick up devices and move them. The Velcro shouldn’t be visible.
+Keep the charging cable for wireless accessories tucked into the wall or table. Cables 
+shouldn’t be visible to customers. Pull the cable out after closing to charge the 
+accessories overnight.
+Accessory Fixture and Table 
+Merchandising 
+Accessory Fixture 
+
+
+===== PAGE 34 =====
+iPhone Riser Placement
+1.Measure the depth of the ﬁxture to ﬁnd A.
+2.Divide in half to ﬁnd B.
+3.Divide B by 3 to ﬁnd line 1 and 2.
+4.Place the back of each MagSafe iPhone Riser on line 1.
+Headphone Stand Placement
+Center the headphone stand on line 2.
+HomePod Placement
+Place the HomePod two inches away from the iPad. Place the front of the HomePod 
+in line with the front of the iPad.
+Accessory Table 
+iPhone Riser Placement
+Place the back of each MagSafe iPhone Riser on line 2.
+Headphone Stand Placement
+Center the headphone stand on line 3.
+
+
+===== PAGE 35 =====
+Speaker Placement
+Place the speaker two inches away from the MagSafe iPhone Riser. Place the front of 
+the speaker in line with the front of the MagSafe iPhone Riser.
+Avenues and Feature Bay Counter 
+Merchandising 
+Product Placement 
+Use the General Spacing Principle to identify the correct length of space between 
+products or solutions on a Feature Bay or New Store Design (NSD) Avenue counter. 
+This principle applies to any product, regardless of product size or surface size.
+Placement
+Find the center line of the counter. If there isn’t a line, determine where the center 
+point runs along the counter (line A).
+1-Device iPhone Riser Placement
+Place the center of the 1-Device MagSafe iPhone Riser on line A.
+Accessories and Other Hero Placement
+Center the hero product or product stand on line A.
+Headphone Stand Placement 
+
+
+===== PAGE 36 =====
+Align the front of the headphone stand to the front of the MagSafe iPhone Riser 
+(where applicable).
+Services Customer Handoﬀ Element (SCH Element) 
+Place the SCH Element base two inches from the hero solution. Align the front of the 
+element to the front of the hero product in the solution. Refer to Plano for placement.
+Spacing 
+
+
+===== PAGE 37 =====
+Space the hero products and accessory pairings two inches apart. 
+Space multiple hero products grouped together as an assortment ﬁve inches apart.
+Groupings should be evenly spaced along the length of a ﬁxture. Make adjustments 
+as needed if demo groupings aren’t deﬁned along the counter.
+Vintage C Stores: Use the Vintage C Feature Bay Power Guide for details on keeping 
+Feature Bay demos powered throughout the day.
+iPad Avenue (Vintage D and Vintage E) 
+Place all iPad devices and iPad cases two inches from the front of the counter. This 
+includes iPad devices merchandised in portrait and landscape, and on a keyboard.
+Center the iPad groupings to the product shelves directly above. For groupings with 
+multiple iPad demos, center and space two inches apart from each other.
+Reference Plano for detailed demo product placement.
+iPhone and Mac Avenue (Vintage D and Vintage E) 
+
+
+===== PAGE 38 =====
+For iPhone demos, place devices merchandised on third-party MagSafe chargers 
+three inches apart.
+For MacBook demo, place two inches from the edges of the counter, and place Mac 
+accessories to the right of the demo with equal spacing. If accessories are shown on 
+either side of the Mac in Planogram, center the Mac on the counter and place Mac 
+accessories to the left and right with equal spacing.
+Reference Plano for detailed demo product placement.
+Audio Standards 
+Demo AirPods Max, Beats headphones, and Beats Pill should only be connected to 
+power overnight, after the store closes. Keep the charging cable tucked into the wall 
+or table during the day for easy access.
+AirPods Max
+Demo AirPods Max must always be displayed with the Digital Crown on the right side 
+when you approach. 
+Beats Headphones
+Demo Beats headphones must always be displayed with the ear cushion on the left 
+side when you approach.
+In instances where a Beats headphone is merchandised behind a 1-Device MagSafe 
+Riser, run the cable underneath the Beats headphone stand. 
+Beats Pill 
+Remove the lanyard from both demo units when Beats Pill is merchandised in stereo 
+pair. Maintain the lanyard when the demo Beats Pill is standalone. Secure the lanyard 
+in a safe place Backstage when not in use.

@@ -1,0 +1,148 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum MemberRole {
+  OWNER
+  EDITOR
+  VIEWER
+}
+
+enum PublishStatus {
+  DRAFT
+  REVIEW
+  PUBLISHED
+  RETIRED
+}
+
+model User {
+  id           String        @id @default(cuid())
+  email        String        @unique
+  passwordHash String
+  name         String?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  memberships  StoreMember[]
+  createdLayouts Layout[]    @relation("LayoutCreator")
+  versions     LayoutVersion[] @relation("VersionCreator")
+  audits       AuditLog[]    @relation("AuditActor")
+}
+
+model Store {
+  id          String        @id @default(cuid())
+  name        String
+  code        String?       @unique
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  members     StoreMember[]
+  layouts     Layout[]
+  audits      AuditLog[]
+
+  @@index([name])
+}
+
+model StoreMember {
+  id        String     @id @default(cuid())
+  storeId   String
+  userId    String
+  role      MemberRole
+  createdAt DateTime   @default(now())
+
+  store      Store     @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([storeId, userId])
+  @@index([userId])
+}
+
+model Layout {
+  id              String          @id @default(cuid())
+  storeId         String
+  name            String
+  scene           String?
+  archived        Boolean         @default(false)
+  createdById     String
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  store           Store           @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  createdBy       User            @relation("LayoutCreator", fields: [createdById], references: [id])
+  versions        LayoutVersion[]
+  audits          AuditLog[]
+
+  @@index([storeId, archived, updatedAt])
+}
+
+model LayoutVersion {
+  id           String    @id @default(cuid())
+  layoutId     String
+  versionNo    Int
+  ruleVersion  String
+  inputPayload Json
+  computedResult Json
+  note         String?
+  createdById  String
+  createdAt    DateTime  @default(now())
+
+  layout       Layout    @relation(fields: [layoutId], references: [id], onDelete: Cascade)
+  createdBy    User      @relation("VersionCreator", fields: [createdById], references: [id])
+
+  @@unique([layoutId, versionNo])
+  @@index([layoutId, createdAt])
+}
+
+model CatalogItem {
+  id              String       @id @default(cuid())
+  key             String       @unique
+  name            String
+  category        String
+  productType     String
+  widthIn         Float
+  metadata        Json?
+  effectiveFrom   DateTime?
+  effectiveTo     DateTime?
+  status          PublishStatus @default(DRAFT)
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+
+  @@index([category, status])
+}
+
+model RuleSet {
+  id           String        @id @default(cuid())
+  version      String        @unique
+  description  String?
+  payload      Json
+  status       PublishStatus @default(DRAFT)
+  publishedAt  DateTime?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model AuditLog {
+  id          String    @id @default(cuid())
+  actorId     String?
+  storeId     String?
+  layoutId    String?
+  action      String
+  targetType  String
+  targetId    String?
+  beforeData  Json?
+  afterData   Json?
+  createdAt   DateTime  @default(now())
+
+  actor       User?     @relation("AuditActor", fields: [actorId], references: [id], onDelete: SetNull)
+  store       Store?    @relation(fields: [storeId], references: [id], onDelete: SetNull)
+  layout      Layout?   @relation(fields: [layoutId], references: [id], onDelete: SetNull)
+
+  @@index([storeId, createdAt])
+  @@index([layoutId, createdAt])
+  @@index([action, createdAt])
+}

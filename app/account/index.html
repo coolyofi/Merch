@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>账号中心 - 计算小助手</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+<div id="app" class="app-page">
+  <header id="top-bar">
+    <div class="header-left">
+      <h1>账号中心</h1>
+      <span class="header-subtitle">登录 / 注册 / 门店选择</span>
+    </div>
+    <div class="header-right">
+      <div class="app-nav">
+        <a class="btn-ghost app-nav-link" href="/app/">布局</a>
+        <a class="btn-ghost app-nav-link active" href="/app/account/">账号</a>
+        <a class="btn-ghost app-nav-link" href="/app/rules/">规则</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-card">
+      <h2>认证</h2>
+      <div class="page-row">
+        <button class="btn-ghost" id="login-btn">登录</button>
+        <button class="btn-ghost" id="register-btn">注册</button>
+        <button class="btn-ghost" id="logout-btn">退出</button>
+      </div>
+      <div id="auth-status" class="auth-status" style="margin-top:10px">未登录</div>
+    </section>
+
+    <section class="page-card">
+      <h2>门店</h2>
+      <div class="page-row">
+        <label for="store-select">当前门店</label>
+        <select id="store-select"></select>
+      </div>
+      <p class="page-note">布局页会使用这里选择的门店进行云保存和云加载。</p>
+    </section>
+  </main>
+</div>
+<script type="module" src="/src/account.js"></script>
+</body>
+</html>

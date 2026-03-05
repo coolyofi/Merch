@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>规则中心 - 计算小助手</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+<div id="app" class="app-page">
+  <header id="top-bar">
+    <div class="header-left">
+      <h1>规则中心</h1>
+      <span class="header-subtitle">草稿 -> 审核 -> 发布</span>
+    </div>
+    <div class="header-right">
+      <div class="app-nav">
+        <a class="btn-ghost app-nav-link" href="/app/">布局</a>
+        <a class="btn-ghost app-nav-link" href="/app/account/">账号</a>
+        <a class="btn-ghost app-nav-link active" href="/app/rules/">规则</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-card">
+      <h2>新建草稿</h2>
+      <div class="page-row">
+        <label for="rule-version-input">版本号</label>
+        <input id="rule-version-input" type="text" placeholder="Merch v2026.03" />
+        <button class="btn-ghost" id="rule-create-btn">创建草稿</button>
+      </div>
+      <p id="rule-msg" class="page-note"></p>
+    </section>
+
+    <section class="page-card">
+      <h2>规则列表</h2>
+      <div class="page-row" style="margin-bottom:10px">
+        <button class="btn-ghost" id="refresh-rules-btn">刷新</button>
+      </div>
+      <table id="rule-table" class="rule-table">
+        <thead>
+          <tr><th>版本</th><th>状态</th><th>发布时间</th><th>操作</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+</div>
+<script type="module" src="/src/rules.js"></script>
+</body>
+</html>

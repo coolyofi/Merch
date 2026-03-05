@@ -1,0 +1,15 @@
+node_modules/
+dist/
+tmp/
+.venv/
+.DS_Store
+
+.env
+.env.local
+
+*.log
+*.pid
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
