@@ -1,24 +1,23 @@
-import { login, fetchRules, createRule, updateRuleStatus } from './api.js'
+import { fetchRules, createRule, updateRuleStatus } from './api.js'
 import { getRuleSet, DEFAULT_RULE_VERSION } from './calc.js'
+import { AUTH_TOKEN_KEY } from './ui.js'
 
-const AUTH_TOKEN_KEY = 'merch-auth-token'
-
-let token = localStorage.getItem(AUTH_TOKEN_KEY) || null
+let token = null
 let rules = []
+let inited = false
 
-async function ensureLogin() {
-  if (token) return token
-  const email = prompt('登录邮箱')
-  const pwd = prompt('密码')
-  if (!email || !pwd) return null
-  const res = await login(email, pwd)
-  token = res.token
-  localStorage.setItem(AUTH_TOKEN_KEY, token)
-  return token
+export function setRulesToken(t) {
+  token = t
+}
+
+function showMsg(msg) {
+  const el = document.getElementById('rule-msg')
+  if (el) el.textContent = msg
 }
 
 function renderRules() {
   const tbody = document.querySelector('#rule-table tbody')
+  if (!tbody) return
   tbody.innerHTML = ''
   rules.forEach((r) => {
     const tr = document.createElement('tr')
@@ -50,17 +49,16 @@ function renderRules() {
   })
 }
 
-function showMsg(msg) {
-  document.getElementById('rule-msg').textContent = msg
-}
-
 async function loadRules() {
+  if (!token) token = localStorage.getItem(AUTH_TOKEN_KEY)
+  if (!token) { showMsg('请先登录'); return }
   rules = await fetchRules(token)
   renderRules()
 }
 
 async function createDraft() {
-  const version = document.getElementById('rule-version-input').value.trim()
+  const versionEl = document.getElementById('rule-version-input')
+  const version = versionEl?.value.trim()
   if (!version) return showMsg('请输入规则版本号')
   try {
     const payload = getRuleSet(DEFAULT_RULE_VERSION)
@@ -71,23 +69,17 @@ async function createDraft() {
       status: 'DRAFT',
     })
     showMsg('规则草稿创建成功')
-    document.getElementById('rule-version-input').value = ''
+    versionEl.value = ''
     await loadRules()
   } catch (e) {
     showMsg(e.message || '创建失败')
   }
 }
 
-async function init() {
-  try {
-    token = await ensureLogin()
-    if (!token) return showMsg('未登录')
-    document.getElementById('rule-create-btn').onclick = createDraft
-    document.getElementById('refresh-rules-btn').onclick = loadRules
-    await loadRules()
-  } catch (e) {
-    showMsg(e.message || '加载失败')
-  }
+export function initRules() {
+  if (inited) return
+  inited = true
+  document.getElementById('rule-create-btn')?.addEventListener('click', createDraft)
+  document.getElementById('refresh-rules-btn')?.addEventListener('click', loadRules)
+  loadRules()
 }
-
-init()

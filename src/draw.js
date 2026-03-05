@@ -24,12 +24,12 @@ export const PRODUCT_TYPES = {
   accessory:{ label: 'Accessory',    shape: 'rect'      },
 }
 
-const WOOD        = '#c8a97e'
-const WOOD_GRAIN  = 'rgba(255,255,255,0.15)'
-const WOOD_EDGE   = '#b8925e'
-const WOOD_DARK   = '#a07040'   // table end-caps
-const FLITCH      = 'rgba(0,0,0,0.10)'
-const DIVIDER     = '#1a1a1a'   // black line between halves on 2-sided table
+const WOOD        = '#cda97d'
+const WOOD_GRAIN  = 'rgba(255,255,255,0.18)'
+const WOOD_EDGE   = '#c49a6b'
+const WOOD_DARK   = '#b07d46'   // table end-caps
+const FLITCH      = 'rgba(255,255,255,0.14)'
+const DIVIDER     = 'rgba(255,255,255,0.28)'   // brighter for dark theme
 const BRACKET_CLR = '#1d5fbd'
 const B_LABEL_CLR = '#0071e3'
 const DIM_FONT    = '10px -apple-system,BlinkMacSystemFont,sans-serif'
@@ -39,9 +39,9 @@ const CABLE_CLR   = 'rgba(255,255,255,0.85)'  // white cable lines
 
 // ── Public API ────────────────────────────────────────────────────────────────
 
-function resolveTableSpan(W, PAD, maxTableW = 980) {
+function resolveTableSpan(W, PAD) {
   const rawW = W - PAD * 2
-  const tableW = Math.min(rawW, maxTableW)
+  const tableW = rawW * 0.92   // fill ~92% of available width for better visual use
   const tableX = (W - tableW) / 2
   return { tableX, tableW }
 }
@@ -64,7 +64,7 @@ export function drawSingleSide(canvas, result, names, opts = {}) {
   const { W, H, dpr } = ctx._meta
   ctx.clearRect(0, 0, W, H)
 
-  const PAD    = 44
+  const PAD    = 32
   const { tableX, tableW } = resolveTableSpan(W, PAD)
   const tableH = 132
   const topBracketH = 36   // space above table for B + optional dim labels
@@ -110,7 +110,7 @@ export function drawDoubleSide(canvas, result, names, opts = {}) {
   const { W, H, dpr } = ctx._meta
   ctx.clearRect(0, 0, W, H)
 
-  const PAD    = 44
+  const PAD    = 32
   const { tableX: PADX, tableW } = resolveTableSpan(W, PAD)
   const tableH = 112
   const gap    = 46          // gap between the two table halves
@@ -215,7 +215,7 @@ export function drawAssortment(canvas, result, names, opts = {}) {
   const { W, H, dpr } = ctx._meta
   ctx.clearRect(0, 0, W, H)
 
-  const PAD    = 44
+  const PAD    = 32
   const { tableX: PADX, tableW } = resolveTableSpan(W, PAD)
   const tableH = 112
   const gap    = 46
@@ -594,7 +594,7 @@ function drawLengthGrid(ctx, x, y, w, h, A) {
   const stepPx = (w / A) * stepIn
   if (stepPx < 8) return
   ctx.save()
-  ctx.strokeStyle = 'rgba(0,0,0,0.12)'
+  ctx.strokeStyle = 'rgba(255,255,255,0.18)'
   ctx.lineWidth = 1
   for (let px = x + stepPx; px < x + w - 1; px += stepPx) {
     ctx.beginPath()
@@ -790,12 +790,16 @@ function drawBracketBelow(ctx, x, y, w, label, color, small = false) {
 
 function prepare(canvas) {
   const dpr = window.devicePixelRatio || 1
-  const W = canvas.clientWidth || canvas.width / dpr
-  const H = canvas.clientHeight || canvas.height / dpr
+  const parentW = canvas.parentElement ? canvas.parentElement.clientWidth : 0
+  const rect = canvas.getBoundingClientRect()
+  let W = rect.width || canvas.clientWidth || parentW || canvas.width / dpr
+  let H = rect.height || canvas.clientHeight || canvas.height / dpr
+  // fallback: if width collapsed but parent has width, use parent
+  if (W < 200 && parentW > W) W = parentW
   canvas.width  = Math.round(W * dpr)
   canvas.height = Math.round(H * dpr)
   const ctx = canvas.getContext('2d')
-  ctx.scale(dpr, dpr)
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
   ctx._meta = { W, H, dpr }
   return ctx
 }

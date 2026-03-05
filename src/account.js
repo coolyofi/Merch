@@ -1,11 +1,26 @@
 import { login, register, fetchMe } from './api.js'
-
-const AUTH_TOKEN_KEY = 'merch-auth-token'
+import { AUTH_TOKEN_KEY } from './ui.js'
 
 let currentTab = 'login'
+let onAuthed = null
 
-// ── Tab switch ──────────────────────────────────────────────────────────────
-window.switchTab = function(tab) {
+export function initAccount(onLogin) {
+  onAuthed = onLogin
+  bindAccountUI()
+  initState()
+}
+
+function bindAccountUI() {
+  window.switchTab = switchTab
+  window.doSubmit = doSubmit
+  window.doLogout = doLogout
+  window.goToApp = () => { location.hash = '#/app' }
+  document.getElementById('input-email')?.addEventListener('keydown', onEnter)
+  document.getElementById('input-pwd')?.addEventListener('keydown', onEnter)
+  document.getElementById('input-name')?.addEventListener('keydown', onEnter)
+}
+
+function switchTab(tab) {
   currentTab = tab
   document.getElementById('tab-login').classList.toggle('active', tab === 'login')
   document.getElementById('tab-register').classList.toggle('active', tab === 'register')
@@ -14,20 +29,12 @@ window.switchTab = function(tab) {
   setMsg('')
 }
 
-// ── Submit ──────────────────────────────────────────────────────────────────
-window.doSubmit = async function() {
+async function doSubmit() {
   const email = document.getElementById('input-email').value.trim()
   const pwd   = document.getElementById('input-pwd').value
   if (!email || !pwd) { setMsg('请填写邮箱和密码'); return }
-  // 前端基础校验
-  if (!/^\S+@\S+\.\S+$/.test(email)) {
-    setMsg('请输入正确的邮箱格式');
-    return;
-  }
-  if (pwd.length < 8) {
-    setMsg('密码至少需要 8 位');
-    return;
-  }
+  if (!/^\S+@\S+\.\S+$/.test(email)) { setMsg('请输入正确的邮箱格式'); return }
+  if (pwd.length < 8) { setMsg('密码至少需要 8 位'); return }
 
   const btn = document.getElementById('submit-btn')
   btn.disabled = true
@@ -43,8 +50,9 @@ window.doSubmit = async function() {
       token = res.token
     }
     localStorage.setItem(AUTH_TOKEN_KEY, token)
-    setMsg('成功，正在跳转…', true)
-    setTimeout(() => { window.location.href = '/app/' }, 600)
+    setMsg('成功，正在进入…', true)
+    if (typeof onAuthed === 'function') onAuthed(token)
+    window.dispatchEvent(new CustomEvent('auth:login', { detail: { token, email } }))
   } catch (e) {
     let msg = e.message || '操作失败'
     if (e.issues && Array.isArray(e.issues)) {
@@ -55,43 +63,34 @@ window.doSubmit = async function() {
   }
 }
 
-// ── Logout ──────────────────────────────────────────────────────────────────
-window.doLogout = function() {
+function doLogout() {
   localStorage.removeItem(AUTH_TOKEN_KEY)
   showAuthCard()
+  window.dispatchEvent(new CustomEvent('auth:logout'))
 }
 
-// ── Go to app ───────────────────────────────────────────────────────────────
-window.goToApp = function() {
-  window.location.href = '/app/'
-}
-
-// ── UI helpers ───────────────────────────────────────────────────────────────
 function setMsg(msg, ok = false) {
   const el = document.getElementById('auth-msg')
+  if (!el) return
   el.textContent = msg
   el.className = 'login-msg' + (ok ? ' ok' : '')
 }
 
 function showAuthCard() {
-  document.getElementById('auth-card').style.display = 'flex'
-  document.getElementById('loggedin-card').style.display = 'none'
+  document.getElementById('auth-card')?.style.setProperty('display','flex')
+  document.getElementById('loggedin-card')?.style.setProperty('display','none')
 }
 
 function showLoggedIn(email) {
-  document.getElementById('auth-card').style.display = 'none'
-  document.getElementById('loggedin-card').style.display = 'flex'
-  document.getElementById('user-display').textContent = email
+  document.getElementById('auth-card')?.style.setProperty('display','none')
+  document.getElementById('loggedin-card')?.style.setProperty('display','flex')
+  const el = document.getElementById('user-display')
+  if (el) el.textContent = email
 }
 
-// ── Enter key support ────────────────────────────────────────────────────────
-function onEnter(e) { if (e.key === 'Enter') window.doSubmit() }
-document.getElementById('input-email').addEventListener('keydown', onEnter)
-document.getElementById('input-pwd').addEventListener('keydown', onEnter)
-document.getElementById('input-name').addEventListener('keydown', onEnter)
+function onEnter(e) { if (e.key === 'Enter') doSubmit() }
 
-// ── Init ────────────────────────────────────────────────────────────────────
-async function init() {
+async function initState() {
   const token = localStorage.getItem(AUTH_TOKEN_KEY)
   if (!token) { showAuthCard(); return }
   try {
@@ -102,5 +101,3 @@ async function init() {
     showAuthCard()
   }
 }
-
-init()

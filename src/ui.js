@@ -4,7 +4,7 @@
  */
 import {
   calcGeneral, calcSignage, calcIphoneAssortment, calcDoubleSide,
-  IPHONE_Y_BY_TABLE, SIGNAGE_EDGE_BY_TABLE,
+  IPHONE_Y_BY_TABLE, SIGNAGE_EDGE_BY_TABLE, IPAD_Y_GAP, IPAD_Z_GAP, MULTI_HERO_GAP, calcFixedGap,
   RULE_SETS, DEFAULT_RULE_VERSION, getRuleSet,
 } from './calc.js'
 import { drawSingleSide, drawDoubleSide, drawAssortment, PALETTE } from './draw.js'
@@ -17,12 +17,35 @@ import {
 
 // ── Scenarios ───────────────────────────────────────────────────────────────
 const SCENES = {
-  general: { label: '通用', icon: '', solMode: 'named', showSignageEdge: false, showIphoneY: false, drawFn: 'single', showFlitch: true },
-  wall:    { label: '墙面', icon: '', solMode: 'named', showSignageEdge: false, showIphoneY: false, drawFn: 'single', showFlitch: false },
-  signage: { label: '2×3', icon: '', solMode: 'named', showSignageEdge: true,  showIphoneY: false, drawFn: 'single', showFlitch: false },
-  iphoneComparison: { label: 'iPhone 比较', icon: '', solMode: 'named', showSignageEdge: false, showIphoneY: false, drawFn: 'double', defaultProductType: 'iphone', showFlitch: false },
-  iphoneAssortment: { label: 'iPhone 组合', icon: '', solMode: 'assortment', showSignageEdge: false, showIphoneY: true, drawFn: 'assortment', defaultProductType: 'iphone', showFlitch: false },
-  macComparison: { label: 'Mac 比较', icon: '', solMode: 'named', showSignageEdge: false, showIphoneY: false, drawFn: 'double', defaultProductType: 'macbook', showFlitch: false },
+  general:            { label: '通用桌/墙',          solMode: 'named', drawFn: 'single', showFlitch: true },
+  wall:               { label: '墙面',               solMode: 'named', drawFn: 'single', showFlitch: false },
+  iphoneComparison:   { label: 'iPhone 比较',        solMode: 'named', drawFn: 'double', defaultProductType: 'iphone', showFlitch: false },
+  iphoneAssortment:   { label: 'iPhone 组合',        solMode: 'assortment', drawFn: 'assortment', showIphoneY: true, defaultProductType: 'iphone', showFlitch: false },
+  ipadGroup:          { label: 'iPad 组桌',          solMode: 'named', drawFn: 'single', defaultProductType: 'ipad', showFlitch: true },
+  ipadGroupSign:      { label: 'iPad 组桌 +2×3',     solMode: 'named', drawFn: 'single', defaultProductType: 'ipad', showFlitch: true, defaultSignage: true },
+  macComparison:      { label: 'Mac 比较',           solMode: 'named', drawFn: 'double', defaultProductType: 'macbook', showFlitch: false, macCornerSignage: true },
+  macComparisonSign:  { label: 'Mac 比较 +2×3',     solMode: 'named', drawFn: 'double', defaultProductType: 'macbook', showFlitch: false, macCornerSignage: true, defaultSignage: true },
+  macIpadComparison:  { label: 'Mac | iPad 比较',    solMode: 'named', drawFn: 'double', defaultProductType: 'macbook', showFlitch: false, macCornerSignage: true },
+  macIpadComparisonSign: { label: 'Mac | iPad +2×3', solMode: 'named', drawFn: 'double', defaultProductType: 'macbook', showFlitch: false, macCornerSignage: true, defaultSignage: true },
+  macDesktop:         { label: 'iMac / 桌面',        solMode: 'named', drawFn: 'single', defaultProductType: 'mac', showFlitch: true },
+  macDisplay:         { label: 'Mac + 显示器',       solMode: 'named', drawFn: 'single', defaultProductType: 'mac', showFlitch: true },
+  multiHero:          { label: '多英雄组合',         solMode: 'named', drawFn: 'single', defaultProductType: 'accessory', showFlitch: true },
+  multiHeroSign:      { label: '多英雄 +2×3',        solMode: 'named', drawFn: 'single', defaultProductType: 'accessory', showFlitch: true, defaultSignage: true },
+  watch:              { label: 'Apple Watch 桌',     solMode: 'named', drawFn: 'single', defaultProductType: 'watch', showFlitch: true },
+  watchExperience:    { label: 'Watch 体验桌',       solMode: 'named', drawFn: 'single', defaultProductType: 'watch', showFlitch: true },
+  watchCounter:       { label: 'Watch 体验柜',       solMode: 'named', drawFn: 'single', defaultProductType: 'watch', showFlitch: false },
+  personalization:    { label: '个性化/Discovery',   solMode: 'named', drawFn: 'single', defaultProductType: 'ipad', showFlitch: true },
+  visionProTable:     { label: 'Vision Pro 桌',      solMode: 'named', drawFn: 'single', defaultProductType: 'avp', showFlitch: true },
+  visionProHLight:    { label: 'Vision Pro H-Light', solMode: 'named', drawFn: 'single', defaultProductType: 'avp', showFlitch: true },
+  visionProWall:      { label: 'Vision Pro 墙',      solMode: 'named', drawFn: 'single', defaultProductType: 'avp', showFlitch: false },
+  appleTV:            { label: 'Apple TV 桌',        solMode: 'named', drawFn: 'single', defaultProductType: 'accessory', showFlitch: true },
+  appleTVWall:        { label: 'Apple TV 墙',        solMode: 'named', drawFn: 'single', defaultProductType: 'accessory', showFlitch: false },
+  avenue:             { label: 'Avenue/Feature Bay', solMode: 'named', drawFn: 'single', defaultProductType: 'accessory', showFlitch: false },
+  avenueIpad:         { label: 'Avenue iPad',        solMode: 'named', drawFn: 'single', defaultProductType: 'ipad', showFlitch: false },
+  avenueIphone:       { label: 'Avenue iPhone',      solMode: 'named', drawFn: 'single', defaultProductType: 'iphone', showFlitch: false },
+  avenueMac:          { label: 'Avenue Mac',         solMode: 'named', drawFn: 'single', defaultProductType: 'macbook', showFlitch: false },
+  accessory:          { label: '配件桌/柜',          solMode: 'named', drawFn: 'single', defaultProductType: 'accessory', showFlitch: false },
+  accessoryFixture:   { label: '配件立式柜',         solMode: 'named', drawFn: 'single', defaultProductType: 'accessory', showFlitch: false },
 }
 
 const TABLE_PRESETS = [
@@ -36,7 +59,8 @@ const TABLE_PRESETS = [
 ]
 
 const STORAGE_KEY = 'merch-draft-v1'
-const AUTH_TOKEN_KEY = 'merch-auth-token'
+const BOARD_KEY = 'merch-board-v1'
+export const AUTH_TOKEN_KEY = 'merch-auth-token'
 let catalog = []
 let categories = []
 
@@ -55,25 +79,33 @@ let activeCategory = 'all'
 let auth = { token: null, user: null }
 let currentLayoutId = null
 let serverRules = []
+let layoutName = '未命名桌子'
+let boardLayouts = []
+let boardFilter = 'all'
+let viewMode = 'dashboard'
+let signageOn = false
 
 // ── Init ────────────────────────────────────────────────────────────────────
-export function initUI() {  // Auth guard: redirect to login page if no token
-  if (!localStorage.getItem(AUTH_TOKEN_KEY)) {
-    window.location.href = '/app/account/'
-    return
-  }  const { items, cats } = buildCatalog()
+export function initUI() {
+  const { items, cats } = buildCatalog()
   catalog = items; categories = cats
   renderSceneTabs()
   renderPresets()
   renderRuleVersions()
   renderLibCats()
   renderLibItems()
+  renderBoardFilters()
+  renderBoardFilters('board-filters-dash')
+  loadBoardLayouts()
+  renderBoards()
+  renderDashSceneOptions()
   bindEvents()
   restoreDraft()
   setScene(currentScene || 'general')
   renderQueue('left'); renderQueue('right')
   renderAuth()
-  restoreSession()
+  updateLayoutMetaUI()
+  // restoreSession is handled by SPA router; leave the view as-is
 }
 
 // ── Scene tabs ──────────────────────────────────────────────────────────────
@@ -90,17 +122,53 @@ function renderSceneTabs() {
   })
 }
 
+function renderDashSceneOptions() {
+  const sel = document.getElementById('dash-scene')
+  if (!sel) return
+  sel.innerHTML = Object.entries(SCENES).map(([k,v]) => `<option value="${k}">${v.label}</option>`).join('')
+  sel.value = currentScene
+}
+
 function setScene(key) {
   currentScene = key
   const cfg = SCENES[key]
+  // scene may have defaultSignage preset
+  if (cfg.defaultSignage && !signageOn) {
+    signageOn = true
+    const signageToggle = document.getElementById('signage-toggle')
+    if (signageToggle) signageToggle.checked = true
+  }
   document.querySelectorAll('.scene-tab').forEach(b => b.classList.toggle('active', b.dataset.key === key))
-  document.getElementById('signage-edge-section').style.display = cfg.showSignageEdge ? 'block' : 'none'
-  document.getElementById('iphone-y-section').style.display = cfg.showIphoneY ? 'block' : 'none'
+  const signageSec = document.getElementById('signage-edge-section')
+  if (signageSec) signageSec.style.display = (signageOn || cfg.showSignageEdge) ? 'block' : 'none'
+  const iphoneSec = document.getElementById('iphone-y-section')
+  if (iphoneSec) iphoneSec.style.display = cfg.showIphoneY ? 'block' : 'none'
   document.getElementById('assortment-section').style.display = cfg.solMode === 'assortment' ? 'block' : 'none'
   document.getElementById('cables-section').style.display = cfg.drawFn !== 'assortment' ? 'inline-flex' : 'none'
   autoFillEdgeX(); autoFillY();
   renderQueue('left'); renderQueue('right')
+  updateLayoutMetaUI()
   saveDraft()
+}
+
+function updateLayoutMetaUI() {
+  const nameInput = document.getElementById('layout-name-input')
+  if (nameInput && nameInput.value !== layoutName) nameInput.value = layoutName
+  const nameDisplay = document.getElementById('layout-name-display')
+  if (nameDisplay) nameDisplay.textContent = layoutName || '未命名桌子'
+  const scenePill = document.getElementById('layout-scene-pill')
+  if (scenePill) scenePill.textContent = SCENES[currentScene]?.label || currentScene
+  const rulePill = document.getElementById('rule-version-pill')
+  const rv = document.getElementById('rule-version')?.value || DEFAULT_RULE_VERSION
+  if (rulePill) rulePill.textContent = `规则版本 · ${rv}`
+}
+
+function setView(mode) {
+  viewMode = mode
+  const dash = document.getElementById('dashboard')
+  const ws = document.getElementById('workspace')
+  if (dash) dash.style.display = mode === 'dashboard' ? 'block' : 'none'
+  if (ws) ws.style.display = mode === 'workspace' ? 'block' : 'none'
 }
 
 // ── Presets ─────────────────────────────────────────────────────────────────
@@ -132,6 +200,32 @@ function nearestKey(A, map) {
   return keys[keys.length-1]
 }
 
+function isSignageMode(cfg) {
+  return signageOn
+}
+
+function resolveEdgeX(A) {
+  const rv = document.getElementById('rule-version')?.value || DEFAULT_RULE_VERSION
+  const rule = getRuleSet(rv)
+  const edgeMap = rule.signageEdgeByTable || SIGNAGE_EDGE_BY_TABLE
+  const nearest = nearestKey(A, edgeMap)
+  return edgeMap[nearest] || 7
+}
+
+function resolveMacCornerEdge(A, cfg) {
+  if (!cfg.macCornerSignage) return null
+  // Mac 比较：7/8ft ->5", 10ft+ ->8"; Mac|iPad 比较指定 5"
+  if (cfg.label.includes('Mac | iPad')) return 5
+  if (A <= 96) return 5
+  return 8
+}
+
+function resolveIpadGap(A, signageFlag) {
+  const map = signageFlag ? IPAD_Z_GAP : IPAD_Y_GAP
+  const k = nearestKey(A, map)
+  return map[k] || (signageFlag ? 6 : 5)
+}
+
 function renderRuleVersions() {
   const sel = document.getElementById('rule-version')
   if (!sel) return
@@ -141,6 +235,9 @@ function renderRuleVersions() {
   ]))
   sel.innerHTML = versions.map(v => `<option value="${v}">${v}</option>`).join('')
   if (!sel.value) sel.value = DEFAULT_RULE_VERSION
+  sel.disabled = true
+  const pill = document.getElementById('rule-version-pill')
+  if (pill) pill.textContent = `规则版本 · ${sel.value}`
 }
 
 // ── Queue rendering & DnD ───────────────────────────────────────────────────
@@ -322,6 +419,173 @@ function renderLibItems() {
   })
 }
 
+// ── Board (saved layouts) ──────────────────────────────────────────────────
+function renderBoardFilters(targetId = 'board-filters') {
+  const row = document.getElementById(targetId)
+  if (!row) return
+  const opts = [{ key: 'all', label: '全部' }, ...Object.entries(SCENES).map(([k,v]) => ({ key: k, label: v.label }))]
+  row.innerHTML = ''
+  opts.forEach(opt => {
+    const btn = document.createElement('button')
+    btn.className = 'filter-chip' + (boardFilter === opt.key ? ' active' : '')
+    btn.textContent = opt.label
+    btn.onclick = () => { boardFilter = opt.key; renderBoardFilters(); renderBoardFilters('board-filters-dash'); renderBoards() }
+    row.appendChild(btn)
+  })
+}
+
+function loadBoardLayouts() {
+  try {
+    const raw = localStorage.getItem(BOARD_KEY)
+    boardLayouts = raw ? JSON.parse(raw) : []
+  } catch (_) { boardLayouts = [] }
+}
+
+function persistBoardLayouts() {
+  try { localStorage.setItem(BOARD_KEY, JSON.stringify(boardLayouts.slice(0,12))) } catch (_) {}
+}
+
+function formatTime(ts) {
+  if (!ts) return ''
+  const d = new Date(ts)
+  if (Number.isNaN(d.getTime())) return ''
+  const pad = n => String(n).padStart(2,'0')
+  return `${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`
+}
+
+function renderBoard(targetId = 'layout-board') {
+  const grid = document.getElementById(targetId)
+  if (!grid) return
+  grid.innerHTML = ''
+  const data = boardLayouts.filter(l => boardFilter === 'all' || l.scene === boardFilter)
+  if (!data.length) { grid.innerHTML = '<div class=\"queue-empty-hint\">暂未保存布局</div>'; return }
+  data.forEach(item => {
+    const card = document.createElement('div')
+    card.className = 'layout-card'
+    const thumbHtml = item.thumb ? `<img src=\"${item.thumb}\" alt=\"缩略图\" />` : '<div class=\"thumb-placeholder\">布局</div>'
+    card.innerHTML = `
+      <div class=\"layout-thumb\">${thumbHtml}</div>
+      <div class=\"layout-meta\">
+        <div class=\"layout-name\">${item.name || '未命名桌子'}</div>
+        <div class=\"layout-sub\">${SCENES[item.scene]?.label || item.scene} · ${item.tableLength || '?'}\" · ${formatTime(item.savedAt)}</div>
+      </div>
+      <div class=\"layout-actions\">
+        <button class=\"btn-ghost load-btn\">加载</button>
+        <button class=\"btn-ghost danger delete-btn\">删除</button>
+      </div>
+    `
+    card.querySelector('.load-btn').onclick = () => applyBoardLayout(item.id)
+    card.querySelector('.delete-btn').onclick = () => removeBoardLayout(item.id)
+    grid.appendChild(card)
+  })
+}
+
+function renderBoards() {
+  renderBoard('layout-board')
+  renderBoard('dashboard-board')
+}
+
+function saveCurrentToBoard() {
+  if (!lastResult) { showError('请先计算，再保存到面板'); return }
+  const nameInput = document.getElementById('board-name-input')
+  const name = (nameInput?.value || layoutName || '').trim() || '未命名桌子'
+  const canvas = document.getElementById('diagram-canvas')
+  let thumb = ''
+  try { thumb = canvas.toDataURL('image/png') } catch (_) {}
+  const payload = buildInputPayload()
+  payload.layoutName = name
+  const entry = {
+    id: Date.now(),
+    name,
+    scene: currentScene,
+    tableLength: payload.tableLength,
+    ruleVersion: payload.ruleVersion,
+    thumb,
+    payload,
+    savedAt: new Date().toISOString(),
+  }
+  boardLayouts = [entry, ...boardLayouts].slice(0, 12)
+  persistBoardLayouts()
+  renderBoards()
+  if (nameInput) nameInput.value = ''
+}
+
+function applyBoardLayout(id) {
+  const found = boardLayouts.find(b => b.id === id)
+  if (!found) return
+  applyPayload(found.payload)
+  layoutName = found.name || layoutName
+  updateLayoutMetaUI()
+  setView('workspace')
+  saveDraft()
+}
+
+function removeBoardLayout(id) {
+  boardLayouts = boardLayouts.filter(b => b.id !== id)
+  persistBoardLayouts()
+  renderBoards()
+}
+
+// ── New layout modal ───────────────────────────────────────────────────────
+function openNewLayoutModal() {
+  const modal = document.getElementById('new-layout-modal')
+  if (!modal) return
+  const sel = document.getElementById('new-scene-select')
+  if (sel) {
+    sel.innerHTML = Object.entries(SCENES).map(([k,v])=>`<option value="${k}">${v.label}</option>`).join('')
+    sel.value = currentScene
+  }
+  document.getElementById('new-layout-name').value = ''
+  document.getElementById('new-layout-length').value = document.getElementById('table-length').value || ''
+  document.getElementById('new-signage-toggle').checked = false
+  modal.classList.add('open')
+}
+function closeNewLayoutModal() {
+  const modal = document.getElementById('new-layout-modal')
+  if (modal) modal.classList.remove('open')
+}
+function confirmNewLayout() {
+  const name = (document.getElementById('new-layout-name').value || '').trim()
+  const signageFlag = document.getElementById('new-signage-toggle').checked
+  const sceneKey = document.getElementById('new-scene-select').value || 'general'
+  const len = parseFloat(document.getElementById('new-layout-length').value)
+  startFreshLayout(name || '未命名桌子', sceneKey, Number.isFinite(len) ? len : '', signageFlag)
+  closeNewLayoutModal()
+}
+
+function startFreshLayout(name, sceneKey, lengthVal, signageFlag = false) {
+  layoutName = name || '未命名桌子'
+  signageOn = !!signageFlag
+  const signageToggle = document.getElementById('signage-toggle')
+  if (signageToggle) signageToggle.checked = signageOn
+  queueLeft = []
+  queueRight = []
+  assortGroups = []
+  lastResult = null
+  document.getElementById('table-length').value = lengthVal || ''
+  const preset = document.getElementById('table-preset')
+  if (preset) preset.value = lengthVal || ''
+  document.getElementById('edge-x').value = ''
+  document.getElementById('iphone-y').value = ''
+  setScene(sceneKey || 'general')
+  renderQueue('left'); renderQueue('right')
+  updateLayoutMetaUI()
+  saveDraft()
+  setView('workspace')
+  const ws = document.getElementById('workspace')
+  if (ws) ws.scrollIntoView({ behavior: 'smooth' })
+}
+
+function startLayoutFromDashboard() {
+  const name = (document.getElementById('dash-name')?.value || '').trim()
+  const sceneKeyRaw = document.getElementById('dash-scene')?.value || 'general'
+  const signage = document.getElementById('dash-signage')?.checked
+  const sceneKey = sceneKeyRaw
+  const lenSel = document.getElementById('dash-length')
+  const len = lenSel ? parseFloat(lenSel.value) : ''
+  startFreshLayout(name || '未命名桌子', sceneKey, Number.isFinite(len) ? len : '', signage)
+}
+
 function addToQueue(item, side='left') {
   const target = side === 'right' ? queueRight : queueLeft
   target.push({
@@ -356,6 +620,7 @@ function calculate() {
   const canvas = document.getElementById('diagram-canvas')
   const ruleVersion = document.getElementById('rule-version')?.value || DEFAULT_RULE_VERSION
   const rule = getRuleSet(ruleVersion)
+  const signageMode = isSignageMode(cfg)
   let result=null, names=[], productTypes=[], dimLabels=[], bottomNames=[], bottomProductTypes=[]
 
   if (cfg.solMode === 'assortment') {
@@ -384,8 +649,15 @@ function calculate() {
       const bottomValid = mirror ? valid.map(v => ({ ...v })) : secondary
       bottomNames = bottomValid.map((s, i) => s.label || `B${i+1}`)
       bottomProductTypes = bottomValid.map(s=> s.productType || cfg.defaultProductType || 'ipad')
+      let edgeX = 0
+      if (signageMode) {
+        const macEdge = resolveMacCornerEdge(A, cfg)
+        edgeX = macEdge ?? (parseFloat(document.getElementById('edge-x').value) || resolveEdgeX(A))
+        if (edgeX * 2 >= A) { showError('桌长需大于两侧固定边缘'); return }
+      }
+      const usableA = signageMode ? (A - edgeX * 2) : A
       result = calcDoubleSide(
-        A,
+        usableA,
         valid.map(s => s.width),
         bottomValid.map(s => s.width),
         {
@@ -394,14 +666,49 @@ function calculate() {
           ruleVersion,
         },
       )
+      if (result && signageMode) {
+        const shiftLayout = layout => layout.map(item => ({
+          ...item,
+          start: item.start + edgeX,
+          center: item.center + edgeX,
+          end: item.end + edgeX,
+        }))
+        result.top.layout = shiftLayout(result.top.layout)
+        result.bottom.layout = shiftLayout(result.bottom.layout)
+        result.top.edgeLeft = edgeX
+        result.bottom.edgeLeft = edgeX
+        result.top.edgeRight = edgeX
+        result.bottom.edgeRight = edgeX
+        result.edgeX = edgeX
+        result.A = A
+        result.trace = [
+          `启用 2×3：两端固定边缘 ${edgeX}"，可用长度 = A − 2×${edgeX} = ${usableA.toFixed(3)}"`,
+          ...(result.trace || []),
+        ]
+      }
       if (mirror && result) {
         result.trace.push('下侧未输入元素：已按上侧镜像进行双面计算。')
       }
     } else {
       const widths = valid.map(s=>s.width)
-      if (cfg.showSignageEdge) {
-        const edgeX = parseFloat(document.getElementById('edge-x').value) || 7
+      if (signageMode) {
+        const macEdge = resolveMacCornerEdge(A, cfg)
+        const edgeX = macEdge ?? (parseFloat(document.getElementById('edge-x').value) || resolveEdgeX(A))
+        if (edgeX * 2 >= A) { showError('桌长需大于两侧固定边缘'); return }
         result = calcSignage(A, widths, edgeX)
+        if (result) result.edgeX = edgeX
+      } else if (cfg.label.includes('iPad 组桌')) {
+        const gap = resolveIpadGap(A, false)
+        result = calcFixedGap(A, widths, gap)
+        if (!result) { showError('总宽度超过桌长'); return }
+        result.ruleVersion = ruleVersion
+        result.trace.unshift('场景=iPad 组桌：使用固定组距')
+      } else if (cfg.label.includes('多英雄组合')) {
+        const gap = MULTI_HERO_GAP
+        result = calcFixedGap(A, widths, gap)
+        if (!result) { showError('总宽度超过桌长'); return }
+        result.ruleVersion = ruleVersion
+        result.trace.unshift('场景=多英雄：组距固定 5"')
       } else {
         result = calcGeneral(A, widths)
       }
@@ -428,7 +735,7 @@ function calculate() {
 function redraw(canvas, result, names, cfg, drawOpts = {}) {
   const opts = {
     showFlitch: cfg.showFlitch,
-    isSignage: cfg.showSignageEdge,
+    isSignage: signageOn || cfg.showSignageEdge,
     productTypes: drawOpts.productTypes || [],
     bottomProductTypes: drawOpts.bottomProductTypes || [],
     bottomNames: drawOpts.bottomNames || [],
@@ -436,11 +743,11 @@ function redraw(canvas, result, names, cfg, drawOpts = {}) {
     showCables,
   }
   if (cfg.drawFn === 'assortment') {
-    canvas.style.height = '320px'; drawAssortment(canvas, result, names, opts)
+    canvas.style.height = '340px'; canvas.style.width = '100%'; drawAssortment(canvas, result, names, opts)
   } else if (cfg.drawFn === 'double') {
-    canvas.style.height = '320px'; drawDoubleSide(canvas, result, names, opts)
+    canvas.style.height = '360px'; canvas.style.width = '100%'; drawDoubleSide(canvas, result, names, opts)
   } else {
-    canvas.style.height = '220px'; drawSingleSide(canvas, result, names, opts)
+    canvas.style.height = '260px'; canvas.style.width = '100%'; drawSingleSide(canvas, result, names, opts)
   }
 }
 
@@ -461,6 +768,7 @@ function renderResultSummary(result, cfg) {
       </div>
       <div class="res-chips">
         <span class="chip">规则版本 = ${result.ruleVersion || DEFAULT_RULE_VERSION}</span>
+        ${result.edgeX ? `<span class="chip">2×3 边缘 = ${result.edgeX.toFixed(2)}"</span>` : ''}
         <span class="chip">对齐组数 = ${result.alignment.pairCount}</span>
         <span class="chip chip-y">已对齐 = ${result.alignment.alignedCount}</span>
         <span class="chip">可微调 = ${result.alignment.minorAdjustCount}</span>
@@ -472,7 +780,7 @@ function renderResultSummary(result, cfg) {
     box.style.display = 'block'
     return
   }
-  const isSignage = cfg.showSignageEdge
+  const isSignage = signageOn || cfg.showSignageEdge || !!result.fixedEdge || !!result.edgeX
   box.innerHTML = `
     <div class="res-formula">
       ${isSignage
@@ -565,9 +873,11 @@ function saveDraft() {
     edgeX: document.getElementById('edge-x').value,
     iphoneY: document.getElementById('iphone-y').value,
     ruleVersion: document.getElementById('rule-version')?.value || DEFAULT_RULE_VERSION,
+    layoutName,
     queueLeft, queueRight,
     assortGroups,
     showCables,
+    signageOn,
   }
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(draft)) } catch(_) {}
 }
@@ -584,11 +894,15 @@ function restoreDraft() {
     if (document.getElementById('rule-version')) {
       document.getElementById('rule-version').value = d.ruleVersion || DEFAULT_RULE_VERSION
     }
+    layoutName = d.layoutName || layoutName
     queueLeft = Array.isArray(d.queueLeft) ? d.queueLeft : []
     queueRight = Array.isArray(d.queueRight) ? d.queueRight : []
     assortGroups = Array.isArray(d.assortGroups) ? d.assortGroups : []
     showCables = !!d.showCables
     document.getElementById('cables-toggle').checked = showCables
+    signageOn = !!d.signageOn
+    const signageToggle = document.getElementById('signage-toggle')
+    if (signageToggle) signageToggle.checked = signageOn
   } catch(_) {
     seedDefaults()
   }
@@ -617,10 +931,42 @@ function bindEvents() {
   document.getElementById('edge-x').addEventListener('input', saveDraft)
   document.getElementById('iphone-y').addEventListener('input', saveDraft)
   document.getElementById('rule-version').addEventListener('change', ()=>{autoFillEdgeX(); autoFillY(); saveDraft()})
+  const signageToggle = document.getElementById('signage-toggle')
+  if (signageToggle) {
+    signageToggle.addEventListener('change', e => {
+      signageOn = e.target.checked
+      document.getElementById('signage-edge-section').style.display = signageOn ? 'block' : 'none'
+      autoFillEdgeX(); saveDraft()
+    })
+  }
+  const nameInput = document.getElementById('layout-name-input')
+  if (nameInput) {
+    nameInput.addEventListener('input', e => {
+      layoutName = e.target.value || '未命名桌子'
+      updateLayoutMetaUI()
+      saveDraft()
+    })
+  }
 
   document.getElementById('lib-search').addEventListener('input', renderLibItems)
   document.getElementById('custom-add-btn').addEventListener('click', addCustomFromForm)
   document.getElementById('calc-btn').addEventListener('click', calculate)
+  const calcBtn2 = document.getElementById('calc-btn-secondary')
+  if (calcBtn2) calcBtn2.addEventListener('click', calculate)
+  const saveBoardBtn = document.getElementById('save-to-board-btn')
+  if (saveBoardBtn) saveBoardBtn.addEventListener('click', saveCurrentToBoard)
+  const saveBoardBtn2 = document.getElementById('save-to-board-btn-secondary')
+  if (saveBoardBtn2) saveBoardBtn2.addEventListener('click', saveCurrentToBoard)
+  const boardNameInput = document.getElementById('board-name-input')
+  if (boardNameInput) boardNameInput.addEventListener('keydown', e => { if (e.key === 'Enter') saveCurrentToBoard() })
+  const dashStart = document.getElementById('dash-start-btn')
+  if (dashStart) dashStart.addEventListener('click', startLayoutFromDashboard)
+  const dashNewBtn = document.getElementById('dash-new-btn')
+  if (dashNewBtn) dashNewBtn.addEventListener('click', () => { setView('dashboard'); document.getElementById('dash-create-card')?.scrollIntoView({behavior:'smooth'}) })
+  const dashGotoBoard = document.getElementById('dash-goto-board')
+  if (dashGotoBoard) dashGotoBoard.addEventListener('click', () => { setView('dashboard'); document.getElementById('dashboard-board')?.scrollIntoView({behavior:'smooth'}) })
+  const dashRefresh = document.getElementById('dash-refresh-board')
+  if (dashRefresh) dashRefresh.addEventListener('click', () => { loadBoardLayouts(); renderBoards() })
   document.getElementById('cables-toggle').addEventListener('change', e=>{showCables = e.target.checked; saveDraft(); if(lastResult&&lastCfg){redraw(document.getElementById('diagram-canvas'), lastResult, lastNames, lastCfg, lastDrawOpts || {})}})
   const traceToggle = document.getElementById('trace-toggle')
   if (traceToggle) {
@@ -656,6 +1002,16 @@ function bindEvents() {
   if (ruleCreateBtn) ruleCreateBtn.onclick = createRuleDraftFromCurrent
   if (ruleReviewBtn) ruleReviewBtn.onclick = submitRuleToReview
   if (rulePublishBtn) rulePublishBtn.onclick = publishRuleFromReview
+  const newLayoutBtn = document.getElementById('new-layout-btn')
+  const newLayoutClose = document.getElementById('new-layout-close')
+  const newLayoutCancel = document.getElementById('create-layout-cancel')
+  const newLayoutConfirm = document.getElementById('create-layout-confirm')
+  const newLayoutModal = document.getElementById('new-layout-modal')
+  if (newLayoutBtn) newLayoutBtn.onclick = openNewLayoutModal
+  if (newLayoutClose) newLayoutClose.onclick = closeNewLayoutModal
+  if (newLayoutCancel) newLayoutCancel.onclick = closeNewLayoutModal
+  if (newLayoutConfirm) newLayoutConfirm.onclick = confirmNewLayout
+  if (newLayoutModal) newLayoutModal.addEventListener('click', e => { if (e.target === newLayoutModal) closeNewLayoutModal() })
 
   // drop from library handled in queue listeners
 }
@@ -676,16 +1032,20 @@ function renderAuth() {
 
 async function restoreSession() {
   const token = localStorage.getItem(AUTH_TOKEN_KEY)
-  if (!token) { window.location.href = '/app/account/'; return }
+  if (!token) { return false }
   try {
     const me = await fetchMe(token)
     auth.token = token
     auth.user = { id: me.id, email: me.email, name: me.name }
     renderAuth()
     await syncRulesFromCloud()
+    window.dispatchEvent(new CustomEvent('auth:login', { detail: { token, user: me } }))
+    return true
   } catch (e) {
     localStorage.removeItem(AUTH_TOKEN_KEY)
-    window.location.href = '/app/account/'
+    auth = { token: null, user: null }
+    window.dispatchEvent(new CustomEvent('auth:logout'))
+    return false
   }
 }
 
@@ -696,18 +1056,20 @@ async function syncRulesFromCloud() {
     const current = document.getElementById('rule-version')?.value
     renderRuleVersions()
     if (current) document.getElementById('rule-version').value = current
+    updateLayoutMetaUI()
   } catch (_) {}
 }
 
 function doLogout() {
   localStorage.removeItem(AUTH_TOKEN_KEY)
   auth = { token: null, user: null }
-  window.location.href = '/app/account/'
+  window.dispatchEvent(new CustomEvent('auth:logout'))
 }
 
 function buildInputPayload() {
   return {
     scene: currentScene,
+    layoutName,
     tableLength: document.getElementById('table-length').value,
     edgeX: document.getElementById('edge-x').value,
     iphoneY: document.getElementById('iphone-y').value,
@@ -856,16 +1218,22 @@ async function pickRuleByStatus(status, tip) {
 function applyPayload(raw) {
   const d = raw?.payload || raw?.inputPayload || raw
   currentScene = d.scene || 'general'
+  layoutName = d.layoutName || layoutName
+  signageOn = !!d.signageOn
   document.getElementById('table-length').value = d.tableLength || ''
   document.getElementById('edge-x').value = d.edgeX || ''
   document.getElementById('iphone-y').value = d.iphoneY || ''
   if (document.getElementById('rule-version')) {
     document.getElementById('rule-version').value = d.ruleVersion || DEFAULT_RULE_VERSION
   }
+  const signageToggle = document.getElementById('signage-toggle')
+  if (signageToggle) signageToggle.checked = signageOn
   queueLeft = Array.isArray(d.queueLeft) ? d.queueLeft : []
   queueRight = Array.isArray(d.queueRight) ? d.queueRight : []
   assortGroups = Array.isArray(d.assortGroups) ? d.assortGroups : []
   setScene(currentScene)
   renderQueue('left'); renderQueue('right')
+  updateLayoutMetaUI()
   saveDraft()
+  setView('workspace')
 }

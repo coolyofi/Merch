@@ -3,165 +3,190 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>我的桌子 — Merchandising 陈列计算器</title>
+  <title>我的桌子 — SPA</title>
   <link rel="stylesheet" href="/src/style.css" />
 </head>
 <body>
-<div id="app">
-
-  <!-- ══ Top bar ══════════════════════════════════════════════════════════ -->
-  <header id="top-bar">
-    <div class="header-left">
-      <h1>我的桌子</h1>
-      <span class="header-subtitle">Merchandising 陈列计算器</span>
+<div id="app" class="app-shell">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-icon">🪑</div>
+      <div>
+        <div class="brand-title">我的桌子</div>
+        <div class="brand-sub">陈列布局面板</div>
+      </div>
     </div>
-    <div class="header-center">
-      <!-- Scene selector -->
-      <div id="scene-tabs"></div>
-    </div>
-    <div class="header-right">
-      <div class="field-inline">
-        <label for="table-preset">桌型</label>
-        <select id="table-preset"></select>
-      </div>
-      <div class="field-inline">
-        <label for="table-length">A（英寸）</label>
-        <input type="number" id="table-length" placeholder='120"' min="1" step="0.5" />
-      </div>
-      <div class="field-inline">
-        <label for="rule-version">规则版本</label>
-        <select id="rule-version"></select>
-      </div>
-      <!-- Cable toggle -->
-      <label class="toggle-pill" id="cables-section" style="display:none">
-        <input type="checkbox" id="cables-toggle" />
-        <span>Cable 线</span>
-      </label>
-      <button id="calc-btn">计算布局</button>
-      <div class="app-nav">
-        <a class="btn-ghost app-nav-link active" href="/app/">布局</a>
-        <a class="btn-ghost app-nav-link" href="/app/rules/">规则</a>
-      </div>
-      <div class="layout-actions inline-tools">
-        <button class="btn-ghost" id="save-layout-btn">云保存</button>
-        <button class="btn-ghost" id="load-layout-btn">云加载</button>
-        <button class="btn-ghost" id="replay-layout-btn">回放重算</button>
-      </div>
-      <div id="auth-status" class="auth-status">未登录</div>
+    <nav class="top-nav">
+      <a class="nav-link" href="#/app">布局</a>
+      <a class="nav-link" href="#/rules">规则</a>
+      <a class="nav-link" href="#/login">账号</a>
+    </nav>
+    <div class="top-actions">
+      <span class="pill" id="rule-version-pill">规则版本</span>
+      <div class="account-chip" id="auth-status">未登录</div>
+      <button class="btn-ghost" id="logout-btn">退出</button>
     </div>
   </header>
 
-  <!-- ══ 3-column workspace ════════════════════════════════════════════════ -->
-  <div class="workspace">
-
-    <!-- ── Top waiting area ──────────────────────────────────────────────── -->
-    <aside class="waiting-panel waiting-left" id="queue-left-panel">
-      <div class="panel-header">
-        <span class="panel-title">上侧等待区（主排）</span>
-        <button class="btn-ghost btn-clear-queue" data-side="left">清空</button>
-      </div>
-      <!-- Signage / iPhone Y params (contextual) -->
-      <div id="signage-edge-section" class="ctx-params" style="display:none">
-        <label>边缘 X（英寸）</label>
-        <input type="number" id="edge-x" placeholder='7"' min="0.5" step="0.5" />
-      </div>
-      <div id="iphone-y-section" class="ctx-params" style="display:none">
-        <label>Riser 间距 Y（英寸）</label>
-        <input type="number" id="iphone-y" placeholder='4"' min="0.5" step="0.5" />
-      </div>
-      <!-- Drop zone -->
-      <div class="queue-zone" id="queue-left" data-side="left">
-        <div class="queue-empty-hint">拖入元素到上侧</div>
-      </div>
-      <!-- Assortment groups -->
-      <div id="assortment-section" style="display:none">
-        <div class="panel-header" style="margin-top:12px">
-          <span class="panel-title">Solution 组</span>
-          <button class="btn-ghost" id="add-assort-group-btn">＋</button>
-        </div>
-        <div id="assort-groups-list" class="queue-zone" style="min-height:60px"></div>
-        <button class="btn-ghost btn-sm" id="clear-assort-btn">清空 Solution 组</button>
-      </div>
-    </aside>
-
-    <!-- ── Center canvas ─────────────────────────────────────────────────── -->
-    <main class="canvas-panel">
-      <div class="canvas-area">
-        <canvas id="diagram-canvas"></canvas>
-        <div class="canvas-empty" id="canvas-empty-hint">
-          <div class="canvas-empty-icon"></div>
-          <div>从上侧拖入元素，点击"计算布局"</div>
-        </div>
-      </div>
-
-      <!-- Result summary -->
-      <div id="result-summary" style="display:none"></div>
-
-      <!-- Trace panel -->
-      <div id="trace-panel" style="display:none">
-        <div class="trace-header" id="trace-toggle">
-          <span>计算过程</span>
-          <span class="trace-chevron">▸</span>
-        </div>
-        <ol id="trace-list" class="trace-list" style="display:none"></ol>
-      </div>
-
-      <!-- Detail table -->
-      <div id="result-table-card" style="display:none">
-        <div class="res-table-header">
-          <h3>Solution 位置明细</h3>
-        </div>
-        <table id="result-table"></table>
-      </div>
-
-      <div id="error-msg"></div>
-    </main>
-
-    <!-- ── Bottom waiting area (back side) ───────────────────────────────── -->
-    <aside class="waiting-panel waiting-right" id="queue-right-panel">
-      <div class="panel-header">
-        <span class="panel-title">下侧等待区（对侧）</span>
-        <button class="btn-ghost btn-clear-queue" data-side="right">清空</button>
-      </div>
-      <div class="queue-zone" id="queue-right" data-side="right">
-        <div class="queue-empty-hint">可选：为双面桌添加下侧元素</div>
-      </div>
-    </aside>
-
-    <!-- ── Library ───────────────────────────────────────────────────────── -->
-    <aside class="lib-panel" id="lib-panel">
-      <div class="panel-header">
-        <span class="panel-title">元素库</span>
-        <button class="btn-ghost lib-collapse-btn" id="lib-collapse-btn" title="收起">◀</button>
-      </div>
-
-      <!-- Search -->
-      <div class="lib-search-wrap">
-        <input type="text" id="lib-search" placeholder="搜索元素…" />
-      </div>
-
-      <!-- Category filter -->
-      <div class="lib-cats" id="lib-cats"></div>
-
-      <!-- Item grid -->
-      <div class="lib-items" id="lib-items"></div>
-
-      <!-- Custom element creator -->
-      <div class="lib-custom">
+  <!-- Workspace View -->
+  <section id="view-app" class="workspace-shell" style="display:none">
+    <div class="workspace">
+      <aside class="waiting-panel waiting-left" id="queue-left-panel">
         <div class="panel-header">
-          <span class="panel-title">自定义元素</span>
+          <span class="panel-title">上侧等待区（主排）</span>
+          <button class="btn-ghost btn-clear-queue" data-side="left">清空</button>
         </div>
-        <div class="custom-form">
-          <input type="text" id="custom-name" placeholder="名称" />
-          <input type="number" id="custom-width" placeholder='宽度"' min="0.1" step="0.5" />
-          <button class="btn-ghost" id="custom-add-btn">＋ 添加到库</button>
+        <div id="signage-edge-section" class="ctx-params" style="display:none">
+          <label>边缘 X（英寸）</label>
+          <input type="number" id="edge-x" placeholder='7\"' min="0.5" step="0.5" />
         </div>
-        <div id="custom-items" class="lib-items lib-custom-items"></div>
-      </div>
-    </aside>
+        <div id="iphone-y-section" class="ctx-params" style="display:none">
+          <label>Riser 间距 Y（英寸）</label>
+          <input type="number" id="iphone-y" placeholder='4\"' min="0.5" step="0.5" />
+        </div>
+        <div class="queue-zone" id="queue-left" data-side="left">
+          <div class="queue-empty-hint">拖入元素到上侧</div>
+        </div>
+        <div id="assortment-section" style="display:none">
+          <div class="panel-header" style="margin-top:12px">
+            <span class="panel-title">Solution 组</span>
+            <button class="btn-ghost" id="add-assort-group-btn">＋</button>
+          </div>
+          <div id="assort-groups-list" class="queue-zone" style="min-height:60px"></div>
+          <button class="btn-ghost btn-sm" id="clear-assort-btn">清空 Solution 组</button>
+        </div>
+      </aside>
 
-  </div><!-- /workspace -->
-</div><!-- /app -->
+      <main class="canvas-panel">
+        <div class="canvas-area">
+          <canvas id="diagram-canvas"></canvas>
+          <div class="canvas-empty" id="canvas-empty-hint">
+            <div class="canvas-empty-icon"></div>
+            <div>从上侧拖入元素，点击\"计算布局\"</div>
+          </div>
+        </div>
+        <div id="result-summary" style="display:none"></div>
+        <div id="trace-panel" style="display:none">
+          <div class="trace-header" id="trace-toggle">
+            <span>计算过程</span>
+            <span class="trace-chevron">▸</span>
+          </div>
+          <ol id="trace-list" class="trace-list" style="display:none"></ol>
+        </div>
+        <div id="result-table-card" style="display:none">
+          <div class="res-table-header">
+            <h3>Solution 位置明细</h3>
+          </div>
+          <table id="result-table"></table>
+        </div>
+        <div id="error-msg"></div>
+      </main>
+
+      <aside class="waiting-panel waiting-right" id="queue-right-panel">
+        <div class="panel-header">
+          <span class="panel-title">下侧等待区（对侧）</span>
+          <button class="btn-ghost btn-clear-queue" data-side="right">清空</button>
+        </div>
+        <div class="queue-zone" id="queue-right" data-side="right">
+          <div class="queue-empty-hint">可选：为双面桌添加下侧元素</div>
+        </div>
+      </aside>
+
+      <aside class="lib-panel" id="lib-panel">
+        <div class="panel-header">
+          <span class="panel-title">元素库</span>
+          <button class="btn-ghost lib-collapse-btn" id="lib-collapse-btn" title="收起">◀</button>
+        </div>
+        <div class="lib-search-wrap">
+          <input type="text" id="lib-search" placeholder="搜索元素…" />
+        </div>
+        <div class="lib-cats" id="lib-cats"></div>
+        <div class="lib-items" id="lib-items"></div>
+        <div class="lib-custom">
+          <div class="panel-header">
+            <span class="panel-title">自定义元素</span>
+          </div>
+          <div class="custom-form">
+            <input type="text" id="custom-name" placeholder="名称" />
+            <input type="number" id="custom-width" placeholder='宽度\"' min="0.1" step="0.5" />
+            <button class="btn-ghost" id="custom-add-btn">＋ 添加到库</button>
+          </div>
+          <div id="custom-items" class="lib-items lib-custom-items"></div>
+        </div>
+      </aside>
+    </div>\n  </section>
+  </section>
+
+  <!-- Rules View -->
+  <section id="view-rules" class="app-page" style="display:none">
+    <main class="page-shell">
+      <section class="page-card">
+        <h2>新建草稿</h2>
+        <div class="page-row">
+          <label for="rule-version-input">版本号</label>
+          <input id="rule-version-input" type="text" placeholder="Merch v2026.03" />
+          <button class="btn-ghost" id="rule-create-btn">创建草稿</button>
+        </div>
+        <p id="rule-msg" class="page-note"></p>
+      </section>
+
+      <section class="page-card">
+        <h2>规则列表</h2>
+        <div class="page-row" style="margin-bottom:10px">
+          <button class="btn-ghost" id="refresh-rules-btn">刷新</button>
+        </div>
+        <table id="rule-table" class="rule-table">
+          <thead>
+            <tr><th>版本</th><th>状态</th><th>发布时间</th><th>操作</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
+  </section>
+
+  <!-- Login View -->
+  <section id="view-login" style="display:none">
+    <div class="login-shell">
+      <div class="login-hero">
+        <h1>我的桌子</h1>
+        <p>陈列小助手</p>
+      </div>
+      <div class="login-card" id="auth-card">
+        <div class="login-tabs">
+          <button class="login-tab active" id="tab-login" onclick="switchTab('login')">登录</button>
+          <button class="login-tab" id="tab-register" onclick="switchTab('register')">注册</button>
+        </div>
+        <div class="login-field">
+          <label>邮箱</label>
+          <input type="email" id="input-email" placeholder="your@email.com" autocomplete="email" />
+        </div>
+        <div class="login-field">
+          <label>密码</label>
+          <input type="password" id="input-pwd" placeholder="••••••••" autocomplete="current-password" />
+        </div>
+        <div class="login-field" id="field-name" style="display:none">
+          <label>名字（可选）</label>
+          <input type="text" id="input-name" placeholder="你的名字" autocomplete="name" />
+        </div>
+        <div class="login-msg" id="auth-msg"></div>
+        <button class="login-submit" id="submit-btn" onclick="doSubmit()">登录</button>
+      </div>
+      <div class="logged-in-card" id="loggedin-card" style="display:none">
+        <div class="user-avatar">🪑</div>
+        <div>
+          <div class="user-email" id="user-display"></div>
+          <div class="user-label">我的桌子</div>
+        </div>
+        <div class="logged-in-actions">
+          <button class="btn-primary-full" onclick="goToApp()">进入计算器</button>
+          <button class="btn-ghost-full" onclick="doLogout()">退出登录</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
 <script type="module" src="/src/main.js"></script>
 </body>
 </html>

@@ -27,6 +27,11 @@ export const SIGNAGE_EDGE_BY_TABLE = {
   240: 8,
 }
 
+// iPad grouping gaps (between hero devices)
+export const IPAD_Y_GAP = { 84:3, 96:4, 120:5, 144:5, 180:5, 240:5 }
+export const IPAD_Z_GAP = { 84:5, 96:6, 120:6, 144:6, 180:6, 240:6 }
+export const MULTI_HERO_GAP = 5
+
 export const DEFAULT_RULE_VERSION = 'Merch v2025.11'
 export const RULE_SETS = {
   [DEFAULT_RULE_VERSION]: {
@@ -49,6 +54,33 @@ export const RULE_SETS = {
 
 export function getRuleSet(version = DEFAULT_RULE_VERSION) {
   return RULE_SETS[version] || RULE_SETS[DEFAULT_RULE_VERSION]
+}
+
+export function calcFixedGap(A, widths, gap) {
+  const C = widths.length
+  if (C === 0) return null
+  const B = widths.reduce((s,w)=>s+w,0)
+  const total = B + gap * (C - 1)
+  const edge = (A - total) / 2
+  if (edge < 0) return null
+  const trace = [
+    `固定间距 = ${gap.toFixed(3)}"`,
+    `总宽 B = ${B.toFixed(3)}"，Solution 数 C = ${C}`,
+    `边缘 = (A − (B + gap·(C−1))) ÷ 2 = (${A} − ${total.toFixed(3)}) ÷ 2 = ${edge.toFixed(3)}"`,
+  ]
+  const layout = widths.map((w, i) => {
+    const start = edge + i * (w + gap)
+    return { index: i, width: w, start, center: start + w/2, end: start + w }
+  })
+  return {
+    A, B, C,
+    X: gap,
+    edgeLeft: edge,
+    edgeRight: edge,
+    layout,
+    trace,
+    fixedGap: gap,
+  }
 }
 
 /**
