@@ -1,7 +1,7 @@
 /**
  * api.js — real backend client (no mock fallback)
  */
-const BASE = (import.meta.env.VITE_API_BASE || 'http://localhost:8787').replace(/\/$/, '')
+const BASE = ((import.meta.env.VITE_API_BASE || '/api').replace(/\/$/, '') || '/api')
 
 function headers(token) {
   const h = { 'Content-Type': 'application/json' }

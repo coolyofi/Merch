@@ -70,3 +70,6 @@ Defined in [`prisma/schema.prisma`](/Users/yofiqian/计算小助手/server/prism
 - On publish, existing published rule sets are retired automatically.
 - Replay endpoint can compute and optionally persist a new layout version.
 - Password reset endpoint is placeholder and must be wired to an email provider.
+
+## VPS Deployment
+- For one-command VPS deployment (`web + backend + mysql`), see `../docs/vps-deploy.md`.
