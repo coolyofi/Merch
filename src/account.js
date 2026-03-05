@@ -19,6 +19,15 @@ window.doSubmit = async function() {
   const email = document.getElementById('input-email').value.trim()
   const pwd   = document.getElementById('input-pwd').value
   if (!email || !pwd) { setMsg('请填写邮箱和密码'); return }
+  // 前端基础校验
+  if (!/^\S+@\S+\.\S+$/.test(email)) {
+    setMsg('请输入正确的邮箱格式');
+    return;
+  }
+  if (pwd.length < 8) {
+    setMsg('密码至少需要 8 位');
+    return;
+  }
 
   const btn = document.getElementById('submit-btn')
   btn.disabled = true
@@ -37,7 +46,11 @@ window.doSubmit = async function() {
     setMsg('成功，正在跳转…', true)
     setTimeout(() => { window.location.href = '/app/' }, 600)
   } catch (e) {
-    setMsg(e.message || '操作失败')
+    let msg = e.message || '操作失败'
+    if (e.issues && Array.isArray(e.issues)) {
+      msg += '\n' + e.issues.map(i => i.message || i.code || JSON.stringify(i)).join('\n')
+    }
+    setMsg(msg)
     btn.disabled = false
   }
 }
