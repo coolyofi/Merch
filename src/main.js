@@ -1,3 +1,4 @@
+import './style.css'
 import { initUI as initWorkspace, restoreSession, AUTH_TOKEN_KEY } from './ui.js'
 import { initAccount } from './account.js'
 
@@ -7,6 +8,7 @@ const views = {
 }
 
 let workspaceInited = false
+let rulesInited = false
 
 function showView(key) {
   Object.entries(views).forEach(([k, el]) => {
@@ -46,7 +48,7 @@ function parseHash() {
 }
 
 window.addEventListener('hashchange', () => go(parseHash()))
-window.addEventListener('auth:login', () => go('app'))
+window.addEventListener('auth:login', async () => { await restoreSession(); go('app') })
 window.addEventListener('auth:logout', () => {
   workspaceInited = false
   rulesInited = false

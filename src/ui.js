@@ -142,8 +142,10 @@ function setScene(key) {
   if (signageSec) signageSec.style.display = (signageOn || cfg.showSignageEdge) ? 'block' : 'none'
   const iphoneSec = document.getElementById('iphone-y-section')
   if (iphoneSec) iphoneSec.style.display = cfg.showIphoneY ? 'block' : 'none'
-  document.getElementById('assortment-section').style.display = cfg.solMode === 'assortment' ? 'block' : 'none'
-  document.getElementById('cables-section').style.display = cfg.drawFn !== 'assortment' ? 'inline-flex' : 'none'
+  const assortSec = document.getElementById('assortment-section')
+  if (assortSec) assortSec.style.display = cfg.solMode === 'assortment' ? 'block' : 'none'
+  const cablesSec = document.getElementById('cables-section')
+  if (cablesSec) cablesSec.style.display = cfg.drawFn !== 'assortment' ? 'inline-flex' : 'none'
   autoFillEdgeX(); autoFillY();
   renderQueue('left'); renderQueue('right')
   updateLayoutMetaUI()
@@ -895,7 +897,8 @@ function restoreDraft() {
     queueRight = Array.isArray(d.queueRight) ? d.queueRight : []
     assortGroups = Array.isArray(d.assortGroups) ? d.assortGroups : []
     showCables = !!d.showCables
-    document.getElementById('cables-toggle').checked = showCables
+    const cb = document.getElementById('cables-toggle')
+    if (cb) cb.checked = showCables
     signageOn = !!d.signageOn
     const signageToggle = document.getElementById('signage-toggle')
     if (signageToggle) signageToggle.checked = signageOn
@@ -967,7 +970,8 @@ function bindEvents() {
   if (dashGotoBoard) dashGotoBoard.addEventListener('click', () => { setView('dashboard'); document.getElementById('dashboard-board')?.scrollIntoView({behavior:'smooth'}) })
   const dashRefresh = document.getElementById('dash-refresh-board')
   if (dashRefresh) dashRefresh.addEventListener('click', () => { loadBoardLayouts(); renderBoards() })
-  document.getElementById('cables-toggle').addEventListener('change', e=>{showCables = e.target.checked; saveDraft(); if(lastResult&&lastCfg){redraw(document.getElementById('diagram-canvas'), lastResult, lastNames, lastCfg, lastDrawOpts || {})}})
+  const cablesToggle = document.getElementById('cables-toggle')
+  if (cablesToggle) cablesToggle.addEventListener('change', e=>{showCables = e.target.checked; saveDraft(); if(lastResult&&lastCfg){redraw(document.getElementById('diagram-canvas'), lastResult, lastNames, lastCfg, lastDrawOpts || {})}})
   const traceToggle = document.getElementById('trace-toggle')
   if (traceToggle) {
     traceToggle.addEventListener('click', () => {

@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>我的桌子 — SPA</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%238dd0ff'/%3E%3Ctext x='3' y='12' font-size='10' fill='%230a0c10'%3E%E6%A1%8C%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="/src/style.css" />
 </head>
 <body>
@@ -87,36 +88,25 @@
 
     <!-- Workspace -->
     <div id="workspace" style="display:none">
-      <div class="topbar secondary" style="margin-top:10px">
-        <div class="header-left">
-          <h1 id="layout-name-display">当前布局</h1>
-          <span class="header-subtitle">模板、桌长（规则版本固定）</span>
-        </div>
-        <div class="header-right" style="gap:10px; flex-wrap:wrap;">
-          <div class="field-inline">
-            <label for="scene-select">模板</label>
-            <select id="scene-select"></select>
-          </div>
-          <div class="field-inline">
-            <label for="table-preset">桌型</label>
-            <select id="table-preset"></select>
-          </div>
-          <div class="field-inline">
-            <label for="table-length">A（英寸）</label>
-            <input type="number" id="table-length" placeholder='120"' min="1" step="0.5" />
-          </div>
-          <label class="toggle-row">
-            <input type="checkbox" id="signage-toggle" />
-            <span>包含 2×3 标签</span>
-          </label>
-          <button id="calc-btn">计算布局</button>
-          <div class="layout-actions inline-tools">
-            <button class="btn-ghost" id="save-layout-btn">云保存</button>
-            <button class="btn-ghost" id="load-layout-btn">云加载</button>
-            <button class="btn-ghost" id="replay-layout-btn">回放重算</button>
-          </div>
-        </div>
+    <div class="param-bar">
+      <div class="param-left">
+        <div class="param-title" id="layout-name-display">当前布局</div>
+        <div class="param-sub">模板、桌长（规则版本固定）</div>
       </div>
+      <div class="param-right">
+        <select id="scene-select"></select>
+        <select id="table-preset"></select>
+        <input type="number" id="table-length" placeholder='120"' min="1" step="0.5" />
+        <label class="toggle-row param-toggle">
+          <input type="checkbox" id="signage-toggle" />
+          <span>包含 2×3 标签</span>
+        </label>
+        <button id="calc-btn" class="btn-primary">计算布局</button>
+        <button class="btn-ghost" id="save-layout-btn">云保存</button>
+        <button class="btn-ghost" id="load-layout-btn">云加载</button>
+        <button class="btn-ghost" id="replay-layout-btn">回放重算</button>
+      </div>
+    </div>
 
       <div class="workspace tri-rows">
         <!-- 上侧等待区 -->
