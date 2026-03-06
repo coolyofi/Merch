@@ -17,35 +17,25 @@ import {
 
 // ── Scenarios ───────────────────────────────────────────────────────────────
 const SCENES = {
-  general:            { label: '通用桌/墙',          solMode: 'named', drawFn: 'single', showFlitch: true },
-  wall:               { label: '墙面',               solMode: 'named', drawFn: 'single', showFlitch: false },
-  iphoneComparison:   { label: 'iPhone 比较',        solMode: 'named', drawFn: 'double', defaultProductType: 'iphone', showFlitch: false },
-  iphoneAssortment:   { label: 'iPhone 组合',        solMode: 'assortment', drawFn: 'assortment', showIphoneY: true, defaultProductType: 'iphone', showFlitch: false },
-  ipadGroup:          { label: 'iPad 组桌',          solMode: 'named', drawFn: 'single', defaultProductType: 'ipad', showFlitch: true },
-  ipadGroupSign:      { label: 'iPad 组桌 +2×3',     solMode: 'named', drawFn: 'single', defaultProductType: 'ipad', showFlitch: true, defaultSignage: true },
-  macComparison:      { label: 'Mac 比较',           solMode: 'named', drawFn: 'double', defaultProductType: 'macbook', showFlitch: false, macCornerSignage: true },
-  macComparisonSign:  { label: 'Mac 比较 +2×3',     solMode: 'named', drawFn: 'double', defaultProductType: 'macbook', showFlitch: false, macCornerSignage: true, defaultSignage: true },
-  macIpadComparison:  { label: 'Mac | iPad 比较',    solMode: 'named', drawFn: 'double', defaultProductType: 'macbook', showFlitch: false, macCornerSignage: true },
-  macIpadComparisonSign: { label: 'Mac | iPad +2×3', solMode: 'named', drawFn: 'double', defaultProductType: 'macbook', showFlitch: false, macCornerSignage: true, defaultSignage: true },
-  macDesktop:         { label: 'iMac / 桌面',        solMode: 'named', drawFn: 'single', defaultProductType: 'mac', showFlitch: true },
-  macDisplay:         { label: 'Mac + 显示器',       solMode: 'named', drawFn: 'single', defaultProductType: 'mac', showFlitch: true },
-  multiHero:          { label: '多英雄组合',         solMode: 'named', drawFn: 'single', defaultProductType: 'accessory', showFlitch: true },
-  multiHeroSign:      { label: '多英雄 +2×3',        solMode: 'named', drawFn: 'single', defaultProductType: 'accessory', showFlitch: true, defaultSignage: true },
-  watch:              { label: 'Apple Watch 桌',     solMode: 'named', drawFn: 'single', defaultProductType: 'watch', showFlitch: true },
-  watchExperience:    { label: 'Watch 体验桌',       solMode: 'named', drawFn: 'single', defaultProductType: 'watch', showFlitch: true },
-  watchCounter:       { label: 'Watch 体验柜',       solMode: 'named', drawFn: 'single', defaultProductType: 'watch', showFlitch: false },
-  personalization:    { label: '个性化/Discovery',   solMode: 'named', drawFn: 'single', defaultProductType: 'ipad', showFlitch: true },
-  visionProTable:     { label: 'Vision Pro 桌',      solMode: 'named', drawFn: 'single', defaultProductType: 'avp', showFlitch: true },
-  visionProHLight:    { label: 'Vision Pro H-Light', solMode: 'named', drawFn: 'single', defaultProductType: 'avp', showFlitch: true },
-  visionProWall:      { label: 'Vision Pro 墙',      solMode: 'named', drawFn: 'single', defaultProductType: 'avp', showFlitch: false },
-  appleTV:            { label: 'Apple TV 桌',        solMode: 'named', drawFn: 'single', defaultProductType: 'accessory', showFlitch: true },
-  appleTVWall:        { label: 'Apple TV 墙',        solMode: 'named', drawFn: 'single', defaultProductType: 'accessory', showFlitch: false },
-  avenue:             { label: 'Avenue/Feature Bay', solMode: 'named', drawFn: 'single', defaultProductType: 'accessory', showFlitch: false },
-  avenueIpad:         { label: 'Avenue iPad',        solMode: 'named', drawFn: 'single', defaultProductType: 'ipad', showFlitch: false },
-  avenueIphone:       { label: 'Avenue iPhone',      solMode: 'named', drawFn: 'single', defaultProductType: 'iphone', showFlitch: false },
-  avenueMac:          { label: 'Avenue Mac',         solMode: 'named', drawFn: 'single', defaultProductType: 'macbook', showFlitch: false },
-  accessory:          { label: '配件桌/柜',          solMode: 'named', drawFn: 'single', defaultProductType: 'accessory', showFlitch: false },
-  accessoryFixture:   { label: '配件立式柜',         solMode: 'named', drawFn: 'single', defaultProductType: 'accessory', showFlitch: false },
+  general:          { label: '通用桌/墙',          solMode: 'named', drawFn: 'single', showFlitch: true },
+  wall:             { label: '墙面',               solMode: 'named', drawFn: 'single', showFlitch: false },
+  iphoneComparison: { label: 'iPhone 比较',        solMode: 'named', drawFn: 'double', defaultProductType: 'iphone', showFlitch: false },
+  iphoneAssortment: { label: 'iPhone 组合',        solMode: 'assortment', drawFn: 'assortment', showIphoneY: true, defaultProductType: 'iphone', showFlitch: false },
+  ipadGroup:        { label: 'iPad 组桌',          solMode: 'named', drawFn: 'single', defaultProductType: 'ipad', showFlitch: true },
+  macComparison:    { label: 'Mac 比较',           solMode: 'named', drawFn: 'double', defaultProductType: 'macbook', showFlitch: false, macCornerSignage: true },
+  macIpadComparison:{ label: 'Mac | iPad 比较',    solMode: 'named', drawFn: 'double', defaultProductType: 'macbook', showFlitch: false, macCornerSignage: true },
+  macDesktop:       { label: 'iMac / 桌面',        solMode: 'named', drawFn: 'single', defaultProductType: 'mac', showFlitch: true },
+  macDisplay:       { label: 'Mac + 显示器',       solMode: 'named', drawFn: 'single', defaultProductType: 'mac', showFlitch: true },
+  multiHero:        { label: '多英雄组合',         solMode: 'named', drawFn: 'single', defaultProductType: 'accessory', showFlitch: true },
+  watch:            { label: 'Apple Watch 桌',     solMode: 'named', drawFn: 'single', defaultProductType: 'watch', showFlitch: true },
+  watchExperience:  { label: 'Watch 体验桌',       solMode: 'named', drawFn: 'single', defaultProductType: 'watch', showFlitch: true },
+  watchCounter:     { label: 'Watch 体验柜',       solMode: 'named', drawFn: 'single', defaultProductType: 'watch', showFlitch: false },
+  personalization:  { label: '个性化/Discovery',   solMode: 'named', drawFn: 'single', defaultProductType: 'ipad', showFlitch: true },
+  visionProTable:   { label: 'Vision Pro 桌',      solMode: 'named', drawFn: 'single', defaultProductType: 'avp', showFlitch: true },
+  visionProWall:    { label: 'Vision Pro 墙',      solMode: 'named', drawFn: 'single', defaultProductType: 'avp', showFlitch: false },
+  appleTV:          { label: 'Apple TV 桌',        solMode: 'named', drawFn: 'single', defaultProductType: 'accessory', showFlitch: true },
+  avenue:           { label: 'Avenue/Feature Bay', solMode: 'named', drawFn: 'single', defaultProductType: 'accessory', showFlitch: false },
+  accessory:        { label: '配件桌/柜',          solMode: 'named', drawFn: 'single', defaultProductType: 'accessory', showFlitch: false },
 }
 
 const TABLE_PRESETS = [
@@ -85,6 +75,25 @@ let boardFilter = 'all'
 let viewMode = 'dashboard'
 let signageOn = false
 
+export async function restoreSession() {
+  const token = localStorage.getItem(AUTH_TOKEN_KEY)
+  if (!token) { return false }
+  try {
+    const me = await fetchMe(token)
+    auth.token = token
+    auth.user = { id: me.id, email: me.email, name: me.name }
+    renderAuth()
+    await syncRulesFromCloud()
+    window.dispatchEvent(new CustomEvent('auth:login', { detail: { token, user: me } }))
+    return true
+  } catch (e) {
+    localStorage.removeItem(AUTH_TOKEN_KEY)
+    auth = { token: null, user: null }
+    window.dispatchEvent(new CustomEvent('auth:logout'))
+    return false
+  }
+}
+
 // ── Init ────────────────────────────────────────────────────────────────────
 export function initUI() {
   const { items, cats } = buildCatalog()
@@ -105,21 +114,16 @@ export function initUI() {
   renderQueue('left'); renderQueue('right')
   renderAuth()
   updateLayoutMetaUI()
+  setView('dashboard')
   // restoreSession is handled by SPA router; leave the view as-is
 }
 
 // ── Scene tabs ──────────────────────────────────────────────────────────────
 function renderSceneTabs() {
-  const c = document.getElementById('scene-tabs')
-  c.innerHTML = ''
-  Object.entries(SCENES).forEach(([key, cfg]) => {
-    const btn = document.createElement('button')
-    btn.className = 'scene-tab'
-    btn.dataset.key = key
-    btn.innerHTML = `<span class="tab-dot"></span><span class="tab-label">${cfg.label}</span>`
-    btn.onclick = () => setScene(key)
-    c.appendChild(btn)
-  })
+  const sel = document.getElementById('scene-select')
+  if (!sel) return
+  sel.innerHTML = Object.entries(SCENES).map(([k,v]) => `<option value="${k}">${v.label}</option>`).join('')
+  sel.value = currentScene
 }
 
 function renderDashSceneOptions() {
@@ -132,13 +136,8 @@ function renderDashSceneOptions() {
 function setScene(key) {
   currentScene = key
   const cfg = SCENES[key]
-  // scene may have defaultSignage preset
-  if (cfg.defaultSignage && !signageOn) {
-    signageOn = true
-    const signageToggle = document.getElementById('signage-toggle')
-    if (signageToggle) signageToggle.checked = true
-  }
-  document.querySelectorAll('.scene-tab').forEach(b => b.classList.toggle('active', b.dataset.key === key))
+  const sceneSel = document.getElementById('scene-select')
+  if (sceneSel && sceneSel.value !== key) sceneSel.value = key
   const signageSec = document.getElementById('signage-edge-section')
   if (signageSec) signageSec.style.display = (signageOn || cfg.showSignageEdge) ? 'block' : 'none'
   const iphoneSec = document.getElementById('iphone-y-section')
@@ -421,17 +420,12 @@ function renderLibItems() {
 
 // ── Board (saved layouts) ──────────────────────────────────────────────────
 function renderBoardFilters(targetId = 'board-filters') {
-  const row = document.getElementById(targetId)
-  if (!row) return
+  const sel = document.getElementById(targetId === 'board-filters-dash' ? 'board-filter-select' : targetId)
+  if (!sel) return
   const opts = [{ key: 'all', label: '全部' }, ...Object.entries(SCENES).map(([k,v]) => ({ key: k, label: v.label }))]
-  row.innerHTML = ''
-  opts.forEach(opt => {
-    const btn = document.createElement('button')
-    btn.className = 'filter-chip' + (boardFilter === opt.key ? ' active' : '')
-    btn.textContent = opt.label
-    btn.onclick = () => { boardFilter = opt.key; renderBoardFilters(); renderBoardFilters('board-filters-dash'); renderBoards() }
-    row.appendChild(btn)
-  })
+  sel.innerHTML = opts.map(o => `<option value="${o.key}">${o.label}</option>`).join('')
+  sel.value = boardFilter
+  sel.onchange = (e)=>{ boardFilter = e.target.value; renderBoards() }
 }
 
 function loadBoardLayouts() {
@@ -571,6 +565,8 @@ function startFreshLayout(name, sceneKey, lengthVal, signageFlag = false) {
   renderQueue('left'); renderQueue('right')
   updateLayoutMetaUI()
   saveDraft()
+  const appView = document.getElementById('view-app')
+  if (appView) appView.style.display = 'block'
   setView('workspace')
   const ws = document.getElementById('workspace')
   if (ws) ws.scrollIntoView({ behavior: 'smooth' })
@@ -921,21 +917,25 @@ function seedDefaults(){
 
 // ── Events ─────────────────────────────────────────────────────────────────-
 function bindEvents() {
-  document.getElementById('table-preset').addEventListener('change', e=>{
+  document.getElementById('table-preset')?.addEventListener('change', e=>{
     if (e.target.value) {
-      document.getElementById('table-length').value = e.target.value
+      const tl = document.getElementById('table-length')
+      if (tl) tl.value = e.target.value
       autoFillEdgeX(); autoFillY(); saveDraft()
     }
   })
-  document.getElementById('table-length').addEventListener('input', ()=>{autoFillEdgeX(); autoFillY(); saveDraft()})
-  document.getElementById('edge-x').addEventListener('input', saveDraft)
-  document.getElementById('iphone-y').addEventListener('input', saveDraft)
-  document.getElementById('rule-version').addEventListener('change', ()=>{autoFillEdgeX(); autoFillY(); saveDraft()})
+  document.getElementById('table-length')?.addEventListener('input', ()=>{autoFillEdgeX(); autoFillY(); saveDraft()})
+  document.getElementById('edge-x')?.addEventListener('input', saveDraft)
+  document.getElementById('iphone-y')?.addEventListener('input', saveDraft)
+  document.getElementById('rule-version')?.addEventListener('change', ()=>{autoFillEdgeX(); autoFillY(); saveDraft()})
+  const sceneSel = document.getElementById('scene-select')
+  if (sceneSel) sceneSel.addEventListener('change', e => setScene(e.target.value))
   const signageToggle = document.getElementById('signage-toggle')
   if (signageToggle) {
     signageToggle.addEventListener('change', e => {
       signageOn = e.target.checked
-      document.getElementById('signage-edge-section').style.display = signageOn ? 'block' : 'none'
+      const sec = document.getElementById('signage-edge-section')
+      if (sec) sec.style.display = signageOn ? 'block' : 'none'
       autoFillEdgeX(); saveDraft()
     })
   }
@@ -948,9 +948,9 @@ function bindEvents() {
     })
   }
 
-  document.getElementById('lib-search').addEventListener('input', renderLibItems)
-  document.getElementById('custom-add-btn').addEventListener('click', addCustomFromForm)
-  document.getElementById('calc-btn').addEventListener('click', calculate)
+  document.getElementById('lib-search')?.addEventListener('input', renderLibItems)
+  document.getElementById('custom-add-btn')?.addEventListener('click', addCustomFromForm)
+  document.getElementById('calc-btn')?.addEventListener('click', calculate)
   const calcBtn2 = document.getElementById('calc-btn-secondary')
   if (calcBtn2) calcBtn2.addEventListener('click', calculate)
   const saveBoardBtn = document.getElementById('save-to-board-btn')
@@ -1023,30 +1023,9 @@ window.__assortGroups = assortGroups
 function renderAuth() {
   const status = document.getElementById('auth-status')
   if (!status) return
-  if (!auth.user) {
-    status.textContent = '未登录'
-    return
-  }
-  status.textContent = `已登录 · ${auth.user.email}`
-}
-
-async function restoreSession() {
-  const token = localStorage.getItem(AUTH_TOKEN_KEY)
-  if (!token) { return false }
-  try {
-    const me = await fetchMe(token)
-    auth.token = token
-    auth.user = { id: me.id, email: me.email, name: me.name }
-    renderAuth()
-    await syncRulesFromCloud()
-    window.dispatchEvent(new CustomEvent('auth:login', { detail: { token, user: me } }))
-    return true
-  } catch (e) {
-    localStorage.removeItem(AUTH_TOKEN_KEY)
-    auth = { token: null, user: null }
-    window.dispatchEvent(new CustomEvent('auth:logout'))
-    return false
-  }
+  if (!auth.user) { status.textContent = '未登录'; return }
+  const name = auth.user.name || auth.user.email || auth.user.id || '已登录'
+  status.textContent = name
 }
 
 async function syncRulesFromCloud() {

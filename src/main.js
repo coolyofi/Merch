@@ -1,15 +1,12 @@
-import { initUI as initWorkspace, restoreSession, doLogout, AUTH_TOKEN_KEY } from './ui.js'
+import { initUI as initWorkspace, restoreSession, AUTH_TOKEN_KEY } from './ui.js'
 import { initAccount } from './account.js'
-import { initRules, setRulesToken } from './rules.js'
 
 const views = {
   app: document.getElementById('view-app'),
-  rules: document.getElementById('view-rules'),
   login: document.getElementById('view-login'),
 }
 
 let workspaceInited = false
-let rulesInited = false
 
 function showView(key) {
   Object.entries(views).forEach(([k, el]) => {
@@ -25,10 +22,8 @@ async function ensureAuth() {
 
 async function go(route) {
   const token = await ensureAuth()
-  if (route === 'rules' || route === 'app') {
-    if (!token) {
-      showView('login'); location.hash = '#/login'; return
-    }
+  if (route === 'app') {
+    if (!token) { showView('login'); location.hash = '#/login'; return }
   }
   if (route === 'app') {
     showView('app')
@@ -39,22 +34,12 @@ async function go(route) {
     }
     return
   }
-  if (route === 'rules') {
-    showView('rules')
-    if (!rulesInited) {
-      rulesInited = true
-      setRulesToken(token)
-      initRules()
-    }
-    return
-  }
   // login or default
   showView('login')
 }
 
 function parseHash() {
   const h = location.hash.replace('#','')
-  if (h.startsWith('/rules')) return 'rules'
   if (h.startsWith('/app')) return 'app'
   if (h.startsWith('/login')) return 'login'
   return 'app'
