@@ -791,11 +791,14 @@ function drawBracketBelow(ctx, x, y, w, label, color, small = false) {
 function prepare(canvas) {
   const dpr = window.devicePixelRatio || 1
   const parentW = canvas.parentElement ? canvas.parentElement.clientWidth : 0
+  const parentH = canvas.parentElement ? canvas.parentElement.clientHeight : 0
   const rect = canvas.getBoundingClientRect()
   let W = rect.width || canvas.clientWidth || parentW || canvas.width / dpr
-  let H = rect.height || canvas.clientHeight || canvas.height / dpr
+  let H = rect.height || canvas.clientHeight || parentH || canvas.height / dpr
   // fallback: if width collapsed but parent has width, use parent
   if (W < 200 && parentW > W) W = parentW
+  // fallback: if height collapsed but parent has height, use parent
+  if (H < 200 && parentH > H) H = parentH
   canvas.width  = Math.round(W * dpr)
   canvas.height = Math.round(H * dpr)
   const ctx = canvas.getContext('2d')

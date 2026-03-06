@@ -1,0 +1,1430 @@
+{
+  "iPhone": [
+    {
+      "name": "iPhone 17e",
+      "identifier": "iPhone18,5",
+      "image_url": "https://ipsw.me/assets/devices/iPhone18,5.png",
+      "local_image": "data/ipsw_images/iPhone/iphone18-5.png"
+    },
+    {
+      "name": "iPhone 17",
+      "identifier": "iPhone18,3",
+      "image_url": "https://ipsw.me/assets/devices/iPhone18,3.png",
+      "local_image": "data/ipsw_images/iPhone/iphone18-3.png"
+    },
+    {
+      "name": "iPhone Air",
+      "identifier": "iPhone18,4",
+      "image_url": "https://ipsw.me/assets/devices/iPhone18,4.png",
+      "local_image": "data/ipsw_images/iPhone/iphone18-4.png"
+    },
+    {
+      "name": "iPhone 17 Pro Max",
+      "identifier": "iPhone18,2",
+      "image_url": "https://ipsw.me/assets/devices/iPhone18,2.png",
+      "local_image": "data/ipsw_images/iPhone/iphone18-2.png"
+    },
+    {
+      "name": "iPhone 17 Pro",
+      "identifier": "iPhone18,1",
+      "image_url": "https://ipsw.me/assets/devices/iPhone18,1.png",
+      "local_image": "data/ipsw_images/iPhone/iphone18-1.png"
+    },
+    {
+      "name": "iPhone 16e",
+      "identifier": "iPhone17,5",
+      "image_url": "https://ipsw.me/assets/devices/iPhone17,5.png",
+      "local_image": "data/ipsw_images/iPhone/iphone17-5.png"
+    },
+    {
+      "name": "iPhone 16 Pro",
+      "identifier": "iPhone17,1",
+      "image_url": "https://ipsw.me/assets/devices/iPhone17,1.png",
+      "local_image": "data/ipsw_images/iPhone/iphone17-1.png"
+    },
+    {
+      "name": "iPhone 16",
+      "identifier": "iPhone17,3",
+      "image_url": "https://ipsw.me/assets/devices/iPhone17,3.png",
+      "local_image": "data/ipsw_images/iPhone/iphone17-3.png"
+    },
+    {
+      "name": "iPhone 16 Pro Max",
+      "identifier": "iPhone17,2",
+      "image_url": "https://ipsw.me/assets/devices/iPhone17,2.png",
+      "local_image": "data/ipsw_images/iPhone/iphone17-2.png"
+    },
+    {
+      "name": "iPhone 16 Plus",
+      "identifier": "iPhone17,4",
+      "image_url": "https://ipsw.me/assets/devices/iPhone17,4.png",
+      "local_image": "data/ipsw_images/iPhone/iphone17-4.png"
+    },
+    {
+      "name": "iPhone 15 Pro Max",
+      "identifier": "iPhone16,2",
+      "image_url": "https://ipsw.me/assets/devices/iPhone16,2.png",
+      "local_image": "data/ipsw_images/iPhone/iphone16-2.png"
+    },
+    {
+      "name": "iPhone 15 Pro",
+      "identifier": "iPhone16,1",
+      "image_url": "https://ipsw.me/assets/devices/iPhone16,1.png",
+      "local_image": "data/ipsw_images/iPhone/iphone16-1.png"
+    },
+    {
+      "name": "iPhone 15 Plus",
+      "identifier": "iPhone15,5",
+      "image_url": "https://ipsw.me/assets/devices/iPhone15,5.png",
+      "local_image": "data/ipsw_images/iPhone/iphone15-5.png"
+    },
+    {
+      "name": "iPhone 15",
+      "identifier": "iPhone15,4",
+      "image_url": "https://ipsw.me/assets/devices/iPhone15,4.png",
+      "local_image": "data/ipsw_images/iPhone/iphone15-4.png"
+    },
+    {
+      "name": "iPhone 14 Pro Max",
+      "identifier": "iPhone15,3",
+      "image_url": "https://ipsw.me/assets/devices/iPhone15,3.png",
+      "local_image": "data/ipsw_images/iPhone/iphone15-3.png"
+    },
+    {
+      "name": "iPhone 14 Pro",
+      "identifier": "iPhone15,2",
+      "image_url": "https://ipsw.me/assets/devices/iPhone15,2.png",
+      "local_image": "data/ipsw_images/iPhone/iphone15-2.png"
+    },
+    {
+      "name": "iPhone 14 Plus",
+      "identifier": "iPhone14,8",
+      "image_url": "https://ipsw.me/assets/devices/iPhone14,8.png",
+      "local_image": "data/ipsw_images/iPhone/iphone14-8.png"
+    },
+    {
+      "name": "iPhone 14",
+      "identifier": "iPhone14,7",
+      "image_url": "https://ipsw.me/assets/devices/iPhone14,7.png",
+      "local_image": "data/ipsw_images/iPhone/iphone14-7.png"
+    },
+    {
+      "name": "iPhone SE (3rd generation)",
+      "identifier": "iPhone14,6",
+      "image_url": "https://ipsw.me/assets/devices/iPhone14,6.png",
+      "local_image": "data/ipsw_images/iPhone/iphone14-6.png"
+    },
+    {
+      "name": "iPhone 13",
+      "identifier": "iPhone14,5",
+      "image_url": "https://ipsw.me/assets/devices/iPhone14,5.png",
+      "local_image": "data/ipsw_images/iPhone/iphone14-5.png"
+    },
+    {
+      "name": "iPhone 13 mini",
+      "identifier": "iPhone14,4",
+      "image_url": "https://ipsw.me/assets/devices/iPhone14,4.png",
+      "local_image": "data/ipsw_images/iPhone/iphone14-4.png"
+    },
+    {
+      "name": "iPhone 13 Pro Max",
+      "identifier": "iPhone14,3",
+      "image_url": "https://ipsw.me/assets/devices/iPhone14,3.png",
+      "local_image": "data/ipsw_images/iPhone/iphone14-3.png"
+    },
+    {
+      "name": "iPhone 13 Pro",
+      "identifier": "iPhone14,2",
+      "image_url": "https://ipsw.me/assets/devices/iPhone14,2.png",
+      "local_image": "data/ipsw_images/iPhone/iphone14-2.png"
+    },
+    {
+      "name": "iPhone 12 Pro",
+      "identifier": "iPhone13,3",
+      "image_url": "https://ipsw.me/assets/devices/iPhone13,3.png",
+      "local_image": "data/ipsw_images/iPhone/iphone13-3.png"
+    },
+    {
+      "name": "iPhone 12 Pro Max",
+      "identifier": "iPhone13,4",
+      "image_url": "https://ipsw.me/assets/devices/iPhone13,4.png",
+      "local_image": "data/ipsw_images/iPhone/iphone13-4.png"
+    },
+    {
+      "name": "iPhone 12 mini",
+      "identifier": "iPhone13,1",
+      "image_url": "https://ipsw.me/assets/devices/iPhone13,1.png",
+      "local_image": "data/ipsw_images/iPhone/iphone13-1.png"
+    },
+    {
+      "name": "iPhone 12",
+      "identifier": "iPhone13,2",
+      "image_url": "https://ipsw.me/assets/devices/iPhone13,2.png",
+      "local_image": "data/ipsw_images/iPhone/iphone13-2.png"
+    },
+    {
+      "name": "iPhone SE (2020)",
+      "identifier": "iPhone12,8",
+      "image_url": "https://ipsw.me/assets/devices/iPhone12,8.png",
+      "local_image": "data/ipsw_images/iPhone/iphone12-8.png"
+    },
+    {
+      "name": "iPhone 11 Pro",
+      "identifier": "iPhone12,3",
+      "image_url": "https://ipsw.me/assets/devices/iPhone12,3.png",
+      "local_image": "data/ipsw_images/iPhone/iphone12-3.png"
+    },
+    {
+      "name": "iPhone 11",
+      "identifier": "iPhone12,1",
+      "image_url": "https://ipsw.me/assets/devices/iPhone12,1.png",
+      "local_image": "data/ipsw_images/iPhone/iphone12-1.png"
+    },
+    {
+      "name": "iPhone 11 Pro Max",
+      "identifier": "iPhone12,5",
+      "image_url": "https://ipsw.me/assets/devices/iPhone12,5.png",
+      "local_image": "data/ipsw_images/iPhone/iphone12-5.png"
+    },
+    {
+      "name": "iPhone XR",
+      "identifier": "iPhone11,8",
+      "image_url": "https://ipsw.me/assets/devices/iPhone11,8.png",
+      "local_image": "data/ipsw_images/iPhone/iphone11-8.png"
+    },
+    {
+      "name": "iPhone XS Max (China)",
+      "identifier": "iPhone11,4",
+      "image_url": "https://ipsw.me/assets/devices/iPhone11,4.png",
+      "local_image": "data/ipsw_images/iPhone/iphone11-4.png"
+    },
+    {
+      "name": "iPhone XS",
+      "identifier": "iPhone11,2",
+      "image_url": "https://ipsw.me/assets/devices/iPhone11,2.png",
+      "local_image": "data/ipsw_images/iPhone/iphone11-2.png"
+    },
+    {
+      "name": "iPhone XS Max",
+      "identifier": "iPhone11,6",
+      "image_url": "https://ipsw.me/assets/devices/iPhone11,6.png",
+      "local_image": "data/ipsw_images/iPhone/iphone11-6.png"
+    },
+    {
+      "name": "iPhone X (GSM)",
+      "identifier": "iPhone10,6",
+      "image_url": "https://ipsw.me/assets/devices/iPhone10,6.png",
+      "local_image": "data/ipsw_images/iPhone/iphone10-6.png"
+    },
+    {
+      "name": "iPhone X (Global)",
+      "identifier": "iPhone10,3",
+      "image_url": "https://ipsw.me/assets/devices/iPhone10,3.png",
+      "local_image": "data/ipsw_images/iPhone/iphone10-3.png"
+    },
+    {
+      "name": "iPhone 8 Plus (Global)",
+      "identifier": "iPhone10,2",
+      "image_url": "https://ipsw.me/assets/devices/iPhone10,2.png",
+      "local_image": "data/ipsw_images/iPhone/iphone10-2.png"
+    },
+    {
+      "name": "iPhone 8 Plus (GSM)",
+      "identifier": "iPhone10,5",
+      "image_url": "https://ipsw.me/assets/devices/iPhone10,5.png",
+      "local_image": "data/ipsw_images/iPhone/iphone10-5.png"
+    },
+    {
+      "name": "iPhone 8 (GSM)",
+      "identifier": "iPhone10,4",
+      "image_url": "https://ipsw.me/assets/devices/iPhone10,4.png",
+      "local_image": "data/ipsw_images/iPhone/iphone10-4.png"
+    },
+    {
+      "name": "iPhone 8 (Global)",
+      "identifier": "iPhone10,1",
+      "image_url": "https://ipsw.me/assets/devices/iPhone10,1.png",
+      "local_image": "data/ipsw_images/iPhone/iphone10-1.png"
+    },
+    {
+      "name": "iPhone 7 Plus (GSM)",
+      "identifier": "iPhone9,4",
+      "image_url": "https://ipsw.me/assets/devices/iPhone9,4.png",
+      "local_image": "data/ipsw_images/iPhone/iphone9-4.png"
+    },
+    {
+      "name": "iPhone 7 (GSM)",
+      "identifier": "iPhone9,3",
+      "image_url": "https://ipsw.me/assets/devices/iPhone9,3.png",
+      "local_image": "data/ipsw_images/iPhone/iphone9-3.png"
+    },
+    {
+      "name": "iPhone 7 Plus (Global)",
+      "identifier": "iPhone9,2",
+      "image_url": "https://ipsw.me/assets/devices/iPhone9,2.png",
+      "local_image": "data/ipsw_images/iPhone/iphone9-2.png"
+    },
+    {
+      "name": "iPhone 7 (Global)",
+      "identifier": "iPhone9,1",
+      "image_url": "https://ipsw.me/assets/devices/iPhone9,1.png",
+      "local_image": "data/ipsw_images/iPhone/iphone9-1.png"
+    },
+    {
+      "name": "iPhone SE",
+      "identifier": "iPhone8,4",
+      "image_url": "https://ipsw.me/assets/devices/iPhone8,4.png",
+      "local_image": "data/ipsw_images/iPhone/iphone8-4.png"
+    },
+    {
+      "name": "iPhone 6s+",
+      "identifier": "iPhone8,2",
+      "image_url": "https://ipsw.me/assets/devices/iPhone8,2.png",
+      "local_image": "data/ipsw_images/iPhone/iphone8-2.png"
+    },
+    {
+      "name": "iPhone 6s",
+      "identifier": "iPhone8,1",
+      "image_url": "https://ipsw.me/assets/devices/iPhone8,1.png",
+      "local_image": "data/ipsw_images/iPhone/iphone8-1.png"
+    },
+    {
+      "name": "iPhone 6",
+      "identifier": "iPhone7,2",
+      "image_url": "https://ipsw.me/assets/devices/iPhone7,2.png",
+      "local_image": "data/ipsw_images/iPhone/iphone7-2.png"
+    },
+    {
+      "name": "iPhone 6+",
+      "identifier": "iPhone7,1",
+      "image_url": "https://ipsw.me/assets/devices/iPhone7,1.png",
+      "local_image": "data/ipsw_images/iPhone/iphone7-1.png"
+    },
+    {
+      "name": "iPhone 5s (GSM)",
+      "identifier": "iPhone6,1",
+      "image_url": "https://ipsw.me/assets/devices/iPhone6,1.png",
+      "local_image": "data/ipsw_images/iPhone/iphone6-1.png"
+    },
+    {
+      "name": "iPhone 5c (Global)",
+      "identifier": "iPhone5,4",
+      "image_url": "https://ipsw.me/assets/devices/iPhone5,4.png",
+      "local_image": "data/ipsw_images/iPhone/iphone5-4.png"
+    },
+    {
+      "name": "iPhone 5c (GSM)",
+      "identifier": "iPhone5,3",
+      "image_url": "https://ipsw.me/assets/devices/iPhone5,3.png",
+      "local_image": "data/ipsw_images/iPhone/iphone5-3.png"
+    },
+    {
+      "name": "iPhone 5s (Global)",
+      "identifier": "iPhone6,2",
+      "image_url": "https://ipsw.me/assets/devices/iPhone6,2.png",
+      "local_image": "data/ipsw_images/iPhone/iphone6-2.png"
+    },
+    {
+      "name": "iPhone 5 (Global)",
+      "identifier": "iPhone5,2",
+      "image_url": "https://ipsw.me/assets/devices/iPhone5,2.png",
+      "local_image": "data/ipsw_images/iPhone/iphone5-2.png"
+    },
+    {
+      "name": "iPhone 5 (GSM)",
+      "identifier": "iPhone5,1",
+      "image_url": "https://ipsw.me/assets/devices/iPhone5,1.png",
+      "local_image": "data/ipsw_images/iPhone/iphone5-1.png"
+    },
+    {
+      "name": "iPhone 4 (GSM / 2012)",
+      "identifier": "iPhone3,2",
+      "image_url": "https://ipsw.me/assets/devices/iPhone3,2.png",
+      "local_image": "data/ipsw_images/iPhone/iphone3-2.png"
+    },
+    {
+      "name": "iPhone 4[S]",
+      "identifier": "iPhone4,1",
+      "image_url": "https://ipsw.me/assets/devices/iPhone4,1.png",
+      "local_image": "data/ipsw_images/iPhone/iphone4-1.png"
+    },
+    {
+      "name": "iPhone 4 (CDMA)",
+      "identifier": "iPhone3,3",
+      "image_url": "https://ipsw.me/assets/devices/iPhone3,3.png",
+      "local_image": "data/ipsw_images/iPhone/iphone3-3.png"
+    },
+    {
+      "name": "iPhone 4 (GSM)",
+      "identifier": "iPhone3,1",
+      "image_url": "https://ipsw.me/assets/devices/iPhone3,1.png",
+      "local_image": "data/ipsw_images/iPhone/iphone3-1.png"
+    },
+    {
+      "name": "iPhone 3G[S]",
+      "identifier": "iPhone2,1",
+      "image_url": "https://ipsw.me/assets/devices/iPhone2,1.png",
+      "local_image": "data/ipsw_images/iPhone/iphone2-1.png"
+    },
+    {
+      "name": "iPhone 3G",
+      "identifier": "iPhone1,2",
+      "image_url": "https://ipsw.me/assets/devices/iPhone1,2.png",
+      "local_image": "data/ipsw_images/iPhone/iphone1-2.png"
+    },
+    {
+      "name": "iPhone 2G",
+      "identifier": "iPhone1,1",
+      "image_url": "https://ipsw.me/assets/devices/iPhone1,1.png",
+      "local_image": "data/ipsw_images/iPhone/iphone1-1.png"
+    }
+  ],
+  "iPad": [
+    {
+      "name": "iPad Air 13-inch (M4, WiFi)",
+      "identifier": "iPad16,10",
+      "image_url": "https://ipsw.me/assets/devices/iPad16,10.png",
+      "local_image": "data/ipsw_images/iPad/ipad16-10.png"
+    },
+    {
+      "name": "iPad Air 11-inch (M4, WiFi)",
+      "identifier": "iPad16,8",
+      "image_url": "https://ipsw.me/assets/devices/iPad16,8.png",
+      "local_image": "data/ipsw_images/iPad/ipad16-8.png"
+    },
+    {
+      "name": "iPad Air 13-inch (M4, Cellular)",
+      "identifier": "iPad16,11",
+      "image_url": "https://ipsw.me/assets/devices/iPad16,11.png",
+      "local_image": "data/ipsw_images/iPad/ipad16-11.png"
+    },
+    {
+      "name": "iPad Air 11-inch (M4, Cellular)",
+      "identifier": "iPad16,9",
+      "image_url": "https://ipsw.me/assets/devices/iPad16,9.png",
+      "local_image": "data/ipsw_images/iPad/ipad16-9.png"
+    },
+    {
+      "name": "iPad Pro 11-inch (M5, Cellular)",
+      "identifier": "iPad17,2",
+      "image_url": "https://ipsw.me/assets/devices/iPad17,2.png",
+      "local_image": "data/ipsw_images/iPad/ipad17-2.png"
+    },
+    {
+      "name": "iPad Pro 11-inch (M5, WiFi)",
+      "identifier": "iPad17,1",
+      "image_url": "https://ipsw.me/assets/devices/iPad17,1.png",
+      "local_image": "data/ipsw_images/iPad/ipad17-1.png"
+    },
+    {
+      "name": "iPad Pro 13-inch (M5, WiFi)",
+      "identifier": "iPad17,3",
+      "image_url": "https://ipsw.me/assets/devices/iPad17,3.png",
+      "local_image": "data/ipsw_images/iPad/ipad17-3.png"
+    },
+    {
+      "name": "iPad Pro 13-inch (M5, Cellular)",
+      "identifier": "iPad17,4",
+      "image_url": "https://ipsw.me/assets/devices/iPad17,4.png",
+      "local_image": "data/ipsw_images/iPad/ipad17-4.png"
+    },
+    {
+      "name": "iPad Air 13-inch (M3, Cellular)",
+      "identifier": "iPad15,6",
+      "image_url": "https://ipsw.me/assets/devices/iPad15,6.png",
+      "local_image": "data/ipsw_images/iPad/ipad15-6.png"
+    },
+    {
+      "name": "iPad (A16, WiFi)",
+      "identifier": "iPad15,7",
+      "image_url": "https://ipsw.me/assets/devices/iPad15,7.png",
+      "local_image": "data/ipsw_images/iPad/ipad15-7.png"
+    },
+    {
+      "name": "iPad Air 11-inch (M3, Cellular)",
+      "identifier": "iPad15,4",
+      "image_url": "https://ipsw.me/assets/devices/iPad15,4.png",
+      "local_image": "data/ipsw_images/iPad/ipad15-4.png"
+    },
+    {
+      "name": "iPad (A16, Cellular)",
+      "identifier": "iPad15,8",
+      "image_url": "https://ipsw.me/assets/devices/iPad15,8.png",
+      "local_image": "data/ipsw_images/iPad/ipad15-8.png"
+    },
+    {
+      "name": "iPad Air 13-inch (M3, WiFi)",
+      "identifier": "iPad15,5",
+      "image_url": "https://ipsw.me/assets/devices/iPad15,5.png",
+      "local_image": "data/ipsw_images/iPad/ipad15-5.png"
+    },
+    {
+      "name": "iPad Air 11-inch (M3, WiFi)",
+      "identifier": "iPad15,3",
+      "image_url": "https://ipsw.me/assets/devices/iPad15,3.png",
+      "local_image": "data/ipsw_images/iPad/ipad15-3.png"
+    },
+    {
+      "name": "iPad mini (A17 Pro, WiFi)",
+      "identifier": "iPad16,1",
+      "image_url": "https://ipsw.me/assets/devices/iPad16,1.png",
+      "local_image": "data/ipsw_images/iPad/ipad16-1.png"
+    },
+    {
+      "name": "iPad mini (A17 Pro, Cellular)",
+      "identifier": "iPad16,2",
+      "image_url": "https://ipsw.me/assets/devices/iPad16,2.png",
+      "local_image": "data/ipsw_images/iPad/ipad16-2.png"
+    },
+    {
+      "name": "iPad Air (M2, 11-inch, WiFi)",
+      "identifier": "iPad14,8",
+      "image_url": "https://ipsw.me/assets/devices/iPad14,8.png",
+      "local_image": "data/ipsw_images/iPad/ipad14-8.png"
+    },
+    {
+      "name": "iPad Air (M2, 11-inch, Cellular)",
+      "identifier": "iPad14,9",
+      "image_url": "https://ipsw.me/assets/devices/iPad14,9.png",
+      "local_image": "data/ipsw_images/iPad/ipad14-9.png"
+    },
+    {
+      "name": "iPad Air (M2, 13-inch, Cellular)",
+      "identifier": "iPad14,11",
+      "image_url": "https://ipsw.me/assets/devices/iPad14,11.png",
+      "local_image": "data/ipsw_images/iPad/ipad14-11.png"
+    },
+    {
+      "name": "iPad Pro (M4, 13-inch, Cellular)",
+      "identifier": "iPad16,6",
+      "image_url": "https://ipsw.me/assets/devices/iPad16,6.png",
+      "local_image": "data/ipsw_images/iPad/ipad16-6.png"
+    },
+    {
+      "name": "iPad Pro (M4, 13-inch, WiFi)",
+      "identifier": "iPad16,5",
+      "image_url": "https://ipsw.me/assets/devices/iPad16,5.png",
+      "local_image": "data/ipsw_images/iPad/ipad16-5.png"
+    },
+    {
+      "name": "iPad Air (M2, 13-inch, WiFi)",
+      "identifier": "iPad14,10",
+      "image_url": "https://ipsw.me/assets/devices/iPad14,10.png",
+      "local_image": "data/ipsw_images/iPad/ipad14-10.png"
+    },
+    {
+      "name": "iPad Pro (M4, 11-inch, WiFi)",
+      "identifier": "iPad16,3",
+      "image_url": "https://ipsw.me/assets/devices/iPad16,3.png",
+      "local_image": "data/ipsw_images/iPad/ipad16-3.png"
+    },
+    {
+      "name": "iPad Pro (M4, 11-inch, Cellular)",
+      "identifier": "iPad16,4",
+      "image_url": "https://ipsw.me/assets/devices/iPad16,4.png",
+      "local_image": "data/ipsw_images/iPad/ipad16-4.png"
+    },
+    {
+      "name": "iPad Pro (12.9-inch, Cellular) (6th generation)",
+      "identifier": "iPad14,6",
+      "image_url": "https://ipsw.me/assets/devices/iPad14,6.png",
+      "local_image": "data/ipsw_images/iPad/ipad14-6.png"
+    },
+    {
+      "name": "iPad Pro (12.9-inch, WiFi) (6th generation)",
+      "identifier": "iPad14,5",
+      "image_url": "https://ipsw.me/assets/devices/iPad14,5.png",
+      "local_image": "data/ipsw_images/iPad/ipad14-5.png"
+    },
+    {
+      "name": "iPad Pro (11-inch, Cellular) (4th generation)",
+      "identifier": "iPad14,4",
+      "image_url": "https://ipsw.me/assets/devices/iPad14,4.png",
+      "local_image": "data/ipsw_images/iPad/ipad14-4.png"
+    },
+    {
+      "name": "iPad Pro (11-inch, WiFi) (4th generation)",
+      "identifier": "iPad14,3",
+      "image_url": "https://ipsw.me/assets/devices/iPad14,3.png",
+      "local_image": "data/ipsw_images/iPad/ipad14-3.png"
+    },
+    {
+      "name": "iPad (Cellular, 10th generation)",
+      "identifier": "iPad13,19",
+      "image_url": "https://ipsw.me/assets/devices/iPad13,19.png",
+      "local_image": "data/ipsw_images/iPad/ipad13-19.png"
+    },
+    {
+      "name": "iPad (WiFi, 10th generation)",
+      "identifier": "iPad13,18",
+      "image_url": "https://ipsw.me/assets/devices/iPad13,18.png",
+      "local_image": "data/ipsw_images/iPad/ipad13-18.png"
+    },
+    {
+      "name": "iPad Air 5 (WiFi)",
+      "identifier": "iPad13,16",
+      "image_url": "https://ipsw.me/assets/devices/iPad13,16.png",
+      "local_image": "data/ipsw_images/iPad/ipad13-16.png"
+    },
+    {
+      "name": "iPad Air 5 (Cellular)",
+      "identifier": "iPad13,17",
+      "image_url": "https://ipsw.me/assets/devices/iPad13,17.png",
+      "local_image": "data/ipsw_images/iPad/ipad13-17.png"
+    },
+    {
+      "name": "iPad mini 6 (Cellular)",
+      "identifier": "iPad14,2",
+      "image_url": "https://ipsw.me/assets/devices/iPad14,2.png",
+      "local_image": "data/ipsw_images/iPad/ipad14-2.png"
+    },
+    {
+      "name": "iPad mini 6 (WiFi)",
+      "identifier": "iPad14,1",
+      "image_url": "https://ipsw.me/assets/devices/iPad14,1.png",
+      "local_image": "data/ipsw_images/iPad/ipad14-1.png"
+    },
+    {
+      "name": "iPad (Cellular, 9th generation)",
+      "identifier": "iPad12,2",
+      "image_url": "https://ipsw.me/assets/devices/iPad12,2.png",
+      "local_image": "data/ipsw_images/iPad/ipad12-2.png"
+    },
+    {
+      "name": "iPad (WiFi, 9th generation)",
+      "identifier": "iPad12,1",
+      "image_url": "https://ipsw.me/assets/devices/iPad12,1.png",
+      "local_image": "data/ipsw_images/iPad/ipad12-1.png"
+    },
+    {
+      "name": "iPad Pro (11-inch, WiFi) (3rd generation)",
+      "identifier": "iPad13,6",
+      "image_url": "https://ipsw.me/assets/devices/iPad13,6.png",
+      "local_image": "data/ipsw_images/iPad/ipad13-6.png"
+    },
+    {
+      "name": "iPad Pro (11-inch, Cellular) (3rd generation)",
+      "identifier": "iPad13,7",
+      "image_url": "https://ipsw.me/assets/devices/iPad13,7.png",
+      "local_image": "data/ipsw_images/iPad/ipad13-7.png"
+    },
+    {
+      "name": "iPad Pro (12.9-inch, Cellular) (5th generation)",
+      "identifier": "iPad13,10",
+      "image_url": "https://ipsw.me/assets/devices/iPad13,10.png",
+      "local_image": "data/ipsw_images/iPad/ipad13-10.png"
+    },
+    {
+      "name": "iPad Pro (12.9-inch, WiFi) (5th generation)",
+      "identifier": "iPad13,8",
+      "image_url": "https://ipsw.me/assets/devices/iPad13,8.png",
+      "local_image": "data/ipsw_images/iPad/ipad13-8.png"
+    },
+    {
+      "name": "iPad Pro (12.9-inch, Cellular) (5th generation)",
+      "identifier": "iPad13,11",
+      "image_url": "https://ipsw.me/assets/devices/iPad13,11.png",
+      "local_image": "data/ipsw_images/iPad/ipad13-11.png"
+    },
+    {
+      "name": "iPad Pro (12.9-inch, WiFi) (5th generation)",
+      "identifier": "iPad13,9",
+      "image_url": "https://ipsw.me/assets/devices/iPad13,9.png",
+      "local_image": "data/ipsw_images/iPad/ipad13-9.png"
+    },
+    {
+      "name": "iPad Pro (11-inch, Cellular) (3rd generation)",
+      "identifier": "iPad13,5",
+      "image_url": "https://ipsw.me/assets/devices/iPad13,5.png",
+      "local_image": "data/ipsw_images/iPad/ipad13-5.png"
+    },
+    {
+      "name": "iPad Pro (11-inch, WiFi) (3rd generation)",
+      "identifier": "iPad13,4",
+      "image_url": "https://ipsw.me/assets/devices/iPad13,4.png",
+      "local_image": "data/ipsw_images/iPad/ipad13-4.png"
+    },
+    {
+      "name": "iPad Air 4 (Cellular)",
+      "identifier": "iPad13,2",
+      "image_url": "https://ipsw.me/assets/devices/iPad13,2.png",
+      "local_image": "data/ipsw_images/iPad/ipad13-2.png"
+    },
+    {
+      "name": "iPad 8 (Cellular)",
+      "identifier": "iPad11,7",
+      "image_url": "https://ipsw.me/assets/devices/iPad11,7.png",
+      "local_image": "data/ipsw_images/iPad/ipad11-7.png"
+    },
+    {
+      "name": "iPad 8 (WiFi)",
+      "identifier": "iPad11,6",
+      "image_url": "https://ipsw.me/assets/devices/iPad11,6.png",
+      "local_image": "data/ipsw_images/iPad/ipad11-6.png"
+    },
+    {
+      "name": "iPad Air 4 (WiFi)",
+      "identifier": "iPad13,1",
+      "image_url": "https://ipsw.me/assets/devices/iPad13,1.png",
+      "local_image": "data/ipsw_images/iPad/ipad13-1.png"
+    },
+    {
+      "name": "iPad Pro 4 (11-inch, Cellular)",
+      "identifier": "iPad8,10",
+      "image_url": "https://ipsw.me/assets/devices/iPad8,10.png",
+      "local_image": "data/ipsw_images/iPad/ipad8-10.png"
+    },
+    {
+      "name": "iPad Pro 4 (12.9-inch, WiFi)",
+      "identifier": "iPad8,11",
+      "image_url": "https://ipsw.me/assets/devices/iPad8,11.png",
+      "local_image": "data/ipsw_images/iPad/ipad8-11.png"
+    },
+    {
+      "name": "iPad Pro 4 (11-inch, WiFi)",
+      "identifier": "iPad8,9",
+      "image_url": "https://ipsw.me/assets/devices/iPad8,9.png",
+      "local_image": "data/ipsw_images/iPad/ipad8-9.png"
+    },
+    {
+      "name": "iPad Pro 4 (12.9-inch, Cellular)",
+      "identifier": "iPad8,12",
+      "image_url": "https://ipsw.me/assets/devices/iPad8,12.png",
+      "local_image": "data/ipsw_images/iPad/ipad8-12.png"
+    },
+    {
+      "name": "iPad 7 (WiFi)",
+      "identifier": "iPad7,11",
+      "image_url": "https://ipsw.me/assets/devices/iPad7,11.png",
+      "local_image": "data/ipsw_images/iPad/ipad7-11.png"
+    },
+    {
+      "name": "iPad 7 (Cellular)",
+      "identifier": "iPad7,12",
+      "image_url": "https://ipsw.me/assets/devices/iPad7,12.png",
+      "local_image": "data/ipsw_images/iPad/ipad7-12.png"
+    },
+    {
+      "name": "iPad Air 3 (Cellular)",
+      "identifier": "iPad11,4",
+      "image_url": "https://ipsw.me/assets/devices/iPad11,4.png",
+      "local_image": "data/ipsw_images/iPad/ipad11-4.png"
+    },
+    {
+      "name": "iPad Air 3 (WiFi)",
+      "identifier": "iPad11,3",
+      "image_url": "https://ipsw.me/assets/devices/iPad11,3.png",
+      "local_image": "data/ipsw_images/iPad/ipad11-3.png"
+    },
+    {
+      "name": "iPad mini 5 (Cellular)",
+      "identifier": "iPad11,2",
+      "image_url": "https://ipsw.me/assets/devices/iPad11,2.png",
+      "local_image": "data/ipsw_images/iPad/ipad11-2.png"
+    },
+    {
+      "name": "iPad mini 5 (WiFi)",
+      "identifier": "iPad11,1",
+      "image_url": "https://ipsw.me/assets/devices/iPad11,1.png",
+      "local_image": "data/ipsw_images/iPad/ipad11-1.png"
+    },
+    {
+      "name": "iPad Pro 3 (12.9-inch, Cellular, 1TB Model)",
+      "identifier": "iPad8,8",
+      "image_url": "https://ipsw.me/assets/devices/iPad8,8.png",
+      "local_image": "data/ipsw_images/iPad/ipad8-8.png"
+    },
+    {
+      "name": "iPad Pro 3 (12.9-inch, Cellular)",
+      "identifier": "iPad8,7",
+      "image_url": "https://ipsw.me/assets/devices/iPad8,7.png",
+      "local_image": "data/ipsw_images/iPad/ipad8-7.png"
+    },
+    {
+      "name": "iPad Pro 3 (12.9-inch, WiFi)",
+      "identifier": "iPad8,5",
+      "image_url": "https://ipsw.me/assets/devices/iPad8,5.png",
+      "local_image": "data/ipsw_images/iPad/ipad8-5.png"
+    },
+    {
+      "name": "iPad Pro 3 (11-inch, Cellular, 1TB Model)",
+      "identifier": "iPad8,4",
+      "image_url": "https://ipsw.me/assets/devices/iPad8,4.png",
+      "local_image": "data/ipsw_images/iPad/ipad8-4.png"
+    },
+    {
+      "name": "iPad Pro 3 (11-inch, WiFi, 1TB Model)",
+      "identifier": "iPad8,2",
+      "image_url": "https://ipsw.me/assets/devices/iPad8,2.png",
+      "local_image": "data/ipsw_images/iPad/ipad8-2.png"
+    },
+    {
+      "name": "iPad Pro 3 (11-inch, WiFi)",
+      "identifier": "iPad8,1",
+      "image_url": "https://ipsw.me/assets/devices/iPad8,1.png",
+      "local_image": "data/ipsw_images/iPad/ipad8-1.png"
+    },
+    {
+      "name": "iPad Pro 3 (11-inch, Cellular)",
+      "identifier": "iPad8,3",
+      "image_url": "https://ipsw.me/assets/devices/iPad8,3.png",
+      "local_image": "data/ipsw_images/iPad/ipad8-3.png"
+    },
+    {
+      "name": "iPad Pro 3 (12.9-inch, WiFi, 1TB Model)",
+      "identifier": "iPad8,6",
+      "image_url": "https://ipsw.me/assets/devices/iPad8,6.png",
+      "local_image": "data/ipsw_images/iPad/ipad8-6.png"
+    },
+    {
+      "name": "iPad 6 (Cellular)",
+      "identifier": "iPad7,6",
+      "image_url": "https://ipsw.me/assets/devices/iPad7,6.png",
+      "local_image": "data/ipsw_images/iPad/ipad7-6.png"
+    },
+    {
+      "name": "iPad 6 (WiFi)",
+      "identifier": "iPad7,5",
+      "image_url": "https://ipsw.me/assets/devices/iPad7,5.png",
+      "local_image": "data/ipsw_images/iPad/ipad7-5.png"
+    },
+    {
+      "name": "iPad Pro 2 (12.9-inch, WiFi)",
+      "identifier": "iPad7,1",
+      "image_url": "https://ipsw.me/assets/devices/iPad7,1.png",
+      "local_image": "data/ipsw_images/iPad/ipad7-1.png"
+    },
+    {
+      "name": "iPad Pro (10.5-inch, WiFi)",
+      "identifier": "iPad7,3",
+      "image_url": "https://ipsw.me/assets/devices/iPad7,3.png",
+      "local_image": "data/ipsw_images/iPad/ipad7-3.png"
+    },
+    {
+      "name": "iPad Pro (10.5-inch, Cellular)",
+      "identifier": "iPad7,4",
+      "image_url": "https://ipsw.me/assets/devices/iPad7,4.png",
+      "local_image": "data/ipsw_images/iPad/ipad7-4.png"
+    },
+    {
+      "name": "iPad Pro 2 (12.9-inch, Cellular)",
+      "identifier": "iPad7,2",
+      "image_url": "https://ipsw.me/assets/devices/iPad7,2.png",
+      "local_image": "data/ipsw_images/iPad/ipad7-2.png"
+    },
+    {
+      "name": "iPad 5 (Cellular)",
+      "identifier": "iPad6,12",
+      "image_url": "https://ipsw.me/assets/devices/iPad6,12.png",
+      "local_image": "data/ipsw_images/iPad/ipad6-12.png"
+    },
+    {
+      "name": "iPad 5 (WiFi)",
+      "identifier": "iPad6,11",
+      "image_url": "https://ipsw.me/assets/devices/iPad6,11.png",
+      "local_image": "data/ipsw_images/iPad/ipad6-11.png"
+    },
+    {
+      "name": "iPad Pro 9.7-inch (WiFi)",
+      "identifier": "iPad6,3",
+      "image_url": "https://ipsw.me/assets/devices/iPad6,3.png",
+      "local_image": "data/ipsw_images/iPad/ipad6-3.png"
+    },
+    {
+      "name": "iPad Pro 9.7-inch (Cellular)",
+      "identifier": "iPad6,4",
+      "image_url": "https://ipsw.me/assets/devices/iPad6,4.png",
+      "local_image": "data/ipsw_images/iPad/ipad6-4.png"
+    },
+    {
+      "name": "iPad Pro 12.9-inch (Cellular)",
+      "identifier": "iPad6,8",
+      "image_url": "https://ipsw.me/assets/devices/iPad6,8.png",
+      "local_image": "data/ipsw_images/iPad/ipad6-8.png"
+    },
+    {
+      "name": "iPad Pro 12.9-inch (WiFi)",
+      "identifier": "iPad6,7",
+      "image_url": "https://ipsw.me/assets/devices/iPad6,7.png",
+      "local_image": "data/ipsw_images/iPad/ipad6-7.png"
+    },
+    {
+      "name": "iPad mini 4 (Cellular)",
+      "identifier": "iPad5,2",
+      "image_url": "https://ipsw.me/assets/devices/iPad5,2.png",
+      "local_image": "data/ipsw_images/iPad/ipad5-2.png"
+    },
+    {
+      "name": "iPad mini 4 (WiFi)",
+      "identifier": "iPad5,1",
+      "image_url": "https://ipsw.me/assets/devices/iPad5,1.png",
+      "local_image": "data/ipsw_images/iPad/ipad5-1.png"
+    },
+    {
+      "name": "iPad Air 2 (Cellular)",
+      "identifier": "iPad5,4",
+      "image_url": "https://ipsw.me/assets/devices/iPad5,4.png",
+      "local_image": "data/ipsw_images/iPad/ipad5-4.png"
+    },
+    {
+      "name": "iPad Air 2 (WiFi)",
+      "identifier": "iPad5,3",
+      "image_url": "https://ipsw.me/assets/devices/iPad5,3.png",
+      "local_image": "data/ipsw_images/iPad/ipad5-3.png"
+    },
+    {
+      "name": "iPad mini 3 (China)",
+      "identifier": "iPad4,9",
+      "image_url": "https://ipsw.me/assets/devices/iPad4,9.png",
+      "local_image": "data/ipsw_images/iPad/ipad4-9.png"
+    },
+    {
+      "name": "iPad mini 3 (Cellular)",
+      "identifier": "iPad4,8",
+      "image_url": "https://ipsw.me/assets/devices/iPad4,8.png",
+      "local_image": "data/ipsw_images/iPad/ipad4-8.png"
+    },
+    {
+      "name": "iPad mini 3 (WiFi)",
+      "identifier": "iPad4,7",
+      "image_url": "https://ipsw.me/assets/devices/iPad4,7.png",
+      "local_image": "data/ipsw_images/iPad/ipad4-7.png"
+    },
+    {
+      "name": "iPad mini 2 (China)",
+      "identifier": "iPad4,6",
+      "image_url": "https://ipsw.me/assets/devices/iPad4,6.png",
+      "local_image": "data/ipsw_images/iPad/ipad4-6.png"
+    },
+    {
+      "name": "iPad Air (China)",
+      "identifier": "iPad4,3",
+      "image_url": "https://ipsw.me/assets/devices/iPad4,3.png",
+      "local_image": "data/ipsw_images/iPad/ipad4-3.png"
+    },
+    {
+      "name": "iPad Air (Cellular)",
+      "identifier": "iPad4,2",
+      "image_url": "https://ipsw.me/assets/devices/iPad4,2.png",
+      "local_image": "data/ipsw_images/iPad/ipad4-2.png"
+    },
+    {
+      "name": "iPad Air (WiFi)",
+      "identifier": "iPad4,1",
+      "image_url": "https://ipsw.me/assets/devices/iPad4,1.png",
+      "local_image": "data/ipsw_images/iPad/ipad4-1.png"
+    },
+    {
+      "name": "iPad mini 2 (Cellular)",
+      "identifier": "iPad4,5",
+      "image_url": "https://ipsw.me/assets/devices/iPad4,5.png",
+      "local_image": "data/ipsw_images/iPad/ipad4-5.png"
+    },
+    {
+      "name": "iPad mini 2 (WiFi)",
+      "identifier": "iPad4,4",
+      "image_url": "https://ipsw.me/assets/devices/iPad4,4.png",
+      "local_image": "data/ipsw_images/iPad/ipad4-4.png"
+    },
+    {
+      "name": "iPad 4 (Global)",
+      "identifier": "iPad3,6",
+      "image_url": "https://ipsw.me/assets/devices/iPad3,6.png",
+      "local_image": "data/ipsw_images/iPad/ipad3-6.png"
+    },
+    {
+      "name": "iPad 4 (GSM)",
+      "identifier": "iPad3,5",
+      "image_url": "https://ipsw.me/assets/devices/iPad3,5.png",
+      "local_image": "data/ipsw_images/iPad/ipad3-5.png"
+    },
+    {
+      "name": "iPad 4 (WiFi)",
+      "identifier": "iPad3,4",
+      "image_url": "https://ipsw.me/assets/devices/iPad3,4.png",
+      "local_image": "data/ipsw_images/iPad/ipad3-4.png"
+    },
+    {
+      "name": "iPad mini (Global)",
+      "identifier": "iPad2,7",
+      "image_url": "https://ipsw.me/assets/devices/iPad2,7.png",
+      "local_image": "data/ipsw_images/iPad/ipad2-7.png"
+    },
+    {
+      "name": "iPad mini (GSM)",
+      "identifier": "iPad2,6",
+      "image_url": "https://ipsw.me/assets/devices/iPad2,6.png",
+      "local_image": "data/ipsw_images/iPad/ipad2-6.png"
+    },
+    {
+      "name": "iPad mini (WiFi)",
+      "identifier": "iPad2,5",
+      "image_url": "https://ipsw.me/assets/devices/iPad2,5.png",
+      "local_image": "data/ipsw_images/iPad/ipad2-5.png"
+    },
+    {
+      "name": "iPad 3 (GSM)",
+      "identifier": "iPad3,3",
+      "image_url": "https://ipsw.me/assets/devices/iPad3,3.png",
+      "local_image": "data/ipsw_images/iPad/ipad3-3.png"
+    },
+    {
+      "name": "iPad 3 (CDMA)",
+      "identifier": "iPad3,2",
+      "image_url": "https://ipsw.me/assets/devices/iPad3,2.png",
+      "local_image": "data/ipsw_images/iPad/ipad3-2.png"
+    },
+    {
+      "name": "iPad 3 (WiFi)",
+      "identifier": "iPad3,1",
+      "image_url": "https://ipsw.me/assets/devices/iPad3,1.png",
+      "local_image": "data/ipsw_images/iPad/ipad3-1.png"
+    },
+    {
+      "name": "iPad 2 (Mid 2012)",
+      "identifier": "iPad2,4",
+      "image_url": "https://ipsw.me/assets/devices/iPad2,4.png",
+      "local_image": "data/ipsw_images/iPad/ipad2-4.png"
+    },
+    {
+      "name": "iPad 2 (CDMA)",
+      "identifier": "iPad2,3",
+      "image_url": "https://ipsw.me/assets/devices/iPad2,3.png",
+      "local_image": "data/ipsw_images/iPad/ipad2-3.png"
+    },
+    {
+      "name": "iPad 2 (GSM)",
+      "identifier": "iPad2,2",
+      "image_url": "https://ipsw.me/assets/devices/iPad2,2.png",
+      "local_image": "data/ipsw_images/iPad/ipad2-2.png"
+    },
+    {
+      "name": "iPad 2 (WiFi)",
+      "identifier": "iPad2,1",
+      "image_url": "https://ipsw.me/assets/devices/iPad2,1.png",
+      "local_image": "data/ipsw_images/iPad/ipad2-1.png"
+    },
+    {
+      "name": "iPad 1",
+      "identifier": "iPad1,1",
+      "image_url": "https://ipsw.me/assets/devices/iPad1,1.png",
+      "local_image": "data/ipsw_images/iPad/ipad1-1.png"
+    }
+  ],
+  "Mac": [
+    {
+      "name": "MacBook Pro (16-inch, M5 Pro)",
+      "identifier": "Mac17,8",
+      "image_url": "https://ipsw.me/assets/devices/Mac17,8.png",
+      "local_image": "data/ipsw_images/Mac/mac17-8.png"
+    },
+    {
+      "name": "MacBook Pro (14-inch, M5 Pro)",
+      "identifier": "Mac17,9",
+      "image_url": "https://ipsw.me/assets/devices/Mac17,9.png",
+      "local_image": "data/ipsw_images/Mac/mac17-9.png"
+    },
+    {
+      "name": "MacBook Air (15-inch, M5)",
+      "identifier": "Mac17,4",
+      "image_url": "https://ipsw.me/assets/devices/Mac17,4.png",
+      "local_image": "data/ipsw_images/Mac/mac17-4.png"
+    },
+    {
+      "name": "MacBook Pro (16-inch, M5 Max)",
+      "identifier": "Mac17,6",
+      "image_url": "https://ipsw.me/assets/devices/Mac17,6.png",
+      "local_image": "data/ipsw_images/Mac/mac17-6.png"
+    },
+    {
+      "name": "MacBook Air (13-inch, M5)",
+      "identifier": "Mac17,3",
+      "image_url": "https://ipsw.me/assets/devices/Mac17,3.png",
+      "local_image": "data/ipsw_images/Mac/mac17-3.png"
+    },
+    {
+      "name": "MacBook Pro (14-inch, M5 Max)",
+      "identifier": "Mac17,7",
+      "image_url": "https://ipsw.me/assets/devices/Mac17,7.png",
+      "local_image": "data/ipsw_images/Mac/mac17-7.png"
+    },
+    {
+      "name": "MacBook Neo",
+      "identifier": "Mac17,5",
+      "image_url": "https://ipsw.me/assets/devices/Mac17,5.png",
+      "local_image": "data/ipsw_images/Mac/mac17-5.png"
+    },
+    {
+      "name": "MacBook Pro (14-inch, M5)",
+      "identifier": "Mac17,2",
+      "image_url": "https://ipsw.me/assets/devices/Mac17,2.png",
+      "local_image": "data/ipsw_images/Mac/mac17-2.png"
+    },
+    {
+      "name": "Mac Studio (2025)",
+      "identifier": "Mac16,9",
+      "image_url": "https://ipsw.me/assets/devices/Mac16,9.png",
+      "local_image": "data/ipsw_images/Mac/mac16-9.png"
+    },
+    {
+      "name": "MacBook Air (13-inch, M4, 2025)",
+      "identifier": "Mac16,12",
+      "image_url": "https://ipsw.me/assets/devices/Mac16,12.png",
+      "local_image": "data/ipsw_images/Mac/mac16-12.png"
+    },
+    {
+      "name": "MacBook Air (15-inch, M4, 2025)",
+      "identifier": "Mac16,13",
+      "image_url": "https://ipsw.me/assets/devices/Mac16,13.png",
+      "local_image": "data/ipsw_images/Mac/mac16-13.png"
+    },
+    {
+      "name": "Mac Studio (2025)",
+      "identifier": "Mac15,14",
+      "image_url": "https://ipsw.me/assets/devices/Mac15,14.png",
+      "local_image": "data/ipsw_images/Mac/mac15-14.png"
+    },
+    {
+      "name": "MacBook Pro (M4 Pro, 14-inch, Nov 2024)",
+      "identifier": "Mac16,8",
+      "image_url": "https://ipsw.me/assets/devices/Mac16,8.png",
+      "local_image": "data/ipsw_images/Mac/mac16-8.png"
+    },
+    {
+      "name": "iMac (Two Ports, 24-inch, 2024)",
+      "identifier": "Mac16,2",
+      "image_url": "https://ipsw.me/assets/devices/Mac16,2.png",
+      "local_image": "data/ipsw_images/Mac/mac16-2.png"
+    },
+    {
+      "name": "MacBook Pro (M4 Pro, 16-inch, Nov 2024)",
+      "identifier": "Mac16,7",
+      "image_url": "https://ipsw.me/assets/devices/Mac16,7.png",
+      "local_image": "data/ipsw_images/Mac/mac16-7.png"
+    },
+    {
+      "name": "Mac mini (M4 Pro, 2024)",
+      "identifier": "Mac16,11",
+      "image_url": "https://ipsw.me/assets/devices/Mac16,11.png",
+      "local_image": "data/ipsw_images/Mac/mac16-11.png"
+    },
+    {
+      "name": "iMac (Four Ports, 24-inch, 2024)",
+      "identifier": "Mac16,3",
+      "image_url": "https://ipsw.me/assets/devices/Mac16,3.png",
+      "local_image": "data/ipsw_images/Mac/mac16-3.png"
+    },
+    {
+      "name": "MacBook Pro (M4 Max, 16-inch, Nov 2024)",
+      "identifier": "Mac16,5",
+      "image_url": "https://ipsw.me/assets/devices/Mac16,5.png",
+      "local_image": "data/ipsw_images/Mac/mac16-5.png"
+    },
+    {
+      "name": "MacBook Pro (M4, 14-inch, Nov 2024)",
+      "identifier": "Mac16,1",
+      "image_url": "https://ipsw.me/assets/devices/Mac16,1.png",
+      "local_image": "data/ipsw_images/Mac/mac16-1.png"
+    },
+    {
+      "name": "MacBook Pro (M4 Max, 14-inch, Nov 2024)",
+      "identifier": "Mac16,6",
+      "image_url": "https://ipsw.me/assets/devices/Mac16,6.png",
+      "local_image": "data/ipsw_images/Mac/mac16-6.png"
+    },
+    {
+      "name": "Mac mini (M4, 2024)",
+      "identifier": "Mac16,10",
+      "image_url": "https://ipsw.me/assets/devices/Mac16,10.png",
+      "local_image": "data/ipsw_images/Mac/mac16-10.png"
+    },
+    {
+      "name": "MacBook Air (13-inch, M3, 2024)",
+      "identifier": "Mac15,12",
+      "image_url": "https://ipsw.me/assets/devices/Mac15,12.png",
+      "local_image": "data/ipsw_images/Mac/mac15-12.png"
+    },
+    {
+      "name": "MacBook Air (15-inch, M3, 2024)",
+      "identifier": "Mac15,13",
+      "image_url": "https://ipsw.me/assets/devices/Mac15,13.png",
+      "local_image": "data/ipsw_images/Mac/mac15-13.png"
+    },
+    {
+      "name": "MacBook Pro (16-inch, Nov 2023)",
+      "identifier": "Mac15,7",
+      "image_url": "https://ipsw.me/assets/devices/Mac15,7.png",
+      "local_image": "data/ipsw_images/Mac/mac15-7.png"
+    },
+    {
+      "name": "MacBook Pro (14-inch, Nov 2023)",
+      "identifier": "Mac15,8",
+      "image_url": "https://ipsw.me/assets/devices/Mac15,8.png",
+      "local_image": "data/ipsw_images/Mac/mac15-8.png"
+    },
+    {
+      "name": "MacBook Pro (14-inch, Nov 2023)",
+      "identifier": "Mac15,10",
+      "image_url": "https://ipsw.me/assets/devices/Mac15,10.png",
+      "local_image": "data/ipsw_images/Mac/mac15-10.png"
+    },
+    {
+      "name": "MacBook Pro (14-inch, Nov 2023)",
+      "identifier": "Mac15,3",
+      "image_url": "https://ipsw.me/assets/devices/Mac15,3.png",
+      "local_image": "data/ipsw_images/Mac/mac15-3.png"
+    },
+    {
+      "name": "MacBook Pro (16-inch, Nov 2023)",
+      "identifier": "Mac15,11",
+      "image_url": "https://ipsw.me/assets/devices/Mac15,11.png",
+      "local_image": "data/ipsw_images/Mac/mac15-11.png"
+    },
+    {
+      "name": "MacBook Pro (14-inch, Nov 2023)",
+      "identifier": "Mac15,6",
+      "image_url": "https://ipsw.me/assets/devices/Mac15,6.png",
+      "local_image": "data/ipsw_images/Mac/mac15-6.png"
+    },
+    {
+      "name": "iMac (Four Ports, 24-inch, 2023)",
+      "identifier": "Mac15,5",
+      "image_url": "https://ipsw.me/assets/devices/Mac15,5.png",
+      "local_image": "data/ipsw_images/Mac/mac15-5.png"
+    },
+    {
+      "name": "iMac (Two Ports, 24-inch, 2023)",
+      "identifier": "Mac15,4",
+      "image_url": "https://ipsw.me/assets/devices/Mac15,4.png",
+      "local_image": "data/ipsw_images/Mac/mac15-4.png"
+    },
+    {
+      "name": "MacBook Pro (M3 Max, 16-inch, Nov 2023)",
+      "identifier": "Mac15,9",
+      "image_url": "https://ipsw.me/assets/devices/Mac15,9.png",
+      "local_image": "data/ipsw_images/Mac/mac15-9.png"
+    },
+    {
+      "name": "Mac Pro (2023)",
+      "identifier": "Mac14,8",
+      "image_url": "https://ipsw.me/assets/devices/Mac14,8.png",
+      "local_image": "data/ipsw_images/Mac/mac14-8.png"
+    },
+    {
+      "name": "Mac Studio (M2 Ultra, 2023)",
+      "identifier": "Mac14,14",
+      "image_url": "https://ipsw.me/assets/devices/Mac14,14.png",
+      "local_image": "data/ipsw_images/Mac/mac14-14.png"
+    },
+    {
+      "name": "Mac Studio (M2 Max, 2023)",
+      "identifier": "Mac14,13",
+      "image_url": "https://ipsw.me/assets/devices/Mac14,13.png",
+      "local_image": "data/ipsw_images/Mac/mac14-13.png"
+    },
+    {
+      "name": "MacBook Air (15-inch, M2, 2023)",
+      "identifier": "Mac14,15",
+      "image_url": "https://ipsw.me/assets/devices/Mac14,15.png",
+      "local_image": "data/ipsw_images/Mac/mac14-15.png"
+    },
+    {
+      "name": "MacBook Pro (M2 Pro, 16-inch, 2023)",
+      "identifier": "Mac14,10",
+      "image_url": "https://ipsw.me/assets/devices/Mac14,10.png",
+      "local_image": "data/ipsw_images/Mac/mac14-10.png"
+    },
+    {
+      "name": "Mac mini (M2 Pro, 2023)",
+      "identifier": "Mac14,12",
+      "image_url": "https://ipsw.me/assets/devices/Mac14,12.png",
+      "local_image": "data/ipsw_images/Mac/mac14-12.png"
+    },
+    {
+      "name": "MacBook Pro (M2 Pro, 14-inch, 2023)",
+      "identifier": "Mac14,9",
+      "image_url": "https://ipsw.me/assets/devices/Mac14,9.png",
+      "local_image": "data/ipsw_images/Mac/mac14-9.png"
+    },
+    {
+      "name": "MacBook Pro (M2 Max, 16-inch, 2023)",
+      "identifier": "Mac14,6",
+      "image_url": "https://ipsw.me/assets/devices/Mac14,6.png",
+      "local_image": "data/ipsw_images/Mac/mac14-6.png"
+    },
+    {
+      "name": "MacBook Pro (M2 Max, 14-inch, 2023)",
+      "identifier": "Mac14,5",
+      "image_url": "https://ipsw.me/assets/devices/Mac14,5.png",
+      "local_image": "data/ipsw_images/Mac/mac14-5.png"
+    },
+    {
+      "name": "Mac mini (M2, 2023)",
+      "identifier": "Mac14,3",
+      "image_url": "https://ipsw.me/assets/devices/Mac14,3.png",
+      "local_image": "data/ipsw_images/Mac/mac14-3.png"
+    },
+    {
+      "name": "MacBook Pro (13-inch, M2, 2022)",
+      "identifier": "Mac14,7",
+      "image_url": "https://ipsw.me/assets/devices/Mac14,7.png",
+      "local_image": "data/ipsw_images/Mac/mac14-7.png"
+    },
+    {
+      "name": "MacBook Air (M2, 2022)",
+      "identifier": "Mac14,2",
+      "image_url": "https://ipsw.me/assets/devices/Mac14,2.png",
+      "local_image": "data/ipsw_images/Mac/mac14-2.png"
+    },
+    {
+      "name": "Apple Virtual Machine 1",
+      "identifier": "VirtualMac2,1",
+      "image_url": "https://ipsw.me/assets/devices/VirtualMac2,1.png",
+      "local_image": "data/ipsw_images/Mac/virtualmac2-1.png"
+    },
+    {
+      "name": "Mac Studio (M1 Ultra)",
+      "identifier": "Mac13,2",
+      "image_url": "https://ipsw.me/assets/devices/Mac13,2.png",
+      "local_image": "data/ipsw_images/Mac/mac13-2.png"
+    },
+    {
+      "name": "Mac Studio (M1 Max)",
+      "identifier": "Mac13,1",
+      "image_url": "https://ipsw.me/assets/devices/Mac13,1.png",
+      "local_image": "data/ipsw_images/Mac/mac13-1.png"
+    },
+    {
+      "name": "MacBook Pro (M1 Max, 14-inch, 2021)",
+      "identifier": "MacBookPro18,4",
+      "image_url": "https://ipsw.me/assets/devices/MacBookPro18,4.png",
+      "local_image": "data/ipsw_images/Mac/macbookpro18-4.png"
+    },
+    {
+      "name": "MacBook Pro (M1 Pro, 16-inch, 2021)",
+      "identifier": "MacBookPro18,1",
+      "image_url": "https://ipsw.me/assets/devices/MacBookPro18,1.png",
+      "local_image": "data/ipsw_images/Mac/macbookpro18-1.png"
+    },
+    {
+      "name": "MacBook Pro (M1 Pro, 14-inch, 2021)",
+      "identifier": "MacBookPro18,3",
+      "image_url": "https://ipsw.me/assets/devices/MacBookPro18,3.png",
+      "local_image": "data/ipsw_images/Mac/macbookpro18-3.png"
+    },
+    {
+      "name": "MacBook Pro (M1 Max, 16-inch, 2021)",
+      "identifier": "MacBookPro18,2",
+      "image_url": "https://ipsw.me/assets/devices/MacBookPro18,2.png",
+      "local_image": "data/ipsw_images/Mac/macbookpro18-2.png"
+    },
+    {
+      "name": "iMac 24-inch (M1, Four Ports, 2021)",
+      "identifier": "iMac21,2",
+      "image_url": "https://ipsw.me/assets/devices/iMac21,2.png",
+      "local_image": "data/ipsw_images/Mac/imac21-2.png"
+    },
+    {
+      "name": "iMac 24-inch (M1, Two Ports, 2021)",
+      "identifier": "iMac21,1",
+      "image_url": "https://ipsw.me/assets/devices/iMac21,1.png",
+      "local_image": "data/ipsw_images/Mac/imac21-1.png"
+    },
+    {
+      "name": "Mac mini (M1, Late 2020)",
+      "identifier": "Macmini9,1",
+      "image_url": "https://ipsw.me/assets/devices/Macmini9,1.png",
+      "local_image": "data/ipsw_images/Mac/macmini9-1.png"
+    },
+    {
+      "name": "Developer Transition Kit",
+      "identifier": "ADP3,2",
+      "image_url": "https://ipsw.me/assets/devices/ADP3,2.png",
+      "local_image": "data/ipsw_images/Mac/adp3-2.png"
+    },
+    {
+      "name": "MacBook Air (M1, Late 2020)",
+      "identifier": "MacBookAir10,1",
+      "image_url": "https://ipsw.me/assets/devices/MacBookAir10,1.png",
+      "local_image": "data/ipsw_images/Mac/macbookair10-1.png"
+    },
+    {
+      "name": "MacBook Pro (M1, Late 2020)",
+      "identifier": "MacBookPro17,1",
+      "image_url": "https://ipsw.me/assets/devices/MacBookPro17,1.png",
+      "local_image": "data/ipsw_images/Mac/macbookpro17-1.png"
+    }
+  ],
+  "Vision": [
+    {
+      "name": "Apple Vision Pro (M5)",
+      "identifier": "RealityDevice17,1",
+      "image_url": "https://ipsw.me/assets/devices/RealityDevice17,1.png",
+      "local_image": "data/ipsw_images/Vision/realitydevice17-1.png"
+    },
+    {
+      "name": "Apple Vision Pro",
+      "identifier": "RealityDevice14,1",
+      "image_url": "https://ipsw.me/assets/devices/RealityDevice14,1.png",
+      "local_image": "data/ipsw_images/Vision/realitydevice14-1.png"
+    }
+  ],
+  "AppleTV": [
+    {
+      "name": "Apple TV 4K",
+      "identifier": "AppleTV6,2",
+      "image_url": "https://ipsw.me/assets/devices/AppleTV6,2.png",
+      "local_image": "data/ipsw_images/AppleTV/appletv6-2.png"
+    },
+    {
+      "name": "Apple TV 4 (2015)",
+      "identifier": "AppleTV5,3",
+      "image_url": "https://ipsw.me/assets/devices/AppleTV5,3.png",
+      "local_image": "data/ipsw_images/AppleTV/appletv5-3.png"
+    },
+    {
+      "name": "Apple TV 3 (2013)",
+      "identifier": "AppleTV3,2",
+      "image_url": "https://ipsw.me/assets/devices/AppleTV3,2.png",
+      "local_image": "data/ipsw_images/AppleTV/appletv3-2.png"
+    },
+    {
+      "name": "Apple TV 3",
+      "identifier": "AppleTV3,1",
+      "image_url": "https://ipsw.me/assets/devices/AppleTV3,1.png",
+      "local_image": "data/ipsw_images/AppleTV/appletv3-1.png"
+    },
+    {
+      "name": "Apple TV 2G",
+      "identifier": "AppleTV2,1",
+      "image_url": "https://ipsw.me/assets/devices/AppleTV2,1.png",
+      "local_image": "data/ipsw_images/AppleTV/appletv2-1.png"
+    }
+  ],
+  "AudioAccessory": [
+    {
+      "name": "HomePod (2nd generation)",
+      "identifier": "AudioAccessory6,1",
+      "image_url": "https://ipsw.me/assets/devices/AudioAccessory6,1.png",
+      "local_image": "data/ipsw_images/AudioAccessory/audioaccessory6-1.png"
+    },
+    {
+      "name": "HomePod mini",
+      "identifier": "AudioAccessory5,1",
+      "image_url": "https://ipsw.me/assets/devices/AudioAccessory5,1.png",
+      "local_image": "data/ipsw_images/AudioAccessory/audioaccessory5-1.png"
+    },
+    {
+      "name": "HomePod (Unknown Model)",
+      "identifier": "AudioAccessory1,2",
+      "image_url": "https://ipsw.me/assets/devices/AudioAccessory1,2.png",
+      "local_image": "data/ipsw_images/AudioAccessory/audioaccessory1-2.png"
+    },
+    {
+      "name": "HomePod",
+      "identifier": "AudioAccessory1,1",
+      "image_url": "https://ipsw.me/assets/devices/AudioAccessory1,1.png",
+      "local_image": "data/ipsw_images/AudioAccessory/audioaccessory1-1.png"
+    }
+  ]
+}

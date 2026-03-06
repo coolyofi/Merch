@@ -38,10 +38,6 @@
           <h1>选择桌子或新建一个</h1>
           <p class="hero-sub">查看已保存桌子，或快速创建并进入排布。</p>
         </div>
-        <div class="hero-actions">
-          <button class="btn-primary" id="dash-new-btn">新建桌子</button>
-          <button class="btn-ghost" id="dash-goto-board">查看已保存</button>
-        </div>
       </div>
 
       <div class="dash-grid">
@@ -91,20 +87,19 @@
     <div class="param-bar">
       <div class="param-left">
         <div class="param-title" id="layout-name-display">当前布局</div>
-        <div class="param-sub">模板、桌长（规则版本固定）</div>
+        <div class="param-sub" id="layout-config-summary">当前模板：通用桌/墙 · 桌长：未设置 · 不包含 2×3 标签</div>
       </div>
       <div class="param-right">
+        <button class="btn-ghost" id="edit-layout-info-btn">编辑桌子信息</button>
+        <button class="btn-ghost" id="save-layout-btn">云保存</button>
+        <button id="calc-btn" class="btn-primary">计算布局</button>
+      </div>
+      <div class="layout-hidden-controls" aria-hidden="true">
         <select id="scene-select"></select>
         <select id="table-preset"></select>
         <input type="number" id="table-length" placeholder='120"' min="1" step="0.5" />
-        <label class="toggle-row param-toggle">
-          <input type="checkbox" id="signage-toggle" />
-          <span>包含 2×3 标签</span>
-        </label>
-        <button id="calc-btn" class="btn-primary">计算布局</button>
-        <button class="btn-ghost" id="save-layout-btn">云保存</button>
-        <button class="btn-ghost" id="load-layout-btn">云加载</button>
-        <button class="btn-ghost" id="replay-layout-btn">回放重算</button>
+        <input type="checkbox" id="signage-toggle" />
+        <input type="number" id="edge-x" placeholder='7"' min="0.5" step="0.5" />
       </div>
     </div>
 
@@ -112,12 +107,8 @@
         <!-- 上侧等待区 -->
         <aside class="waiting-panel waiting-left" id="queue-left-panel">
           <div class="panel-header">
-            <span class="panel-title">上侧等待区（主排）</span>
+            <span class="panel-title">上侧设备区：</span>
             <button class="btn-ghost btn-clear-queue" data-side="left">清空</button>
-          </div>
-          <div id="signage-edge-section" class="ctx-params" style="display:none">
-            <label>边缘 X（英寸）</label>
-            <input type="number" id="edge-x" placeholder='7"' min="0.5" step="0.5" />
           </div>
           <div id="iphone-y-section" class="ctx-params" style="display:none">
             <label>Riser 间距 Y（英寸）</label>
@@ -165,7 +156,7 @@
         <!-- 右侧等待区/库 -->
         <aside class="waiting-panel waiting-right" id="queue-right-panel">
           <div class="panel-header">
-            <span class="panel-title">下侧等待区（对侧）</span>
+            <span class="panel-title">下侧设备区：</span>
             <button class="btn-ghost btn-clear-queue" data-side="right">清空</button>
           </div>
           <div class="queue-zone" id="queue-right" data-side="right">
@@ -195,6 +186,35 @@
             <div id="custom-items" class="lib-items lib-custom-items"></div>
           </div>
         </aside>
+      </div>
+    </div>
+
+    <div class="modal" id="edit-layout-modal">
+      <div class="modal-body">
+        <div class="modal-header">
+          <h3>编辑桌子信息</h3>
+          <button class="btn-ghost" id="edit-layout-close">关闭</button>
+        </div>
+        <div class="field-group">
+          <label>模板</label>
+          <select id="edit-scene-select"></select>
+        </div>
+        <div class="field-group">
+          <label>桌长预设</label>
+          <select id="edit-table-preset"></select>
+        </div>
+        <div class="field-group">
+          <label>桌长（英寸）</label>
+          <input type="number" id="edit-table-length" placeholder='120"' min="1" step="0.5" />
+        </div>
+        <label class="toggle-row" style="margin: 0;">
+          <input type="checkbox" id="edit-signage-toggle" />
+          <span>包含 2×3 标签</span>
+        </label>
+        <div class="modal-actions">
+          <button class="btn-ghost" id="edit-layout-cancel">取消</button>
+          <button class="btn-primary" id="edit-layout-apply">更新</button>
+        </div>
       </div>
     </div>
   </section>

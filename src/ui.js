@@ -157,6 +157,13 @@ function updateLayoutMetaUI() {
   if (nameInput && nameInput.value !== layoutName) nameInput.value = layoutName
   const nameDisplay = document.getElementById('layout-name-display')
   if (nameDisplay) nameDisplay.textContent = layoutName || '未命名桌子'
+  const infoSummary = document.getElementById('layout-config-summary')
+  if (infoSummary) {
+    const sceneLabel = SCENES[currentScene]?.label || currentScene || '未设置'
+    const lengthLabel = formatTableLengthLabel(document.getElementById('table-length')?.value)
+    const signageLabel = signageOn ? '包含 2×3 标签' : '不包含 2×3 标签'
+    infoSummary.textContent = `当前模板：${sceneLabel} · 桌长：${lengthLabel} · ${signageLabel}`
+  }
   const scenePill = document.getElementById('layout-scene-pill')
   if (scenePill) scenePill.textContent = SCENES[currentScene]?.label || currentScene
   const rulePill = document.getElementById('rule-version-pill')
@@ -177,6 +184,27 @@ function renderPresets() {
   const sel = document.getElementById('table-preset')
   sel.innerHTML = TABLE_PRESETS.map(p => `<option value="${p.value}">${p.label}</option>`).join('')
 }
+
+function formatTableLengthLabel(rawVal) {
+  const A = parseFloat(rawVal)
+  if (!Number.isFinite(A) || A <= 0) return '未设置'
+  const preset = TABLE_PRESETS.find(p => Number(p.value) === A)
+  if (preset) return preset.label
+  return `${A} 英寸`
+}
+
+function syncPresetByLength(lengthValRaw) {
+  const presetSel = document.getElementById('table-preset')
+  if (!presetSel) return
+  const A = parseFloat(lengthValRaw)
+  if (!Number.isFinite(A) || A <= 0) {
+    presetSel.value = ''
+    return
+  }
+  const preset = TABLE_PRESETS.find(p => Number(p.value) === A)
+  presetSel.value = preset ? String(preset.value) : ''
+}
+
 function autoFillEdgeX() {
   const A = parseFloat(document.getElementById('table-length').value)
   if (!A) return
@@ -247,7 +275,7 @@ function renderQueue(side) {
   const data = side === 'left' ? queueLeft : queueRight
   zone.innerHTML = ''
   if (!data.length) {
-    const hint = side === 'left' ? '拖入元素到上侧' : '可选：拖入下侧元素'
+    const hint = side === 'left' ? '拖入设备到上侧' : '可选：拖入设备到下侧'
     zone.innerHTML = `<div class="queue-empty-hint">${hint}</div>`
     return
   }
@@ -559,8 +587,7 @@ function startFreshLayout(name, sceneKey, lengthVal, signageFlag = false) {
   assortGroups = []
   lastResult = null
   document.getElementById('table-length').value = lengthVal || ''
-  const preset = document.getElementById('table-preset')
-  if (preset) preset.value = lengthVal || ''
+  syncPresetByLength(lengthVal)
   document.getElementById('edge-x').value = ''
   document.getElementById('iphone-y').value = ''
   setScene(sceneKey || 'general')
@@ -582,6 +609,50 @@ function startLayoutFromDashboard() {
   const lenSel = document.getElementById('dash-length')
   const len = lenSel ? parseFloat(lenSel.value) : ''
   startFreshLayout(name || '未命名桌子', sceneKey, Number.isFinite(len) ? len : '', signage)
+}
+
+function openEditLayoutModal() {
+  const modal = document.getElementById('edit-layout-modal')
+  if (!modal) return
+  const sceneSel = document.getElementById('edit-scene-select')
+  if (sceneSel) {
+    sceneSel.innerHTML = Object.entries(SCENES).map(([k,v]) => `<option value="${k}">${v.label}</option>`).join('')
+    sceneSel.value = currentScene
+  }
+  const presetSel = document.getElementById('edit-table-preset')
+  if (presetSel) {
+    presetSel.innerHTML = TABLE_PRESETS.map(p => `<option value="${p.value}">${p.label}</option>`).join('')
+    syncPresetByLength(document.getElementById('table-length')?.value || '')
+    presetSel.value = document.getElementById('table-preset')?.value || ''
+  }
+  const lengthInput = document.getElementById('edit-table-length')
+  if (lengthInput) lengthInput.value = document.getElementById('table-length')?.value || ''
+  const signageToggle = document.getElementById('edit-signage-toggle')
+  if (signageToggle) signageToggle.checked = signageOn
+  modal.classList.add('open')
+}
+
+function closeEditLayoutModal() {
+  const modal = document.getElementById('edit-layout-modal')
+  if (modal) modal.classList.remove('open')
+}
+
+function applyEditedLayoutInfo() {
+  const sceneKey = document.getElementById('edit-scene-select')?.value || currentScene
+  const lengthRaw = document.getElementById('edit-table-length')?.value || ''
+  const parsedLen = parseFloat(lengthRaw)
+  const lengthVal = Number.isFinite(parsedLen) && parsedLen > 0 ? parsedLen : ''
+  signageOn = !!document.getElementById('edit-signage-toggle')?.checked
+  const sceneSel = document.getElementById('scene-select')
+  if (sceneSel) sceneSel.value = sceneKey
+  const tableLen = document.getElementById('table-length')
+  if (tableLen) tableLen.value = lengthVal === '' ? '' : String(lengthVal)
+  const signageToggle = document.getElementById('signage-toggle')
+  if (signageToggle) signageToggle.checked = signageOn
+  syncPresetByLength(lengthVal)
+  setScene(sceneKey)
+  updateLayoutMetaUI()
+  closeEditLayoutModal()
 }
 
 function addToQueue(item, side='left') {
@@ -887,6 +958,7 @@ function restoreDraft() {
     const d = JSON.parse(raw)
     currentScene = d.scene || 'general'
     document.getElementById('table-length').value = d.tableLength || ''
+    syncPresetByLength(d.tableLength || '')
     document.getElementById('edge-x').value = d.edgeX || ''
     document.getElementById('iphone-y').value = d.iphoneY || ''
     if (document.getElementById('rule-version')) {
@@ -925,9 +997,13 @@ function bindEvents() {
       const tl = document.getElementById('table-length')
       if (tl) tl.value = e.target.value
       autoFillEdgeX(); autoFillY(); saveDraft()
+      updateLayoutMetaUI()
     }
   })
-  document.getElementById('table-length')?.addEventListener('input', ()=>{autoFillEdgeX(); autoFillY(); saveDraft()})
+  document.getElementById('table-length')?.addEventListener('input', e=>{
+    syncPresetByLength(e.target.value)
+    autoFillEdgeX(); autoFillY(); saveDraft(); updateLayoutMetaUI()
+  })
   document.getElementById('edge-x')?.addEventListener('input', saveDraft)
   document.getElementById('iphone-y')?.addEventListener('input', saveDraft)
   document.getElementById('rule-version')?.addEventListener('change', ()=>{autoFillEdgeX(); autoFillY(); saveDraft()})
@@ -939,7 +1015,7 @@ function bindEvents() {
       signageOn = e.target.checked
       const sec = document.getElementById('signage-edge-section')
       if (sec) sec.style.display = signageOn ? 'block' : 'none'
-      autoFillEdgeX(); saveDraft()
+      autoFillEdgeX(); saveDraft(); updateLayoutMetaUI()
     })
   }
   const nameInput = document.getElementById('layout-name-input')
@@ -964,10 +1040,6 @@ function bindEvents() {
   if (boardNameInput) boardNameInput.addEventListener('keydown', e => { if (e.key === 'Enter') saveCurrentToBoard() })
   const dashStart = document.getElementById('dash-start-btn')
   if (dashStart) dashStart.addEventListener('click', startLayoutFromDashboard)
-  const dashNewBtn = document.getElementById('dash-new-btn')
-  if (dashNewBtn) dashNewBtn.addEventListener('click', () => { setView('dashboard'); document.getElementById('dash-create-card')?.scrollIntoView({behavior:'smooth'}) })
-  const dashGotoBoard = document.getElementById('dash-goto-board')
-  if (dashGotoBoard) dashGotoBoard.addEventListener('click', () => { setView('dashboard'); document.getElementById('dashboard-board')?.scrollIntoView({behavior:'smooth'}) })
   const dashRefresh = document.getElementById('dash-refresh-board')
   if (dashRefresh) dashRefresh.addEventListener('click', () => { loadBoardLayouts(); renderBoards() })
   const cablesToggle = document.getElementById('cables-toggle')
@@ -994,15 +1066,36 @@ function bindEvents() {
 
   const logoutBtn = document.getElementById('logout-btn')
   const saveBtn = document.getElementById('save-layout-btn')
-  const loadBtn = document.getElementById('load-layout-btn')
-  const replayBtn = document.getElementById('replay-layout-btn')
+  const editLayoutBtn = document.getElementById('edit-layout-info-btn')
+  const editLayoutClose = document.getElementById('edit-layout-close')
+  const editLayoutCancel = document.getElementById('edit-layout-cancel')
+  const editLayoutApply = document.getElementById('edit-layout-apply')
+  const editLayoutModal = document.getElementById('edit-layout-modal')
+  const editPreset = document.getElementById('edit-table-preset')
+  const editLength = document.getElementById('edit-table-length')
   const ruleCreateBtn = document.getElementById('rule-create-btn')
   const ruleReviewBtn = document.getElementById('rule-review-btn')
   const rulePublishBtn = document.getElementById('rule-publish-btn')
   if (logoutBtn) logoutBtn.onclick = doLogout
   if (saveBtn) saveBtn.onclick = saveLayout
-  if (loadBtn) loadBtn.onclick = loadLayouts
-  if (replayBtn) replayBtn.onclick = replayCurrentLayout
+  if (editLayoutBtn) editLayoutBtn.onclick = openEditLayoutModal
+  if (editLayoutClose) editLayoutClose.onclick = closeEditLayoutModal
+  if (editLayoutCancel) editLayoutCancel.onclick = closeEditLayoutModal
+  if (editLayoutApply) editLayoutApply.onclick = applyEditedLayoutInfo
+  if (editLayoutModal) editLayoutModal.addEventListener('click', e => { if (e.target === editLayoutModal) closeEditLayoutModal() })
+  if (editPreset) {
+    editPreset.addEventListener('change', e => {
+      if (!editLength) return
+      if (e.target.value) editLength.value = e.target.value
+    })
+  }
+  if (editLength) {
+    editLength.addEventListener('input', e => {
+      const presetMatch = TABLE_PRESETS.find(p => Number(p.value) === parseFloat(e.target.value))
+      const editPresetSel = document.getElementById('edit-table-preset')
+      if (editPresetSel) editPresetSel.value = presetMatch ? String(presetMatch.value) : ''
+    })
+  }
   if (ruleCreateBtn) ruleCreateBtn.onclick = createRuleDraftFromCurrent
   if (ruleReviewBtn) ruleReviewBtn.onclick = submitRuleToReview
   if (rulePublishBtn) rulePublishBtn.onclick = publishRuleFromReview
@@ -1204,6 +1297,7 @@ function applyPayload(raw) {
   layoutName = d.layoutName || layoutName
   signageOn = !!d.signageOn
   document.getElementById('table-length').value = d.tableLength || ''
+  syncPresetByLength(d.tableLength || '')
   document.getElementById('edge-x').value = d.edgeX || ''
   document.getElementById('iphone-y').value = d.iphoneY || ''
   if (document.getElementById('rule-version')) {
