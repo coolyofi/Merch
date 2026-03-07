@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>元素库管理 · 陈列小助手</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body class="manage-shell">
+  <header class="topbar manage-topbar">
+    <div class="brand">
+      <span class="brand-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg></span>
+      <span class="brand-title">元素库管理</span>
+    </div>
+    <div class="topbar-right">
+      <div class="auth-chip" id="auth-status">未解锁</div>
+      <input type="password" id="auth-code" placeholder="授权码" class="auth-input" />
+      <button class="btn-primary sm" id="auth-btn">解锁编辑</button>
+      <a class="btn-ghost sm" href="/app/index.html">← 返回应用</a>
+    </div>
+  </header>
+
+  <main class="manage-layout">
+    <section class="panel manage-panel">
+      <div class="panel-head">
+        <div class="panel-title">元素列表</div>
+        <div class="panel-actions">
+          <button class="btn-ghost sm" id="btn-refresh">刷新</button>
+          <button class="btn-ghost sm" id="btn-export">导出 JSON</button>
+        </div>
+      </div>
+      <div class="toolbar-row">
+        <input type="search" id="manage-search" class="auth-input" placeholder="搜索名称 / ID / family / SKU / 标签" />
+        <label class="checkbox-row" style="margin-left:8px">
+          <input type="checkbox" id="toggle-hidden" /> 显示隐藏元素
+        </label>
+      </div>
+      <div class="import-card">
+        <div class="import-title">导入 / 覆盖</div>
+        <textarea id="import-text" placeholder="粘贴 JSON 数组以替换当前元素库"></textarea>
+        <div class="import-actions">
+          <button class="btn-ghost sm" id="btn-fill-current">填入当前列表</button>
+          <button class="btn-primary sm" id="btn-import">用上方 JSON 覆盖</button>
+        </div>
+      </div>
+      <div id="manage-list" class="manage-list"></div>
+    </section>
+
+    <section class="panel manage-panel">
+      <div class="panel-head">
+        <div class="panel-title" id="form-title">新增元素</div>
+        <button class="btn-ghost sm" id="btn-reset-form">清空表单</button>
+      </div>
+
+      <form id="element-form" class="manage-form">
+        <div class="field">
+          <label>元素 ID <span class="label-hint">（可留空自动生成）</span></label>
+          <input type="text" id="el-id" placeholder="如：macbook-neo-13" />
+        </div>
+        <div class="field">
+          <label>名称</label>
+          <input type="text" id="el-name" required />
+        </div>
+        <div class="field">
+          <label>类型</label>
+          <select id="el-type">
+            <option value="product">产品</option>
+            <option value="bundle">组合</option>
+            <option value="sign">标牌</option>
+            <option value="prop">展具</option>
+            <option value="spacer">间距</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>系列 / Family</label>
+          <input type="text" id="el-family" placeholder="例如：MacBook" />
+        </div>
+        <div class="field">
+          <label>SKU / 编码</label>
+          <input type="text" id="el-sku" placeholder="可选" />
+        </div>
+        <div class="field grid-3">
+          <div>
+            <label>宽度 (in)</label>
+            <input type="number" step="0.01" min="0" id="el-width" required />
+          </div>
+          <div>
+            <label>深度 (in)</label>
+            <input type="number" step="0.01" min="0" id="el-depth" required />
+          </div>
+          <div>
+            <label>高度 (in)</label>
+            <input type="number" step="0.01" min="0" id="el-height" value="0" />
+          </div>
+        </div>
+        <div class="field">
+          <label>标签（逗号或空格分隔）</label>
+          <input type="text" id="el-tags" placeholder="ipad pro tablet" />
+        </div>
+        <div class="field">
+          <label>图片 URL</label>
+          <input type="url" id="el-image" placeholder="https://…" />
+        </div>
+        <div class="field">
+          <label>说明 / Note</label>
+          <textarea id="el-note" rows="2" placeholder="使用说明（可选）"></textarea>
+        </div>
+        <div class="field checkbox-row">
+          <label><input type="checkbox" id="el-allow-width" /> 允许在布局中改宽度</label>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn-primary" id="form-submit-btn">保存</button>
+          <button type="button" class="btn-ghost" id="form-delete-btn" style="display:none">删除</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script type="module" src="/src/manage.js"></script>
+</body>
+</html>

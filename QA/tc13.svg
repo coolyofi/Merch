@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="514" viewBox="0 0 1200 514">
+  <style>
+    text { font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif; }
+  </style>
+
+  <!-- Background -->
+  <rect width="1200" height="514" fill="#f7f8fa"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="1200" height="50" rx="0" fill="#1d1d1f"/>
+  <text x="20" y="20" font-size="13" fill="white" font-weight="bold">TC13 — 144" 系列 – 竖 × 4 vs 横 × 2</text>
+  <text x="20" y="38" font-size="11" fill="#aaa">144" (12-ft) 展示桌 · 系列展示桌 · 所有设备含 2×3 产品标牌 · 查表 Y=5" / Z=6" (@144"key)</text>
+  <!-- Status badge -->
+  <rect x="1120" y="8" width="60" height="26" rx="5" fill="#2a9d2a"/>
+  <text x="1150" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="white">PASS</text>
+
+  <!-- Table surface -->
+  <rect x="60" y="90" width="1080" height="304" rx="4"
+        fill="white" stroke="#ccc" stroke-width="1.5"/>
+
+  <!-- Rail backgrounds -->
+  <rect x="60" y="110" width="1080" height="110" rx="2" fill="#e8f0fb" opacity="0.5"/>
+  <rect x="60" y="264" width="1080" height="110" rx="2" fill="#fdebd8" opacity="0.5"/>
+
+  <!-- Centre divider label -->
+  <line x1="60" y1="242" x2="1140" y2="242"
+        stroke="#ddd" stroke-width="1" stroke-dasharray="6,4"/>
+  <text x="600" y="246" text-anchor="middle" font-size="9" fill="#bbb">
+    ← 展台中心分隔线 →</text>
+
+  <!-- Table edge rulers -->
+  <line x1="60" y1="80" x2="1140" y2="80" stroke="#aaa" stroke-width="1"/>
+  <line x1="60" y1="75" x2="60" y2="85" stroke="#aaa" stroke-width="1"/>
+  <line x1="1140" y1="75" x2="1140" y2="85" stroke="#aaa" stroke-width="1"/>
+  <text x="600" y="96" text-anchor="middle" font-size="11" fill="#555">144"</text>
+
+  <!-- Top rail (Portrait) -->
+  <text x="60" y="104" font-size="11" fill="#555" font-family="monospace">竖放 (Portrait)</text>
+<rect x="152.5" y="110" width="22.5" height="110" rx="2" fill="#5CB85C" opacity="0.85"/>
+<text x="163.8" y="168.0" text-anchor="middle" font-size="8" fill="white" font-family="monospace">S</text>
+<rect x="182.5" y="110" width="63.6" height="110" rx="3" fill="#4A90D9" opacity="0.88"/>
+<text x="214.3" y="128.0" text-anchor="middle" font-size="10" font-weight="bold" fill="white" font-family="monospace">#1</text>
+<text x="214.3" y="144.0" text-anchor="middle" font-size="9" fill="white" font-family="monospace" clip-path="url(#cliptop0)">Pro 13" (8.48"P)</text>
+<text x="199.3" y="233.0" text-anchor="middle" font-size="9" fill="#333" font-family="monospace">12.48"</text>
+<rect x="431.2" y="110" width="22.5" height="110" rx="2" fill="#5CB85C" opacity="0.85"/>
+<text x="442.4" y="168.0" text-anchor="middle" font-size="8" fill="white" font-family="monospace">S</text>
+<rect x="461.2" y="110" width="63.5" height="110" rx="3" fill="#4A90D9" opacity="0.88"/>
+<text x="492.9" y="128.0" text-anchor="middle" font-size="10" font-weight="bold" fill="white" font-family="monospace">#2</text>
+<text x="492.9" y="144.0" text-anchor="middle" font-size="9" fill="white" font-family="monospace" clip-path="url(#cliptop1)">Air 13" (8.46"P)</text>
+<text x="477.9" y="233.0" text-anchor="middle" font-size="9" fill="#333" font-family="monospace">12.46"</text>
+<rect x="709.7" y="110" width="22.5" height="110" rx="2" fill="#5CB85C" opacity="0.85"/>
+<text x="720.9" y="168.0" text-anchor="middle" font-size="8" fill="white" font-family="monospace">S</text>
+<rect x="739.7" y="110" width="53.0" height="110" rx="3" fill="#4A90D9" opacity="0.88"/>
+<text x="766.2" y="128.0" text-anchor="middle" font-size="10" font-weight="bold" fill="white" font-family="monospace">#3</text>
+<text x="766.2" y="144.0" text-anchor="middle" font-size="9" fill="white" font-family="monospace" clip-path="url(#cliptop2)">(A16) (7.07"P)</text>
+<text x="751.2" y="233.0" text-anchor="middle" font-size="9" fill="#333" font-family="monospace">11.07"</text>
+<rect x="977.7" y="110" width="22.5" height="110" rx="2" fill="#5CB85C" opacity="0.85"/>
+<text x="989.0" y="168.0" text-anchor="middle" font-size="8" fill="white" font-family="monospace">S</text>
+<rect x="1007.7" y="110" width="39.8" height="110" rx="3" fill="#4A90D9" opacity="0.88"/>
+<text x="1027.6" y="128.0" text-anchor="middle" font-size="10" font-weight="bold" fill="white" font-family="monospace">#4</text>
+<text x="1027.6" y="144.0" text-anchor="middle" font-size="9" fill="white" font-family="monospace" clip-path="url(#cliptop3)">mini (5.30"P)</text>
+<text x="1012.6" y="233.0" text-anchor="middle" font-size="9" fill="#333" font-family="monospace">9.30"</text>
+
+  <!-- Top gap annotations -->
+  <line x1="246.1" y1="70" x2="431.2" y2="70" stroke="#888" stroke-width="1" stroke-dasharray="3,2"/>
+<text x="338.6" y="68.0" text-anchor="middle" font-size="9" fill="#666" font-family="monospace">24.67"</text>
+<line x1="524.6" y1="70" x2="709.7" y2="70" stroke="#888" stroke-width="1" stroke-dasharray="3,2"/>
+<text x="617.1" y="68.0" text-anchor="middle" font-size="9" fill="#666" font-family="monospace">24.67"</text>
+<line x1="792.7" y1="70" x2="977.7" y2="70" stroke="#888" stroke-width="1" stroke-dasharray="3,2"/>
+<text x="885.2" y="68.0" text-anchor="middle" font-size="9" fill="#666" font-family="monospace">24.67"</text>
+<text x="106.3" y="68.0" text-anchor="middle" font-size="9" fill="#999" font-family="monospace">12.34"</text>
+<text x="1093.7" y="68.0" text-anchor="middle" font-size="9" fill="#999" font-family="monospace">12.34"</text>
+
+
+  <!-- Bottom rail (Landscape) -->
+  <text x="60" y="258" font-size="11" fill="#555" font-family="monospace">竖放 (Portrait)</text>
+<rect x="278.3" y="264" width="22.5" height="110" rx="2" fill="#5CB85C" opacity="0.85"/>
+<text x="289.6" y="322.0" text-anchor="middle" font-size="8" fill="white" font-family="monospace">S</text>
+<rect x="308.3" y="264" width="73.7" height="110" rx="3" fill="#4A90D9" opacity="0.88"/>
+<text x="345.2" y="282.0" text-anchor="middle" font-size="10" font-weight="bold" fill="white" font-family="monospace">#1</text>
+<text x="345.2" y="298.0" text-anchor="middle" font-size="9" fill="white" font-family="monospace" clip-path="url(#clipbottom0)">Pro 11" (9.83"P)</text>
+<text x="330.2" y="387.0" text-anchor="middle" font-size="9" fill="#333" font-family="monospace">13.83"</text>
+<rect x="818.6" y="264" width="22.5" height="110" rx="2" fill="#5CB85C" opacity="0.85"/>
+<text x="829.9" y="322.0" text-anchor="middle" font-size="8" fill="white" font-family="monospace">S</text>
+<rect x="848.6" y="264" width="73.0" height="110" rx="3" fill="#4A90D9" opacity="0.88"/>
+<text x="885.2" y="282.0" text-anchor="middle" font-size="10" font-weight="bold" fill="white" font-family="monospace">#2</text>
+<text x="885.2" y="298.0" text-anchor="middle" font-size="9" fill="white" font-family="monospace" clip-path="url(#clipbottom1)">Air 11" (9.74"P)</text>
+<text x="870.2" y="387.0" text-anchor="middle" font-size="9" fill="#333" font-family="monospace">13.74"</text>
+
+  <!-- Bottom gap annotations -->
+  <line x1="382.0" y1="402" x2="818.6" y2="402" stroke="#888" stroke-width="1" stroke-dasharray="3,2"/>
+<text x="600.3" y="400.0" text-anchor="middle" font-size="9" fill="#666" font-family="monospace">58.22"</text>
+<text x="169.2" y="400.0" text-anchor="middle" font-size="9" fill="#999" font-family="monospace">29.11"</text>
+<text x="1030.8" y="400.0" text-anchor="middle" font-size="9" fill="#999" font-family="monospace">29.11"</text>
+
+
+  <!-- Alignment lines (comparison only) -->
+  <line x1="199.3" y1="220" x2="330.2" y2="264" stroke="#ccc" stroke-width="1.5" stroke-dasharray="2,4" opacity="0.7"/>
+<line x1="477.9" y1="220" x2="870.2" y2="264" stroke="#ccc" stroke-width="1.5" stroke-dasharray="2,4" opacity="0.7"/>
+
+
+  <!-- Info panel -->
+  <rect x="20" y="424" width="1160" height="68" rx="4"
+        fill="white" stroke="#ddd" stroke-width="1"/>
+  <text font-size="10" fill="#444" font-family="monospace">
+    <tspan x="30" y="438">
+      竖排(上)：4 台 [iPad Pro 13", iPad Air 13", iPad (A16), iPad mini]  |  X=24.672"  |  边缘 12.336"  |  总宽 45.31"  ✓ fits
+    </tspan>
+    <tspan x="30" dy="14">
+      横排(下)：2 台 [iPad Pro 11", iPad Air 11"]  |  X=58.215"  |  边缘 29.108"  |  总宽 27.57"  ✓ fits
+    </tspan>
+    <tspan x="30" dy="14">模式：independent  |  类型：ipad-assortment  |  备注：两侧独立间距</tspan>
+  </text>
+
+  <!-- Warnings / pass -->
+  <text font-size="10" fill="#444" font-family="monospace">
+    <tspan x="30" dy="13" fill="#5CB85C">✓ 无告警</tspan>
+  </text>
+
+  <!-- Legend -->
+  <rect x="20" y="492" width="12" height="12" rx="2" fill="#4A90D9"/>
+  <text x="36" y="502" font-size="10" fill="#555">竖放 (Portrait)</text>
+  <rect x="140" y="492" width="12" height="12" rx="2" fill="#E8874A"/>
+  <text x="156" y="502" font-size="10" fill="#555">横放 (Landscape)</text>
+  <rect x="280" y="492" width="12" height="12" rx="2" fill="#5CB85C"/>
+  <text x="296" y="502" font-size="10" fill="#555">2×3 Product Sign (3"+1" gap)</text>
+  <text x="1180" y="502" text-anchor="end" font-size="9" fill="#bbb">
+    Generated: 2026-03-07
+  </text>
+</svg>

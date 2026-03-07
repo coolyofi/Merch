@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>iPad 间距 QA — 20 Cases</title>
+<style>
+  body { font-family: 'PingFang SC', Arial, sans-serif; margin: 24px; background: #f7f8fa; }
+  h1  { margin-bottom: 4px; }
+  .summary { display:flex; gap:16px; margin: 12px 0 20px; }
+  .badge { padding: 8px 20px; border-radius: 6px; font-size: 15px; font-weight: bold; color: white; }
+  table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.1); }
+  th { background: #1d1d1f; color: white; padding: 10px 12px; text-align: left; font-size: 13px; }
+  td { padding: 9px 12px; border-bottom: 1px solid #eee; font-size: 13px; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f0f4ff; }
+  a { color: #0066cc; text-decoration: none; font-weight: bold; }
+  a:hover { text-decoration: underline; }
+  .grid { display:grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 24px; }
+  .card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .card img { width: 100%; display: block; }
+  .card p { margin: 6px 10px 10px; font-size: 12px; color: #555; }
+</style>
+</head>
+<body>
+<h1>iPad 间距验证 — QA 报告</h1>
+<p style="color:#666">生成时间：2026/3/7 15:30:43 · 共 20 个场景 · 一排全竖放 / 一排全横放 · 所有设备含 2×3 产品标牌</p>
+
+<div class="summary">
+  <div class="badge" style="background:#2a9d2a">✓ PASS 20</div>
+  <div class="badge" style="background:#d07000">△ WARN 0</div>
+  <div class="badge" style="background:#cc2222">✗ FAIL 0</div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>编号</th><th>桌宽</th><th>类型</th>
+      <th>竖排（上）</th><th>横排（下）</th>
+      <th>X 上</th><th>X 下</th><th>间距模式</th><th>结果</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="tc01.svg" target="_blank">TC01</a></td>
+      <td>84"</td>
+      <td>系列</td>
+      <td>2 × 竖放</td>
+      <td>1 × 横放</td>
+      <td>30.995"</td>
+      <td>68.910"</td>
+      <td>independent</td>
+      <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+    </tr>
+    <tr>
+      <td><a href="tc02.svg" target="_blank">TC02</a></td>
+      <td>84"</td>
+      <td>系列</td>
+      <td>3 × 竖放</td>
+      <td>2 × 横放</td>
+      <td>17.563"</td>
+      <td>26.935"</td>
+      <td>independent</td>
+      <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+    </tr>
+    <tr>
+      <td><a href="tc03.svg" target="_blank">TC03</a></td>
+      <td>84"</td>
+      <td>对比</td>
+      <td>2 × 竖放</td>
+      <td>2 × 横放</td>
+      <td>—"</td>
+      <td>28.215"</td>
+      <td>center-aligned</td>
+      <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+    </tr>
+    <tr>
+      <td><a href="tc04.svg" target="_blank">TC04</a></td>
+      <td>84"</td>
+      <td>对比</td>
+      <td>3 × 竖放</td>
+      <td>3 × 横放</td>
+      <td>—"</td>
+      <td>14.913"</td>
+      <td>center-aligned</td>
+      <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+    </tr>
+    <tr>
+      <td><a href="tc05.svg" target="_blank">TC05</a></td>
+      <td>96"</td>
+      <td>系列</td>
+      <td>2 × 竖放</td>
+      <td>3 × 横放</td>
+      <td>35.530"</td>
+      <td>18.897"</td>
+      <td>independent</td>
+      <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+    </tr>
+    <tr>
+      <td><a href="tc06.svg" target="_blank">TC06</a></td>
+      <td>96"</td>
+      <td>系列</td>
+      <td>4 × 竖放</td>
+      <td>2 × 横放</td>
+      <td>13.405"</td>
+      <td>32.935"</td>
+      <td>independent</td>
+      <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+    </tr>
+    <tr>
+      <td><a href="tc07.svg" target="_blank">TC07</a></td>
+      <td>96"</td>
+      <td>对比</td>
+      <td>3 × 竖放</td>
+      <td>3 × 横放</td>
+      <td>—"</td>
+      <td>18.213"</td>
+      <td>center-aligned</td>
+      <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+    </tr>
+    <tr>
+      <td><a href="tc08.svg" target="_blank">TC08</a></td>
+      <td>96"</td>
+      <td>对比</td>
+      <td>4 × 竖放</td>
+      <td>4 × 横放</td>
+      <td>—"</td>
+      <td>10.412"</td>
+      <td>center-aligned</td>
+      <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+    </tr>
+    <tr>
+      <td><a href="tc09.svg" target="_blank">TC09</a></td>
+      <td>120"</td>
+      <td>系列</td>
+      <td>3 × 竖放</td>
+      <td>2 × 横放</td>
+      <td>27.997"</td>
+      <td>47.240"</td>
+      <td>independent</td>
+      <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+    </tr>
+    <tr>
+      <td><a href="tc10.svg" target="_blank">TC10</a></td>
+      <td>120"</td>
+      <td>系列</td>
+      <td>5 × 竖放</td>
+      <td>3 × 横放</td>
+      <td>13.032"</td>
+      <td>26.060"</td>
+      <td>independent</td>
+      <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+    </tr>
+    <tr>
+      <td><a href="tc11.svg" target="_blank">TC11</a></td>
+      <td>120"</td>
+      <td>对比</td>
+      <td>4 × 竖放</td>
+      <td>4 × 横放</td>
+      <td>—"</td>
+      <td>16.738"</td>
+      <td>center-aligned</td>
+      <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+    </tr>
+    <tr>
+      <td><a href="tc12.svg" target="_blank">TC12</a></td>
+      <td>120"</td>
+      <td>对比</td>
+      <td>3 × 竖放</td>
+      <td>3 × 横放</td>
+      <td>—"</td>
+      <td>25.347"</td>
+      <td>center-aligned</td>
+      <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+    </tr>
+    <tr>
+      <td><a href="tc13.svg" target="_blank">TC13</a></td>
+      <td>144"</td>
+      <td>系列</td>
+      <td>4 × 竖放</td>
+      <td>2 × 横放</td>
+      <td>24.672"</td>
+      <td>58.215"</td>
+      <td>independent</td>
+      <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+    </tr>
+    <tr>
+      <td><a href="tc14.svg" target="_blank">TC14</a></td>
+      <td>144"</td>
+      <td>系列</td>
+      <td>2 × 竖放</td>
+      <td>4 × 横放</td>
+      <td>61.840"</td>
+      <td>21.563"</td>
+      <td>independent</td>
+      <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+    </tr>
+    <tr>
+      <td><a href="tc15.svg" target="_blank">TC15</a></td>
+      <td>144"</td>
+      <td>对比</td>
+      <td>5 × 竖放</td>
+      <td>5 × 横放</td>
+      <td>—"</td>
+      <td>15.182"</td>
+      <td>center-aligned</td>
+      <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+    </tr>
+    <tr>
+      <td><a href="tc16.svg" target="_blank">TC16</a></td>
+      <td>144"</td>
+      <td>对比</td>
+      <td>3 × 竖放</td>
+      <td>3 × 横放</td>
+      <td>—"</td>
+      <td>33.360"</td>
+      <td>center-aligned</td>
+      <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+    </tr>
+    <tr>
+      <td><a href="tc17.svg" target="_blank">TC17</a></td>
+      <td>180"</td>
+      <td>系列</td>
+      <td>5 × 竖放</td>
+      <td>3 × 横放</td>
+      <td>24.740"</td>
+      <td>45.797"</td>
+      <td>independent</td>
+      <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+    </tr>
+    <tr>
+      <td><a href="tc18.svg" target="_blank">TC18</a></td>
+      <td>180"</td>
+      <td>系列</td>
+      <td>3 × 竖放</td>
+      <td>5 × 横放</td>
+      <td>49.563"</td>
+      <td>22.130"</td>
+      <td>independent</td>
+      <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+    </tr>
+    <tr>
+      <td><a href="tc19.svg" target="_blank">TC19</a></td>
+      <td>180"</td>
+      <td>对比</td>
+      <td>6 × 竖放</td>
+      <td>6 × 横放</td>
+      <td>—"</td>
+      <td>16.137"</td>
+      <td>center-aligned</td>
+      <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+    </tr>
+    <tr>
+      <td><a href="tc20.svg" target="_blank">TC20</a></td>
+      <td>180"</td>
+      <td>对比</td>
+      <td>4 × 竖放</td>
+      <td>4 × 横放</td>
+      <td>—"</td>
+      <td>31.098"</td>
+      <td>center-aligned</td>
+      <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+    </tr></tbody>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <a href="tc01.svg" target="_blank">
+      <img src="tc01.svg" alt="TC01" style="border-bottom:3px solid #2a9d2a"/>
+    </a>
+    <p><strong>TC01</strong> — 84" 系列 – 竖 × 2 vs 横 × 1</p>
+  </div>
+  <div class="card">
+    <a href="tc02.svg" target="_blank">
+      <img src="tc02.svg" alt="TC02" style="border-bottom:3px solid #2a9d2a"/>
+    </a>
+    <p><strong>TC02</strong> — 84" 系列 – 竖 × 3 vs 横 × 2</p>
+  </div>
+  <div class="card">
+    <a href="tc03.svg" target="_blank">
+      <img src="tc03.svg" alt="TC03" style="border-bottom:3px solid #2a9d2a"/>
+    </a>
+    <p><strong>TC03</strong> — 84" 对比 – 竖 × 2 vs 横 × 2</p>
+  </div>
+  <div class="card">
+    <a href="tc04.svg" target="_blank">
+      <img src="tc04.svg" alt="TC04" style="border-bottom:3px solid #2a9d2a"/>
+    </a>
+    <p><strong>TC04</strong> — 84" 对比 – 竖 × 3 vs 横 × 3</p>
+  </div>
+  <div class="card">
+    <a href="tc05.svg" target="_blank">
+      <img src="tc05.svg" alt="TC05" style="border-bottom:3px solid #2a9d2a"/>
+    </a>
+    <p><strong>TC05</strong> — 96" 系列 – 竖 × 2 vs 横 × 3</p>
+  </div>
+  <div class="card">
+    <a href="tc06.svg" target="_blank">
+      <img src="tc06.svg" alt="TC06" style="border-bottom:3px solid #2a9d2a"/>
+    </a>
+    <p><strong>TC06</strong> — 96" 系列 – 竖 × 4 vs 横 × 2</p>
+  </div>
+  <div class="card">
+    <a href="tc07.svg" target="_blank">
+      <img src="tc07.svg" alt="TC07" style="border-bottom:3px solid #2a9d2a"/>
+    </a>
+    <p><strong>TC07</strong> — 96" 对比 – 竖 × 3 vs 横 × 3</p>
+  </div>
+  <div class="card">
+    <a href="tc08.svg" target="_blank">
+      <img src="tc08.svg" alt="TC08" style="border-bottom:3px solid #2a9d2a"/>
+    </a>
+    <p><strong>TC08</strong> — 96" 对比 – 竖 × 4 vs 横 × 4</p>
+  </div>
+  <div class="card">
+    <a href="tc09.svg" target="_blank">
+      <img src="tc09.svg" alt="TC09" style="border-bottom:3px solid #2a9d2a"/>
+    </a>
+    <p><strong>TC09</strong> — 120" 系列 – 竖 × 3 vs 横 × 2</p>
+  </div>
+  <div class="card">
+    <a href="tc10.svg" target="_blank">
+      <img src="tc10.svg" alt="TC10" style="border-bottom:3px solid #2a9d2a"/>
+    </a>
+    <p><strong>TC10</strong> — 120" 系列 – 竖 × 5 vs 横 × 3</p>
+  </div>
+  <div class="card">
+    <a href="tc11.svg" target="_blank">
+      <img src="tc11.svg" alt="TC11" style="border-bottom:3px solid #2a9d2a"/>
+    </a>
+    <p><strong>TC11</strong> — 120" 对比 – 竖 × 4 vs 横 × 4</p>
+  </div>
+  <div class="card">
+    <a href="tc12.svg" target="_blank">
+      <img src="tc12.svg" alt="TC12" style="border-bottom:3px solid #2a9d2a"/>
+    </a>
+    <p><strong>TC12</strong> — 120" 对比 – 竖 × 3 vs 横 × 3（大尺寸）</p>
+  </div>
+  <div class="card">
+    <a href="tc13.svg" target="_blank">
+      <img src="tc13.svg" alt="TC13" style="border-bottom:3px solid #2a9d2a"/>
+    </a>
+    <p><strong>TC13</strong> — 144" 系列 – 竖 × 4 vs 横 × 2</p>
+  </div>
+  <div class="card">
+    <a href="tc14.svg" target="_blank">
+      <img src="tc14.svg" alt="TC14" style="border-bottom:3px solid #2a9d2a"/>
+    </a>
+    <p><strong>TC14</strong> — 144" 系列 – 竖 × 2 vs 横 × 4</p>
+  </div>
+  <div class="card">
+    <a href="tc15.svg" target="_blank">
+      <img src="tc15.svg" alt="TC15" style="border-bottom:3px solid #2a9d2a"/>
+    </a>
+    <p><strong>TC15</strong> — 144" 对比 – 竖 × 5 vs 横 × 5</p>
+  </div>
+  <div class="card">
+    <a href="tc16.svg" target="_blank">
+      <img src="tc16.svg" alt="TC16" style="border-bottom:3px solid #2a9d2a"/>
+    </a>
+    <p><strong>TC16</strong> — 144" 对比 – 竖 × 3 vs 横 × 3</p>
+  </div>
+  <div class="card">
+    <a href="tc17.svg" target="_blank">
+      <img src="tc17.svg" alt="TC17" style="border-bottom:3px solid #2a9d2a"/>
+    </a>
+    <p><strong>TC17</strong> — 180" 系列 – 竖 × 5 vs 横 × 3</p>
+  </div>
+  <div class="card">
+    <a href="tc18.svg" target="_blank">
+      <img src="tc18.svg" alt="TC18" style="border-bottom:3px solid #2a9d2a"/>
+    </a>
+    <p><strong>TC18</strong> — 180" 系列 – 竖 × 3 vs 横 × 5</p>
+  </div>
+  <div class="card">
+    <a href="tc19.svg" target="_blank">
+      <img src="tc19.svg" alt="TC19" style="border-bottom:3px solid #2a9d2a"/>
+    </a>
+    <p><strong>TC19</strong> — 180" 对比 – 竖 × 6 vs 横 × 6（全线产品）</p>
+  </div>
+  <div class="card">
+    <a href="tc20.svg" target="_blank">
+      <img src="tc20.svg" alt="TC20" style="border-bottom:3px solid #2a9d2a"/>
+    </a>
+    <p><strong>TC20</strong> — 180" 对比 – 竖 × 4 vs 横 × 4</p>
+  </div>
+</div>
+
+<p style="margin-top:24px;color:#aaa;font-size:11px">
+  运算核心：src/calc.js · calcIpadDoubleSide / IPAD_Y_GAP / IPAD_Z_GAP / IPAD_TABLE_TYPE
+</p>
+</body>
+</html>

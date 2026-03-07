@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="490" viewBox="0 0 1280 490">
+  <style>text { font-family: 'PingFang SC','Microsoft YaHei',Arial,sans-serif; }</style>
+
+  <!-- Background -->
+  <rect width="1280" height="490" fill="#f7f8fa"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="1280" height="48" fill="#1d1d1f"/>
+  <text x="20" y="19" font-size="13" fill="white" font-weight="bold">GRP24 — 144" (12-ft) · S3 · 混搭双组：A大+B小 vs B大+A小</text>
+  <text x="20" y="37" font-size="11" fill="#aaa">对比展示桌 · 全竖放 · 每组一块 2×3 标牌 · Y=5" @key144"</text>
+  <rect x="1200" y="7" width="62" height="26" rx="5" fill="#2a9d2a"/>
+  <text x="1231" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="white">PASS</text>
+
+  <!-- Table surface -->
+  <rect x="60" y="82" width="1160" height="266" rx="4"
+        fill="white" stroke="#ccc" stroke-width="1.5"/>
+
+  <!-- Table width ruler -->
+  <line x1="60" y1="72" x2="1220" y2="72" stroke="#bbb" stroke-width="1"/>
+  <line x1="60" y1="67" x2="60" y2="77" stroke="#bbb" stroke-width="1"/>
+  <line x1="1220" y1="67" x2="1220" y2="77" stroke="#bbb" stroke-width="1"/>
+  <text x="640" y="85" text-anchor="middle" font-size="11" fill="#555">144"</text>
+
+  <!-- Top rail -->
+  <rect x="60" y="100" width="1160" height="90" rx="3" fill="#f4f6ff" stroke="#dde" stroke-width="1"/>
+<text x="60" y="95" font-size="10" fill="#555" font-family="monospace">上排：A16×3+mini | Pro11+Air11 — B=70.52" · C=2 · X=36.740" · edge=18.370"</text>
+<rect x="208.0" y="104" width="374.7" height="82" rx="4" fill="#4A90D9" opacity="0.07" stroke="#4A90D9" stroke-width="1.5"/>
+<rect x="208.0" y="110.0" width="24.2" height="70" rx="2" fill="#5CB85C" opacity="0.9"/>
+<text x="220.1" y="149.0" text-anchor="middle" font-size="8" font-weight="bold" fill="white" font-family="monospace">S</text>
+<text x="395.3" y="92.0" text-anchor="middle" font-size="9" fill="#4A90D9" font-weight="bold" font-family="monospace">A4 [46.51"]</text>
+<rect x="240.2" y="110.0" width="57.0" height="70" rx="2" fill="#4A90D9" opacity="0.82"/>
+<text x="268.7" y="126.0" text-anchor="middle" font-size="8" fill="white" font-weight="bold" font-family="monospace">A16</text>
+<text x="268.7" y="136.0" text-anchor="middle" font-size="7" fill="white" font-family="monospace">7.07"</text>
+<line x1="297.2" y1="145.0" x2="337.4" y2="145.0" stroke="#888" stroke-width="1" stroke-dasharray="3,2"/>
+<text x="317.3" y="142.0" text-anchor="middle" font-size="8" fill="#888" font-family="monospace">Y=5.00"</text>
+<rect x="337.4" y="110.0" width="57.0" height="70" rx="2" fill="#4A90D9" opacity="0.82"/>
+<text x="365.9" y="126.0" text-anchor="middle" font-size="8" fill="white" font-weight="bold" font-family="monospace">A16</text>
+<text x="365.9" y="136.0" text-anchor="middle" font-size="7" fill="white" font-family="monospace">7.07"</text>
+<line x1="394.4" y1="145.0" x2="434.7" y2="145.0" stroke="#888" stroke-width="1" stroke-dasharray="3,2"/>
+<text x="414.5" y="142.0" text-anchor="middle" font-size="8" fill="#888" font-family="monospace">Y=5.00"</text>
+<rect x="434.7" y="110.0" width="57.0" height="70" rx="2" fill="#4A90D9" opacity="0.82"/>
+<text x="463.1" y="126.0" text-anchor="middle" font-size="8" fill="white" font-weight="bold" font-family="monospace">A16</text>
+<text x="463.1" y="136.0" text-anchor="middle" font-size="7" fill="white" font-family="monospace">7.07"</text>
+<line x1="491.6" y1="145.0" x2="540.0" y2="145.0" stroke="#888" stroke-width="1" stroke-dasharray="3,2"/>
+<text x="515.8" y="142.0" text-anchor="middle" font-size="8" fill="#888" font-family="monospace">Y=6.00"</text>
+<rect x="540.0" y="110.0" width="42.7" height="70" rx="2" fill="#4A90D9" opacity="0.82"/>
+<text x="561.3" y="126.0" text-anchor="middle" font-size="8" fill="white" font-weight="bold" font-family="monospace">mini</text>
+<text x="561.3" y="136.0" text-anchor="middle" font-size="7" fill="white" font-family="monospace">5.30"</text>
+<rect x="878.6" y="104" width="193.4" height="82" rx="4" fill="#9B59B6" opacity="0.07" stroke="#9B59B6" stroke-width="1.5"/>
+<rect x="878.6" y="110.0" width="24.2" height="70" rx="2" fill="#5CB85C" opacity="0.9"/>
+<text x="890.7" y="149.0" text-anchor="middle" font-size="8" font-weight="bold" fill="white" font-family="monospace">S</text>
+<text x="975.3" y="92.0" text-anchor="middle" font-size="9" fill="#9B59B6" font-weight="bold" font-family="monospace">B2sml [24.01"]</text>
+<rect x="910.8" y="110.0" width="56.3" height="70" rx="2" fill="#9B59B6" opacity="0.82"/>
+<text x="939.0" y="126.0" text-anchor="middle" font-size="8" fill="white" font-weight="bold" font-family="monospace">Pro11</text>
+<text x="939.0" y="136.0" text-anchor="middle" font-size="7" fill="white" font-family="monospace">6.99"</text>
+<line x1="967.1" y1="145.0" x2="1015.5" y2="145.0" stroke="#888" stroke-width="1" stroke-dasharray="3,2"/>
+<text x="991.3" y="142.0" text-anchor="middle" font-size="8" fill="#888" font-family="monospace">Y=6.00"</text>
+<rect x="1015.5" y="110.0" width="56.5" height="70" rx="2" fill="#9B59B6" opacity="0.82"/>
+<text x="1043.7" y="126.0" text-anchor="middle" font-size="8" fill="white" font-weight="bold" font-family="monospace">Air11</text>
+<text x="1043.7" y="136.0" text-anchor="middle" font-size="7" fill="white" font-family="monospace">7.02"</text>
+<line x1="582.6" y1="200.0" x2="878.6" y2="200.0" stroke="#aaa" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="730.6" y="198.0" text-anchor="middle" font-size="9" fill="#555" font-family="monospace">X=36.740"</text>
+<text x="134.0" y="198.0" text-anchor="middle" font-size="9" fill="#E84393" font-family="monospace">18.370"</text>
+<text x="1146.0" y="198.0" text-anchor="middle" font-size="9" fill="#E84393" font-family="monospace">18.370"</text>
+
+
+  <!-- Bottom rail -->
+  <rect x="60" y="240" width="1160" height="90" rx="3" fill="#f4f6ff" stroke="#dde" stroke-width="1"/>
+<text x="60" y="235" font-size="10" fill="#555" font-family="monospace">下排：Pro13+Air13+Pro11+Air11 | A16+mini — B=75.32" · C=2 · X=34.340" · edge=17.170"</text>
+<rect x="198.3" y="244" width="426.5" height="82" rx="4" fill="#9B59B6" opacity="0.07" stroke="#9B59B6" stroke-width="1.5"/>
+<rect x="198.3" y="250.0" width="24.2" height="70" rx="2" fill="#5CB85C" opacity="0.9"/>
+<text x="210.4" y="289.0" text-anchor="middle" font-size="8" font-weight="bold" fill="white" font-family="monospace">S</text>
+<text x="411.6" y="232.0" text-anchor="middle" font-size="9" fill="#9B59B6" font-weight="bold" font-family="monospace">B4 [52.95"]</text>
+<rect x="230.5" y="250.0" width="68.3" height="70" rx="2" fill="#9B59B6" opacity="0.82"/>
+<text x="264.7" y="266.0" text-anchor="middle" font-size="8" fill="white" font-weight="bold" font-family="monospace">Pro13</text>
+<text x="264.7" y="276.0" text-anchor="middle" font-size="7" fill="white" font-family="monospace">8.48"</text>
+<line x1="298.8" y1="285.0" x2="347.2" y2="285.0" stroke="#888" stroke-width="1" stroke-dasharray="3,2"/>
+<text x="323.0" y="282.0" text-anchor="middle" font-size="8" fill="#888" font-family="monospace">Y=6.00"</text>
+<rect x="347.2" y="250.0" width="68.2" height="70" rx="2" fill="#9B59B6" opacity="0.82"/>
+<text x="381.3" y="266.0" text-anchor="middle" font-size="8" fill="white" font-weight="bold" font-family="monospace">Air13</text>
+<text x="381.3" y="276.0" text-anchor="middle" font-size="7" fill="white" font-family="monospace">8.46"</text>
+<line x1="415.3" y1="285.0" x2="463.7" y2="285.0" stroke="#888" stroke-width="1" stroke-dasharray="3,2"/>
+<text x="439.5" y="282.0" text-anchor="middle" font-size="8" fill="#888" font-family="monospace">Y=6.00"</text>
+<rect x="463.7" y="250.0" width="56.3" height="70" rx="2" fill="#9B59B6" opacity="0.82"/>
+<text x="491.8" y="266.0" text-anchor="middle" font-size="8" fill="white" font-weight="bold" font-family="monospace">Pro11</text>
+<text x="491.8" y="276.0" text-anchor="middle" font-size="7" fill="white" font-family="monospace">6.99"</text>
+<line x1="520.0" y1="285.0" x2="568.3" y2="285.0" stroke="#888" stroke-width="1" stroke-dasharray="3,2"/>
+<text x="544.1" y="282.0" text-anchor="middle" font-size="8" fill="#888" font-family="monospace">Y=6.00"</text>
+<rect x="568.3" y="250.0" width="56.5" height="70" rx="2" fill="#9B59B6" opacity="0.82"/>
+<text x="596.6" y="266.0" text-anchor="middle" font-size="8" fill="white" font-weight="bold" font-family="monospace">Air11</text>
+<text x="596.6" y="276.0" text-anchor="middle" font-size="7" fill="white" font-family="monospace">7.02"</text>
+<rect x="901.5" y="244" width="180.2" height="82" rx="4" fill="#4A90D9" opacity="0.07" stroke="#4A90D9" stroke-width="1.5"/>
+<rect x="901.5" y="250.0" width="24.2" height="70" rx="2" fill="#5CB85C" opacity="0.9"/>
+<text x="913.6" y="289.0" text-anchor="middle" font-size="8" font-weight="bold" fill="white" font-family="monospace">S</text>
+<text x="991.6" y="232.0" text-anchor="middle" font-size="9" fill="#4A90D9" font-weight="bold" font-family="monospace">A2 [22.37"]</text>
+<rect x="933.7" y="250.0" width="57.0" height="70" rx="2" fill="#4A90D9" opacity="0.82"/>
+<text x="962.2" y="266.0" text-anchor="middle" font-size="8" fill="white" font-weight="bold" font-family="monospace">A16</text>
+<text x="962.2" y="276.0" text-anchor="middle" font-size="7" fill="white" font-family="monospace">7.07"</text>
+<line x1="990.7" y1="285.0" x2="1039.0" y2="285.0" stroke="#888" stroke-width="1" stroke-dasharray="3,2"/>
+<text x="1014.8" y="282.0" text-anchor="middle" font-size="8" fill="#888" font-family="monospace">Y=6.00"</text>
+<rect x="1039.0" y="250.0" width="42.7" height="70" rx="2" fill="#4A90D9" opacity="0.82"/>
+<text x="1060.3" y="266.0" text-anchor="middle" font-size="8" fill="white" font-weight="bold" font-family="monospace">mini</text>
+<text x="1060.3" y="276.0" text-anchor="middle" font-size="7" fill="white" font-family="monospace">5.30"</text>
+<line x1="624.9" y1="340.0" x2="901.5" y2="340.0" stroke="#aaa" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="763.2" y="338.0" text-anchor="middle" font-size="9" fill="#555" font-family="monospace">X=34.340"</text>
+<text x="129.2" y="338.0" text-anchor="middle" font-size="9" fill="#E84393" font-family="monospace">17.170"</text>
+<text x="1150.8" y="338.0" text-anchor="middle" font-size="9" fill="#E84393" font-family="monospace">17.170"</text>
+
+
+  <!-- Center alignment guides -->
+  <line x1="395.3" y1="190.0" x2="411.6" y2="240" stroke="#cc2222" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.8"/>
+<text x="395.3" y="215.0" text-anchor="middle" font-size="8" fill="#cc2222" font-family="monospace">Δ=2.020"</text>
+<line x1="975.3" y1="190.0" x2="991.6" y2="240" stroke="#cc2222" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.8"/>
+<text x="975.3" y="215.0" text-anchor="middle" font-size="8" fill="#cc2222" font-family="monospace">Δ=2.020"</text>
+
+
+  <!-- Centre rail divider -->
+  <line x1="60" y1="215" x2="1220" y2="215"
+        stroke="#eee" stroke-width="1" stroke-dasharray="6,4"/>
+  <text x="640" y="219.0" text-anchor="middle" font-size="9" fill="#ccc">← 展台中心 →</text>
+
+  <!-- Info panel -->
+  <rect x="20" y="372" width="1240" height="44" rx="4" fill="white" stroke="#ddd" stroke-width="1"/>
+  <text font-size="10" fill="#444" font-family="monospace">
+    <tspan x="28" y="388">
+      验算：Y(组内)=5" · 通用间距原则 X=(A-B)÷C，边缘=X÷2 · mode=对比(comparison)
+    </tspan>
+    <tspan x="28" dy="14" fill="#2a9d2a">✓ 上下两排计算均正确，组宽、X间距、边缘、Y组内间距全部通过</tspan>
+  </text>
+  <!-- Note -->
+  <text x="28" y="448" font-size="9" fill="#999" font-family="monospace">备注：2 vs 2，数量相同 → 对比模式，中心核查</text>
+
+  <!-- Legend -->
+  <rect x="20" y="466" width="12" height="12" rx="2" fill="#4A90D9"/>
+  <text x="36" y="477" font-size="10" fill="#555">A系列组（A16/mini）</text>
+  <rect x="170" y="466" width="12" height="12" rx="2" fill="#9B59B6"/>
+  <text x="186" y="477" font-size="10" fill="#555">B系列组（Pro/Air）</text>
+  <rect x="330" y="466" width="12" height="12" rx="2" fill="#5CB85C"/>
+  <text x="346" y="477" font-size="10" fill="#555">2×3 Lead Sign (3"+1"gap)</text>
+  <text x="1260" y="477" text-anchor="end" font-size="9" fill="#ccc">Generated 2026-03-07</text>
+</svg>

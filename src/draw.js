@@ -151,41 +151,52 @@ export function drawDoubleSide(canvas, result, names, opts = {}) {
   ctx.restore()
 
   // Alignment guides (pair lines from top center to bottom center)
-  const pairLines = result.alignment?.pairs || []
-  if (pairLines.length) {
-    pairLines.forEach((pair) => {
-      const topCx = PADX + pair.topCenter * scale
-      const botCx = PADX + pair.bottomCenter * scale
-      let lineColor = '#1a1a1a'
-      if (pair.status === 'minor-adjust') lineColor = '#ff9f0a'
-      if (pair.status === 'major-misalignment') lineColor = '#ff375f'
-      ctx.save()
-      ctx.strokeStyle = lineColor
-      ctx.lineWidth = 1
-      ctx.setLineDash([4, 3])
-      ctx.globalAlpha = 0.5
+  const pairLines   = result.alignment?.pairs || []
+  const isCentered  = result.spacingMode === 'center-aligned'
+  const guideSource = pairLines.length ? pairLines : topResult.layout.map((item, i) => ({
+    topCenter:    item.center,
+    bottomCenter: bottomResult.layout[i]?.center ?? item.center,
+    delta:        0,
+    status:       'aligned',
+  }))
+
+  guideSource.forEach((pair) => {
+    const topCx = PADX + pair.topCenter    * scale
+    const botCx = PADX + pair.bottomCenter * scale
+    // aligned → dim teal (visible on dark), minor-adjust → orange, major → red
+    let lineColor = isCentered ? 'rgba(52,211,153,0.55)' : 'rgba(148,163,184,0.35)'
+    if (pair.status === 'minor-adjust')       lineColor = '#ff9f0a'
+    if (pair.status === 'major-misalignment') lineColor = '#ff375f'
+    ctx.save()
+    ctx.strokeStyle = lineColor
+    ctx.lineWidth   = pair.status === 'aligned' ? 1 : 1.5
+    ctx.setLineDash([5, 3])
+    ctx.globalAlpha = pair.status === 'aligned' ? 0.6 : 0.85
+    ctx.beginPath()
+    ctx.moveTo(topCx, topY + tableH)
+    ctx.lineTo(botCx, botY)
+    ctx.stroke()
+    ctx.setLineDash([])
+    // Small center dot at the mid-point when center-aligned
+    if (isCentered && pair.status === 'aligned') {
+      const midY = topY + tableH + gap / 2
       ctx.beginPath()
-      ctx.moveTo(topCx, topY + tableH)
-      ctx.lineTo(botCx, botY)
-      ctx.stroke()
-      ctx.setLineDash([])
-      ctx.restore()
-    })
-  } else {
-    topResult.layout.forEach((item) => {
-      const cx = PADX + item.center * scale
-      ctx.save()
-      ctx.strokeStyle = '#1a1a1a'
-      ctx.lineWidth = 1
-      ctx.setLineDash([4, 3])
-      ctx.globalAlpha = 0.45
-      ctx.beginPath()
-      ctx.moveTo(cx, topY + tableH)
-      ctx.lineTo(cx, botY)
-      ctx.stroke()
-      ctx.setLineDash([])
-      ctx.restore()
-    })
+      ctx.arc(topCx, midY, 2.5, 0, Math.PI * 2)
+      ctx.fillStyle = 'rgba(52,211,153,0.7)'
+      ctx.fill()
+    }
+    ctx.restore()
+  })
+
+  // Label the mode in the separator gap
+  if (isCentered) {
+    ctx.save()
+    ctx.font      = '9px -apple-system,sans-serif'
+    ctx.fillStyle = 'rgba(52,211,153,0.65)'
+    ctx.textAlign = 'right'
+    ctx.textBaseline = 'middle'
+    ctx.fillText('中心对齐', PADX + tableW - 2, topY + tableH + gap / 2)
+    ctx.restore()
   }
 
   // Bottom table (dimmed) — front edge faces DOWN
@@ -708,22 +719,29 @@ function drawBBrackets(ctx, PAD, tableY, layout, scale, dimLabels = []) {
 
 function drawXBrackets(ctx, PAD, belowY, result, scale, isSignage) {
   const { layout, edgeLeft, edgeRight, X } = result
+  const centerAligned = result.centerAligned === true || X == null
+
+  const fmtIn = (v) => `${Number(v).toFixed(1)}"`
+  const edgeLabel = (v) => centerAligned ? fmtIn(v) : (isSignage ? 'X' : 'X÷2')
+  const gapLabel  = () => centerAligned ? null : 'X'  // null = draw with value
 
   // Left edge
   drawBracketBelow(ctx, PAD, belowY + 2, edgeLeft * scale,
-    isSignage ? 'X' : 'X÷2', BRACKET_CLR)
+    edgeLabel(edgeLeft), BRACKET_CLR)
 
   // Gaps between solutions
   for (let i = 0; i < layout.length - 1; i++) {
-    const gapPx = (layout[i + 1].start - layout[i].end) * scale
-    drawBracketBelow(ctx, PAD + layout[i].end * scale, belowY + 2, gapPx, 'X', BRACKET_CLR)
+    const gapIn = layout[i + 1].start - layout[i].end
+    const gapPx = gapIn * scale
+    const label = centerAligned ? fmtIn(gapIn) : 'X'
+    drawBracketBelow(ctx, PAD + layout[i].end * scale, belowY + 2, gapPx, label, BRACKET_CLR)
   }
 
   // Right edge
   const lastEnd = PAD + layout[layout.length - 1].end * scale
-  const rightPx = result.A * scale - layout[layout.length - 1].end * scale
-  drawBracketBelow(ctx, lastEnd, belowY + 2, rightPx * /* scale already in */ 1,
-    isSignage ? 'X' : 'X÷2', BRACKET_CLR)
+  const rightIn = result.A - layout[layout.length - 1].end
+  const rightPx = rightIn * scale
+  drawBracketBelow(ctx, lastEnd, belowY + 2, rightPx, edgeLabel(rightIn), BRACKET_CLR)
 }
 
 function drawASpan(ctx, PAD, y, tableW, A) {

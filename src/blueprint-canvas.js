@@ -38,7 +38,8 @@ const TYPE_COLORS = {
   spacer:  '#4b5563',
 }
 
-const RAIL_DEPTH_IN = 10  // each rail visually represents 10 inches of depth
+const LINE1_DIST = 5   // Apple Principles: products begin at Line 1 = 5" from edge
+const SIGN_DEPTH_IN = 2  // 2×3 sign footprint depth on table (2 inches)
 
 // ─── Utility ─────────────────────────────────────────────────────────────────
 function rrect(ctx, x, y, w, h, r) {
@@ -114,10 +115,9 @@ export function drawBlueprint(canvas, blueprintData) {
   // depth scale (px per inch), may differ from width scale if capped
   const DS = tableH / table.depth
 
-  // Rail height in px (based on RAIL_DEPTH_IN inches of actual depth)
-  const RAIL_H = Math.max(DS * RAIL_DEPTH_IN, 28)
-  const frontRailY = TY + TH - RAIL_H
-  const backRailY  = TY
+  // Line 1: 5" from front/back edge (Apple Principles — products land on Line 1)
+  const frontLine1Y = TY + (table.depth - LINE1_DIST) * DS
+  const backLine1Y  = TY + LINE1_DIST * DS
 
   // ── Background ──────────────────────────────────────────────────────────
   ctx.fillStyle = PALETTE.bg
@@ -148,14 +148,15 @@ export function drawBlueprint(canvas, blueprintData) {
   ctx.setLineDash([])
   ctx.restore()
 
-  // Depth axis labels (left side)
+  // Depth axis labels (left side) — distance from FRONT edge (customer-facing)
   ctx.font        = '9px "SF Mono", monospace'
   ctx.fillStyle   = PALETTE.labelDim
   ctx.textAlign   = 'right'
   ctx.textBaseline = 'middle'
   for (let d = 0; d <= table.depth; d += 5) {
-    const y = TY + d * DS
-    ctx.fillText(`${d}"`, TX - 6, y)
+    const y       = TY + d * DS
+    const fromFront = table.depth - d    // 0 at bottom/front, depth at top/back
+    ctx.fillText(`${fromFront}"`, TX - 6, y)
   }
   ctx.textBaseline = 'alphabetic'
 
@@ -193,38 +194,106 @@ export function drawBlueprint(canvas, blueprintData) {
   // Back edge (top)
   ctx.beginPath(); ctx.moveTo(TX, TY); ctx.lineTo(TX + TW, TY); ctx.stroke()
 
-  // ── Rail zones ─────────────────────────────────────────────────────────
-  // Front rail fill
-  ctx.fillStyle = 'rgba(251,191,36,0.05)'
-  ctx.fillRect(TX, frontRailY, TW, RAIL_H)
-  ctx.strokeStyle = 'rgba(251,191,36,0.3)'
-  ctx.lineWidth = 0.5
-  ctx.strokeRect(TX, frontRailY, TW, RAIL_H)
+  // ── Line 1 guide (front) — 5" from front edge ──────────────────────────
+  ctx.save()
+  ctx.strokeStyle = 'rgba(251,191,36,0.55)'
+  ctx.lineWidth   = 1
+  ctx.setLineDash([5, 4])
+  ctx.beginPath()
+  ctx.moveTo(TX, frontLine1Y)
+  ctx.lineTo(TX + TW, frontLine1Y)
+  ctx.stroke()
+  ctx.setLineDash([])
+  ctx.font         = 'bold 8px "SF Mono", monospace'
+  ctx.fillStyle    = 'rgba(251,191,36,0.7)'
+  ctx.textAlign    = 'right'
+  ctx.textBaseline = 'bottom'
+  ctx.fillText('Line 1 — 5"', TX - 2, frontLine1Y - 1)
+  ctx.textBaseline = 'alphabetic'
+  ctx.restore()
 
-  // Back rail fill
+  // ── Line 1 guide (back) — 5" from back edge ────────────────────────────
   if (back) {
-    ctx.fillStyle = 'rgba(52,211,153,0.05)'
-    ctx.fillRect(TX, backRailY, TW, RAIL_H)
-    ctx.strokeStyle = 'rgba(52,211,153,0.3)'
-    ctx.lineWidth = 0.5
-    ctx.strokeRect(TX, backRailY, TW, RAIL_H)
+    ctx.save()
+    ctx.strokeStyle = 'rgba(52,211,153,0.55)'
+    ctx.lineWidth   = 1
+    ctx.setLineDash([5, 4])
+    ctx.beginPath()
+    ctx.moveTo(TX, backLine1Y)
+    ctx.lineTo(TX + TW, backLine1Y)
+    ctx.stroke()
+    ctx.setLineDash([])
+    ctx.font         = 'bold 8px "SF Mono", monospace'
+    ctx.fillStyle    = 'rgba(52,211,153,0.7)'
+    ctx.textAlign    = 'right'
+    ctx.textBaseline = 'top'
+    ctx.fillText('Line 1 — 5"', TX - 2, backLine1Y + 1)
+    ctx.textBaseline = 'alphabetic'
+    ctx.restore()
   }
 
-  // ── Element blocks ────────────────────────────────────────────────────────
-  drawRailBlocks(ctx, front.items, TX, frontRailY, RAIL_H, scale, table.width, front.remaining, 'front')
+  // ── Element blocks (drawn at actual physical size, anchored at Line 1) ───
+  drawRailBlocks(ctx, front.items, TX, TY, table.width, table.depth, scale, DS, 'front', front.spacing)
   if (back) {
-    drawRailBlocks(ctx, back.items, TX, backRailY, RAIL_H, scale, table.width, back.remaining, 'back')
+    drawRailBlocks(ctx, back.items, TX, TY, table.width, table.depth, scale, DS, 'back', back.spacing)
   }
 
-  // ── Rail labels ──────────────────────────────────────────────────────────
+  // ── Center-alignment connectors ───────────────────────────────────────────
+  // When one side uses center-alignment, draw a vertical dashed line through
+  // each solution center, connecting back-row Line 1 to front-row Line 1.
+  if (back && front.spacing && back.spacing) {
+    const frontLayout = front.spacing.layout || []
+    const backLayout  = back.spacing.layout  || []
+    const isFrontCentered  = front.spacing.centerAligned
+    const isBackCentered   = back.spacing.centerAligned
+    const hasCenterAlign   = isFrontCentered || isBackCentered
+    if (hasCenterAlign && frontLayout.length === backLayout.length) {
+      ctx.save()
+      ctx.setLineDash([4, 4])
+      ctx.lineWidth   = 1
+      ctx.strokeStyle = 'rgba(52,211,153,0.45)'
+      frontLayout.forEach((fs, i) => {
+        const bk   = backLayout[i]
+        if (!bk) return
+        // Use whichever center is the "reference" (primary side)
+        const cx   = isFrontCentered ? bk.center : fs.center
+        const lineX = TX + cx * scale
+        ctx.beginPath()
+        ctx.moveTo(lineX, backLine1Y)
+        ctx.lineTo(lineX, frontLine1Y)
+        ctx.stroke()
+        // small diamond at the midpoint
+        const midY = (backLine1Y + frontLine1Y) / 2
+        ctx.save()
+        ctx.setLineDash([])
+        ctx.fillStyle = 'rgba(52,211,153,0.6)'
+        ctx.beginPath()
+        ctx.moveTo(lineX,     midY - 4)
+        ctx.lineTo(lineX + 3, midY)
+        ctx.lineTo(lineX,     midY + 4)
+        ctx.lineTo(lineX - 3, midY)
+        ctx.closePath()
+        ctx.fill()
+        ctx.restore()
+      })
+      ctx.setLineDash([])
+      ctx.restore()
+    }
+  }
+
+  // ── Edge labels ───────────────────────────────────────────────────────────
   ctx.font      = 'bold 9px sans-serif'
+  ctx.textAlign = 'right'
   ctx.fillStyle = PALETTE.frontLabel
-  ctx.fillText('FRONT ›', TX + 4, frontRailY + RAIL_H - 5)
-
+  ctx.textBaseline = 'bottom'
+  ctx.fillText('FRONT ›', TX + TW - 4, TY + TH - 2)
   if (back) {
     ctx.fillStyle = PALETTE.backLabel
-    ctx.fillText('BACK ›', TX + 4, backRailY + 13)
+    ctx.textBaseline = 'top'
+    ctx.fillText('BACK ›', TX + TW - 4, TY + 2)
   }
+  ctx.textBaseline = 'alphabetic'
+  ctx.textAlign    = 'left'
 
   // ── Table width label (centered top) ─────────────────────────────────────
   ctx.font      = 'bold 13px sans-serif'
@@ -234,7 +303,6 @@ export function drawBlueprint(canvas, blueprintData) {
   ctx.fillText(widthLabel, TX + TW / 2, TY - 32)
 
   // front usage summary
-  const frontPct   = ((front.used / table.width) * 100).toFixed(1)
   const usageLine  = `Front: ${front.used.toFixed(1)}" used  |  ${front.remaining >= 0 ? front.remaining.toFixed(1) + '" free' : 'OVER by ' + Math.abs(front.remaining).toFixed(1) + '"'}`
   ctx.font      = '10px sans-serif'
   ctx.fillStyle = front.remaining < 0 ? '#f87171' : PALETTE.labelDim
@@ -246,78 +314,195 @@ export function drawBlueprint(canvas, blueprintData) {
   drawScaleBar(ctx, TX + TW - 100, cssH - 20, scale)
 }
 
-// ─── Draw rail blocks ────────────────────────────────────────────────────────
-function drawRailBlocks(ctx, items, railX, railY, railH, scale, tableWidth, remaining, side) {
-  const PADDING = 3
+// ─── Draw rail blocks at actual physical size ────────────────────────────────
+// Items are anchored at Line 1 (5" from edge) and drawn at real width × depth.
+// item.xStart is always the DEVICE start position.
+// item.hasSign   + item.signSide: lead sign to the left (front) or right (back) of device.
+// item.hasSignBefore + item.signGapWidth: 2×3 sign between this device and the previous one.
+function drawRailBlocks(ctx, items, TX, TY, tableWidth, tableDepth, scale, DS, side, spacing) {
+  const SIGN_W = 3    // sign footprint width (inches)
+  const SIGN_G = 1    // gap between sign and device (inch)
+
+  // Canvas Y of Line 1 — front face of items touches this line
+  const line1Y = side === 'front'
+    ? TY + (tableDepth - LINE1_DIST) * DS
+    : TY + LINE1_DIST * DS
 
   items.forEach(item => {
     if (!item.element) return
-    const px     = railX + item.xStart * scale
-    const pw     = item.width * scale
-    const type   = item.element.type || 'product'
-    const color  = TYPE_COLORS[type] || '#2563eb'
+    const el    = item.element
+    const type  = el.type || 'product'
+    const color = TYPE_COLORS[type] || '#2563eb'
 
-    // Block fill
+    const isLsIpad  = item.isLandscape && el.family === 'iPad'
+    const dispDepth = isLsIpad ? el.width : (el.depth || 4)
+
+    // Device dimensions
+    const devW   = item.width    // already device-only width
+    const devPw  = devW * scale
+    const devPh  = dispDepth * DS
+    const devPy  = side === 'front' ? line1Y - devPh : line1Y
+    const devX   = TX + item.xStart * scale
+
+    // ── Between-device sign (hasSignBefore) ────────────────────────────────
+    // Sign is centered in the Z gap before this device.
+    if (item.hasSignBefore && item.signGapWidth > 0) {
+      const gapStartX = devX - item.signGapWidth * scale
+      const sigPx     = SIGN_W * scale
+      const sigX      = gapStartX + (item.signGapWidth * scale - sigPx) / 2  // centered in gap
+      const sigH      = SIGN_DEPTH_IN * DS
+      const sigY      = side === 'front' ? line1Y - sigH : line1Y
+
+      ctx.save()
+      ctx.beginPath()
+      rrect(ctx, sigX + 0.5, sigY + 0.5, sigPx - 1, sigH - 1, 2)
+      ctx.fillStyle   = 'rgba(217,119,6,0.50)'
+      ctx.fill()
+      ctx.strokeStyle = '#d97706'
+      ctx.lineWidth   = 1
+      ctx.stroke()
+      if (sigPx > 14) {
+        ctx.font         = 'bold 8px sans-serif'
+        ctx.fillStyle    = 'rgba(255,255,255,0.9)'
+        ctx.textAlign    = 'center'
+        ctx.textBaseline = 'middle'
+        ctx.fillText('2×3', sigX + sigPx / 2, sigY + sigH / 2)
+      }
+      ctx.restore()
+    }
+
+    // ── Lead sign (hasSign) — position depends on signSide ─────────────────
+    // signSide='left'  (front rail): sign is LEFT  of device [sign][gap][device]
+    // signSide='right' (back rail):  sign is RIGHT of solution end [devices...][gap][sign]
+    // item.signXStart (inches) encodes the exact position; fall back to geometry if absent.
+    // Guard: skip if this item is already a between-device sign (hasSignBefore),
+    // otherwise both the hasSignBefore path above AND this path would draw a sign.
+    if (item.hasSign && !item.hasSignBefore) {
+      const sigPx = SIGN_W * scale
+      const sigH  = SIGN_DEPTH_IN * DS
+      const sigY  = side === 'front' ? line1Y - sigH : line1Y
+
+      const signSide = item.signSide || (side === 'back' ? 'right' : 'left')
+      let sigX
+      if (item.signXStart != null) {
+        sigX = TX + item.signXStart * scale
+      } else if (signSide === 'right') {
+        sigX = devX + devPw + SIGN_G * scale          // after device (fallback)
+      } else {
+        sigX = devX - (SIGN_W + SIGN_G) * scale       // before device (fallback)
+      }
+
+      ctx.save()
+      ctx.beginPath()
+      rrect(ctx, sigX + 0.5, sigY + 0.5, sigPx - 1, sigH - 1, 2)
+      ctx.fillStyle   = 'rgba(217,119,6,0.50)'
+      ctx.fill()
+      ctx.strokeStyle = '#d97706'
+      ctx.lineWidth   = 1
+      ctx.stroke()
+      if (sigPx > 14) {
+        ctx.font         = 'bold 8px sans-serif'
+        ctx.fillStyle    = 'rgba(255,255,255,0.9)'
+        ctx.textAlign    = 'center'
+        ctx.textBaseline = 'middle'
+        ctx.fillText('2×3', sigX + sigPx / 2, sigY + sigH / 2)
+      }
+      ctx.restore()
+    }
+
+    // ── Device block ─────────────────────────────────────────────────────────
     ctx.save()
     ctx.beginPath()
-    rrect(ctx, px + 1, railY + 1, pw - 2, railH - 2, 3)
-    ctx.fillStyle = color + 'cc'
+    rrect(ctx, devX + 0.5, devPy + 0.5, devPw - 1, devPh - 1, 3)
+    ctx.fillStyle   = color + 'cc'
     ctx.fill()
-    // Block border
     ctx.strokeStyle = color
     ctx.lineWidth   = 1.2
     ctx.stroke()
     ctx.restore()
 
-    // Label (if block is wide enough)
-    if (pw > 22) {
-      const label = item.element.name
+    // Device label
+    if (devPw > 22) {
       ctx.save()
-      // Clip to block area
       ctx.beginPath()
-      rrect(ctx, px + 1, railY + 1, pw - 2, railH - 2, 3)
+      rrect(ctx, devX + 0.5, devPy + 0.5, devPw - 1, devPh - 1, 3)
       ctx.clip()
-
-      ctx.font         = `${pw > 60 ? 10 : 8}px sans-serif`
+      ctx.font         = `${devPw > 60 ? 10 : 8}px sans-serif`
       ctx.fillStyle    = 'rgba(255,255,255,0.95)'
       ctx.textAlign    = 'center'
       ctx.textBaseline = 'middle'
-      const truncated = truncate(ctx, label, pw - 8)
-      ctx.fillText(truncated, px + pw / 2, railY + railH / 2)
-
-      // Width label below name
-      if (railH > 26 && pw > 35) {
+      const midY = devPy + devPh / 2
+      ctx.fillText(truncate(ctx, el.name, devPw - 8), devX + devPw / 2, midY)
+      if (devPh > 24 && devPw > 44) {
         ctx.font      = '8px "SF Mono", monospace'
-        ctx.fillStyle = 'rgba(255,255,255,0.6)'
-        ctx.fillText(`${item.width}"`, px + pw / 2, railY + railH / 2 + 10)
+        ctx.fillStyle = 'rgba(255,255,255,0.55)'
+        ctx.fillText(
+          `${devW.toFixed(2)}"W × ${dispDepth.toFixed(2)}"D`,
+          devX + devPw / 2,
+          midY + 12
+        )
       }
-
       ctx.restore()
     }
   })
 
-  // Remaining space block
-  if (remaining > 0.01) {
-    const startPx = railX + (tableWidth - remaining) * scale
-    const remPx   = remaining * scale
+  // ── Dimension annotations along both front and back edges ────────────────
+  if (spacing && spacing.layout && spacing.layout.length > 0) {
+    const isBack  = side === 'back'
+    const DIM_Y   = isBack
+      ? TY - 8                                    // above the table for back rail
+      : TY + tableDepth * DS + 12                 // below for front
+    const DIM_CLR = isBack ? 'rgba(52,211,153,0.8)' : 'rgba(129,140,248,0.9)'
+    const DIM_TXT = isBack ? 'rgba(110,231,183,0.9)' : 'rgba(199,210,254,0.95)'
+    const dimSide = isBack ? 'back' : 'front'
 
     ctx.save()
-    ctx.setLineDash([4, 4])
-    ctx.strokeStyle = PALETTE.remainBorder
+    ctx.strokeStyle = DIM_CLR
+    ctx.fillStyle   = DIM_TXT
     ctx.lineWidth   = 1
-    ctx.beginPath()
-    rrect(ctx, startPx + 1, railY + 1, remPx - 2, railH - 2, 3)
-    ctx.stroke()
-    ctx.setLineDash([])
+    ctx.font        = '8px "SF Mono", monospace'
 
-    if (remPx > 30) {
-      ctx.font         = '9px "SF Mono", monospace'
-      ctx.fillStyle    = 'rgba(255,255,255,0.35)'
-      ctx.textAlign    = 'center'
-      ctx.textBaseline = 'middle'
-      ctx.fillText(`${remaining.toFixed(1)}" free`, startPx + remPx / 2, railY + railH / 2)
+    if (spacing.edgeLeft > 0.2) {
+      drawDimLine(ctx, TX, TX + spacing.edgeLeft * scale, DIM_Y, `${spacing.edgeLeft.toFixed(1)}"`, dimSide)
+    }
+    for (let i = 0; i < spacing.layout.length - 1; i++) {
+      const gapStart = spacing.layout[i].end
+      const gapEnd   = spacing.layout[i + 1].start
+      const gapW     = gapEnd - gapStart
+      if (gapW > 0.1) {
+        drawDimLine(ctx, TX + gapStart * scale, TX + gapEnd * scale, DIM_Y, `${gapW.toFixed(1)}"`, dimSide)
+      }
+    }
+    const last = spacing.layout[spacing.layout.length - 1]
+    if (spacing.edgeRight > 0.2) {
+      drawDimLine(ctx, TX + last.end * scale, TX + tableWidth * scale, DIM_Y, `${spacing.edgeRight.toFixed(1)}"`, dimSide)
     }
     ctx.restore()
+  }
+}
+
+// ─── Dimension line helper ────────────────────────────────────────────────────
+function drawDimLine(ctx, x0, x1, y, label, side = 'front') {
+  const mid = (x0 + x1) / 2
+  const H   = 5   // tick height
+
+  if (x1 - x0 < 4) return
+
+  ctx.beginPath()
+  ctx.moveTo(x0, y)
+  ctx.lineTo(x1, y)
+  ctx.moveTo(x0, y - H)
+  ctx.lineTo(x0, y + H)
+  ctx.moveTo(x1, y - H)
+  ctx.lineTo(x1, y + H)
+  ctx.stroke()
+
+  if (x1 - x0 > 20) {
+    ctx.textAlign    = 'center'
+    // Back rail dims: text above the dim line; front: below
+    ctx.textBaseline = side === 'back' ? 'bottom' : 'top'
+    ctx.fillText(label, mid, side === 'back' ? y - H - 1 : y + H + 1)
+    ctx.textBaseline = 'alphabetic'
   }
 }
 

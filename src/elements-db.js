@@ -22,7 +22,7 @@ const mm2in = mm => Number((mm / 25.4).toFixed(3))
 const cm2in = cm => Number((cm / 2.54).toFixed(3))
 
 // ─── Master Element Library ─────────────────────────────────────────────────
-export const ELEMENTS_DB = [
+export const ELEMENTS_SEED = [
 
   // ── 2×3 Product Sign (standard fixture) ─────────────────────────────────
   {
@@ -122,6 +122,7 @@ export const ELEMENTS_DB = [
     width:              11.97,
     depth:              8.46,
     height:             0.44,
+    imageUrl:           'https://cdsassets.apple.com/content/services/pub/image?productid=301019&size=600x600',
     tags:               ['macbook', 'air', 'laptop', 'mac'],
     allowWidthOverride: false,
   },
@@ -133,6 +134,7 @@ export const ELEMENTS_DB = [
     width:              13.40,
     depth:              9.35,
     height:             0.45,
+    imageUrl:           'https://cdsassets.apple.com/content/services/pub/image?productid=301020&size=600x600',
     tags:               ['macbook', 'air', 'laptop', 'mac'],
     allowWidthOverride: false,
   },
@@ -144,6 +146,7 @@ export const ELEMENTS_DB = [
     width:              12.31,
     depth:              8.71,
     height:             0.61,
+    imageUrl:           'https://cdsassets.apple.com/content/services/pub/image?productid=301069&size=600x600',
     tags:               ['macbook', 'pro', 'laptop', 'mac'],
     allowWidthOverride: false,
   },
@@ -155,6 +158,7 @@ export const ELEMENTS_DB = [
     width:              14.01,
     depth:              9.77,
     height:             0.66,
+    imageUrl:           'https://cdsassets.apple.com/content/services/pub/image?productid=301070&size=600x600',
     tags:               ['macbook', 'pro', 'laptop', 'mac'],
     allowWidthOverride: false,
   },
@@ -168,6 +172,7 @@ export const ELEMENTS_DB = [
     width:              6.99,         // portrait width
     depth:              9.83,
     height:             0.21,
+    imageUrl:           'https://cdsassets.apple.com/content/services/pub/image?productid=301270&size=600x600',
     tags:               ['ipad', 'pro', 'tablet'],
     note:               '竖放宽 6.99"，横放宽 9.83"',
     allowWidthOverride: true,         // orientation can change width
@@ -180,6 +185,7 @@ export const ELEMENTS_DB = [
     width:              8.48,
     depth:              11.09,
     height:             0.20,
+    imageUrl:           'https://cdsassets.apple.com/content/services/pub/image?productid=301272&size=600x600',
     tags:               ['ipad', 'pro', 'tablet'],
     note:               '竖放宽 8.48"，横放宽 11.09"',
     allowWidthOverride: true,
@@ -192,6 +198,7 @@ export const ELEMENTS_DB = [
     width:              7.02,
     depth:              9.74,
     height:             0.24,
+    imageUrl:           'https://cdsassets.apple.com/content/services/pub/image?productid=301081&size=600x600',
     tags:               ['ipad', 'air', 'tablet'],
     allowWidthOverride: true,
   },
@@ -203,6 +210,7 @@ export const ELEMENTS_DB = [
     width:              8.46,
     depth:              11.04,
     height:             0.24,
+    imageUrl:           'https://cdsassets.apple.com/content/services/pub/image?productid=301083&size=600x600',
     tags:               ['ipad', 'air', 'tablet'],
     allowWidthOverride: true,
   },
@@ -214,6 +222,7 @@ export const ELEMENTS_DB = [
     width:              7.07,
     depth:              9.79,
     height:             0.28,
+    imageUrl:           'https://cdsassets.apple.com/content/services/pub/image?productid=301079&size=600x600',
     tags:               ['ipad', 'standard', 'tablet'],
     allowWidthOverride: true,
   },
@@ -225,10 +234,18 @@ export const ELEMENTS_DB = [
     width:              5.30,
     depth:              7.69,
     height:             0.25,
+    imageUrl:           'https://cdsassets.apple.com/content/services/pub/image?productid=301063&size=600x600',
     tags:               ['ipad', 'mini', 'tablet'],
     allowWidthOverride: true,
   },
 
+  // ── iPad Smart Folio bundles ─────────────────────────────────────────────
+  // iPad mini + Smart Folio: PORTRAIT standing (principles: front on line 2,
+  // Apple Pencil attached on top).
+  // Other iPad + Smart Folio: LANDSCAPE (principles: front on line 1)
+  // ── iPad Risers ──────────────────────────────────────────────────────────
+  // iPad on riser: bottom edge of iPad on line 1 (portrait).
+  // Riser width ≈ device portrait width + ~0.5" tolerance; override as needed.
   // ── Mac Desktop ──────────────────────────────────────────────────────
   {
     id:                 'imac-24',
@@ -238,6 +255,7 @@ export const ELEMENTS_DB = [
     width:              21.5,         // stand footprint width ≈130mm → ~5.1"
     depth:              7.2,          // stand footprint depth ≈147mm → ~5.8"
     height:             18.0,
+    imageUrl:           'https://cdsassets.apple.com/content/services/pub/image?productid=301066&size=600x600',
     tags:               ['imac', 'desktop', 'mac', 'display'],
     note:               '底座占用约 5.1"×5.8"，整机宽 21.5"',
     allowWidthOverride: false,
@@ -250,6 +268,7 @@ export const ELEMENTS_DB = [
     width:              7.7,
     depth:              7.7,
     height:             2.0,
+    imageUrl:           'https://cdsassets.apple.com/content/services/pub/image?productid=301067&size=600x600',
     tags:               ['mac-mini', 'desktop', 'mac'],
     allowWidthOverride: false,
   },
@@ -261,40 +280,70 @@ export const ELEMENTS_DB = [
     width:              7.7,
     depth:              7.7,
     height:             3.7,
+    imageUrl:           'https://cdsassets.apple.com/content/services/pub/image?productid=301085&size=600x600',
     tags:               ['mac-studio', 'desktop', 'mac'],
     allowWidthOverride: false,
   },
+  {
+    id:                 'mac-pro',
+    name:               'Mac Pro',
+    type:               'product',
+    family:             'Mac',
+    width:              8.52,
+    depth:              17.7,
+    height:             20.8,
+    imageUrl:           'https://cdsassets.apple.com/content/services/pub/image?productid=300955&size=600x600',
+    tags:               ['mac-pro', 'desktop', 'mac'],
+    note:               '塔式机箱，底座占用约 8.52\" × 17.7\"。',
+    allowWidthOverride: false,
+  },
 
-  // ── Bundles ─────────────────────────────────────────────────────────
-  {
-    id:                 'bundle-ipad-keyboard-11',
-    name:               'iPad Pro 11" + Magic Keyboard',
-    type:               'bundle',
-    family:             'iPad',
-    width:              9.76,         // keyboard closed ≈ ipad width
-    depth:              7.02,
-    height:             0.60,
-    tags:               ['ipad', 'bundle', 'keyboard'],
-    note:               'iPad Pro 11" 与 Magic Keyboard（合拢状态）',
-    allowWidthOverride: true,
-  },
-  {
-    id:                 'bundle-ipad-keyboard-13',
-    name:               'iPad Pro 13" + Magic Keyboard',
-    type:               'bundle',
-    family:             'iPad',
-    width:              11.09,
-    depth:              8.48,
-    height:             0.60,
-    tags:               ['ipad', 'bundle', 'keyboard'],
-    note:               'iPad Pro 13" 与 Magic Keyboard（合拢状态）',
-    allowWidthOverride: true,
-  },
 ]
+
+// Mutable in-memory library (seeded from ELEMENTS_SEED, can be replaced by API results)
+let ELEMENTS_DB = [...ELEMENTS_SEED]
+
+function normalizeElement(raw = {}) {
+  const num = v => (v === '' || v == null ? 0 : Number(v))
+  return {
+    ...raw,
+    id:      raw.id,
+    name:    raw.name || '未命名元素',
+    type:    raw.type || 'product',
+    family:  raw.family || '',
+    sku:     raw.sku || '',
+    imageUrl: raw.imageUrl || '',
+    note:    raw.note || '',
+    hidden:  Boolean(raw.hidden),
+    width:  num(raw.width),
+    depth:  num(raw.depth),
+    height: num(raw.height),
+    tags:   Array.isArray(raw.tags) ? raw.tags : (raw.tags ? String(raw.tags).split(/[,\s]+/).filter(Boolean) : []),
+    allowWidthOverride: Boolean(raw.allowWidthOverride),
+  }
+}
+
+export function setElements(list) {
+  if (!Array.isArray(list) || !list.length) {
+    ELEMENTS_DB = [...ELEMENTS_SEED]
+    return ELEMENTS_DB
+  }
+  ELEMENTS_DB = list.map(normalizeElement)
+  return ELEMENTS_DB
+}
+
+export function resetElementsToSeed() {
+  ELEMENTS_DB = [...ELEMENTS_SEED]
+  return ELEMENTS_DB
+}
 
 // ─── Accessors ───────────────────────────────────────────────────────────────
 export function getAllElements() {
-  return ELEMENTS_DB
+  return ELEMENTS_DB.filter(e =>
+    !e.hidden &&
+    e.type !== 'bundle' &&                     // 移除组合类
+    !(e.tags || []).includes('landscape')      // 移除横屏/横放衍生
+  )
 }
 
 export function getElementsByType(type) {

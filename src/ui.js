@@ -828,12 +828,15 @@ function renderResultSummary(result, cfg) {
     const warnHtml = (result.warnings || []).length
       ? `<div class="res-warnings">${result.warnings.map(w => `<div>• ${w}</div>`).join('')}</div>`
       : ''
+    const fmtX = (side) => side.X != null ? `X = <strong>${side.X.toFixed(2)}"</strong>` : `中心对齐`
+    const primarySide = result.primarySide ?? 'top'
+    const modeLabel = result.spacingMode === 'center-aligned' ? '主侧 General + 次侧中心对齐' : '两侧独立 General'
     box.innerHTML = `
       <div class="res-formula">
-        上侧：X = <strong>${result.top.X.toFixed(2)}"</strong>，边缘 = <strong>${result.top.edgeLeft.toFixed(2)}"</strong><br>
-        下侧：X = <strong>${result.bottom.X.toFixed(2)}"</strong>，边缘 = <strong>${result.bottom.edgeLeft.toFixed(2)}"</strong><br>
-        中心偏差规则：容差 <strong>${result.alignment.centerTolerance.toFixed(1)}"</strong>，
-        微调上限 <strong>${result.alignment.microAdjustMax.toFixed(1)}"</strong>
+        上侧${primarySide === 'top' ? '（主）' : '（次）'}：${fmtX(result.top)}，边缘 = <strong>${result.top.edgeLeft.toFixed(2)}"</strong><br>
+        下侧${primarySide === 'bottom' ? '（主）' : '（次）'}：${fmtX(result.bottom)}，边缘 = <strong>${result.bottom.edgeLeft.toFixed(2)}"</strong><br>
+        间距模式：<strong>${modeLabel}</strong><br>
+        容差 <strong>${result.alignment.centerTolerance.toFixed(1)}"</strong>，微调上限 <strong>${result.alignment.microAdjustMax.toFixed(1)}"</strong>
       </div>
       <div class="res-chips">
         <span class="chip">规则版本 = ${result.ruleVersion || DEFAULT_RULE_VERSION}</span>

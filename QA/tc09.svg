@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="514" viewBox="0 0 1200 514">
+  <style>
+    text { font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif; }
+  </style>
+
+  <!-- Background -->
+  <rect width="1200" height="514" fill="#f7f8fa"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="1200" height="50" rx="0" fill="#1d1d1f"/>
+  <text x="20" y="20" font-size="13" fill="white" font-weight="bold">TC09 — 120" 系列 – 竖 × 3 vs 横 × 2</text>
+  <text x="20" y="38" font-size="11" fill="#aaa">120" (10-ft) 展示桌 · 系列展示桌 · 所有设备含 2×3 产品标牌 · 查表 Y=5" / Z=6" (@120"key)</text>
+  <!-- Status badge -->
+  <rect x="1120" y="8" width="60" height="26" rx="5" fill="#2a9d2a"/>
+  <text x="1150" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="white">PASS</text>
+
+  <!-- Table surface -->
+  <rect x="60" y="90" width="1080" height="304" rx="4"
+        fill="white" stroke="#ccc" stroke-width="1.5"/>
+
+  <!-- Rail backgrounds -->
+  <rect x="60" y="110" width="1080" height="110" rx="2" fill="#e8f0fb" opacity="0.5"/>
+  <rect x="60" y="264" width="1080" height="110" rx="2" fill="#fdebd8" opacity="0.5"/>
+
+  <!-- Centre divider label -->
+  <line x1="60" y1="242" x2="1140" y2="242"
+        stroke="#ddd" stroke-width="1" stroke-dasharray="6,4"/>
+  <text x="600" y="246" text-anchor="middle" font-size="9" fill="#bbb">
+    ← 展台中心分隔线 →</text>
+
+  <!-- Table edge rulers -->
+  <line x1="60" y1="80" x2="1140" y2="80" stroke="#aaa" stroke-width="1"/>
+  <line x1="60" y1="75" x2="60" y2="85" stroke="#aaa" stroke-width="1"/>
+  <line x1="1140" y1="75" x2="1140" y2="85" stroke="#aaa" stroke-width="1"/>
+  <text x="600" y="96" text-anchor="middle" font-size="11" fill="#555">120"</text>
+
+  <!-- Top rail (Portrait) -->
+  <text x="60" y="104" font-size="11" fill="#555" font-family="monospace">竖放 (Portrait)</text>
+<rect x="186.0" y="110" width="27.0" height="110" rx="2" fill="#5CB85C" opacity="0.85"/>
+<text x="199.5" y="168.0" text-anchor="middle" font-size="8" fill="white" font-family="monospace">S</text>
+<rect x="222.0" y="110" width="76.3" height="110" rx="3" fill="#4A90D9" opacity="0.88"/>
+<text x="260.1" y="128.0" text-anchor="middle" font-size="10" font-weight="bold" fill="white" font-family="monospace">#1</text>
+<text x="260.1" y="144.0" text-anchor="middle" font-size="9" fill="white" font-family="monospace" clip-path="url(#cliptop0)">Pro 13" (8.48"P)</text>
+<text x="242.1" y="233.0" text-anchor="middle" font-size="9" fill="#333" font-family="monospace">12.48"</text>
+<rect x="550.3" y="110" width="27.0" height="110" rx="2" fill="#5CB85C" opacity="0.85"/>
+<text x="563.8" y="168.0" text-anchor="middle" font-size="8" fill="white" font-family="monospace">S</text>
+<rect x="586.3" y="110" width="76.1" height="110" rx="3" fill="#4A90D9" opacity="0.88"/>
+<text x="624.3" y="128.0" text-anchor="middle" font-size="10" font-weight="bold" fill="white" font-family="monospace">#2</text>
+<text x="624.3" y="144.0" text-anchor="middle" font-size="9" fill="white" font-family="monospace" clip-path="url(#cliptop1)">Air 13" (8.46"P)</text>
+<text x="606.3" y="233.0" text-anchor="middle" font-size="9" fill="#333" font-family="monospace">12.46"</text>
+<rect x="914.4" y="110" width="27.0" height="110" rx="2" fill="#5CB85C" opacity="0.85"/>
+<text x="927.9" y="168.0" text-anchor="middle" font-size="8" fill="white" font-family="monospace">S</text>
+<rect x="950.4" y="110" width="63.6" height="110" rx="3" fill="#4A90D9" opacity="0.88"/>
+<text x="982.2" y="128.0" text-anchor="middle" font-size="10" font-weight="bold" fill="white" font-family="monospace">#3</text>
+<text x="982.2" y="144.0" text-anchor="middle" font-size="9" fill="white" font-family="monospace" clip-path="url(#cliptop2)">(A16) (7.07"P)</text>
+<text x="964.2" y="233.0" text-anchor="middle" font-size="9" fill="#333" font-family="monospace">11.07"</text>
+
+  <!-- Top gap annotations -->
+  <line x1="298.3" y1="70" x2="550.3" y2="70" stroke="#888" stroke-width="1" stroke-dasharray="3,2"/>
+<text x="424.3" y="68.0" text-anchor="middle" font-size="9" fill="#666" font-family="monospace">28.00"</text>
+<line x1="662.4" y1="70" x2="914.4" y2="70" stroke="#888" stroke-width="1" stroke-dasharray="3,2"/>
+<text x="788.4" y="68.0" text-anchor="middle" font-size="9" fill="#666" font-family="monospace">28.00"</text>
+<text x="123.0" y="68.0" text-anchor="middle" font-size="9" fill="#999" font-family="monospace">14.00"</text>
+<text x="1077.0" y="68.0" text-anchor="middle" font-size="9" fill="#999" font-family="monospace">14.00"</text>
+
+
+  <!-- Bottom rail (Landscape) -->
+  <text x="60" y="258" font-size="11" fill="#555" font-family="monospace">竖放 (Portrait)</text>
+<rect x="272.6" y="264" width="27.0" height="110" rx="2" fill="#5CB85C" opacity="0.85"/>
+<text x="286.1" y="322.0" text-anchor="middle" font-size="8" fill="white" font-family="monospace">S</text>
+<rect x="308.6" y="264" width="88.5" height="110" rx="3" fill="#4A90D9" opacity="0.88"/>
+<text x="352.8" y="282.0" text-anchor="middle" font-size="10" font-weight="bold" fill="white" font-family="monospace">#1</text>
+<text x="352.8" y="298.0" text-anchor="middle" font-size="9" fill="white" font-family="monospace" clip-path="url(#clipbottom0)">Pro 11" (9.83"P)</text>
+<text x="334.8" y="387.0" text-anchor="middle" font-size="9" fill="#333" font-family="monospace">13.83"</text>
+<rect x="822.2" y="264" width="27.0" height="110" rx="2" fill="#5CB85C" opacity="0.85"/>
+<text x="835.7" y="322.0" text-anchor="middle" font-size="8" fill="white" font-family="monospace">S</text>
+<rect x="858.2" y="264" width="69.2" height="110" rx="3" fill="#4A90D9" opacity="0.88"/>
+<text x="892.8" y="282.0" text-anchor="middle" font-size="10" font-weight="bold" fill="white" font-family="monospace">#2</text>
+<text x="892.8" y="298.0" text-anchor="middle" font-size="9" fill="white" font-family="monospace" clip-path="url(#clipbottom1)">mini (7.69"P)</text>
+<text x="874.8" y="387.0" text-anchor="middle" font-size="9" fill="#333" font-family="monospace">11.69"</text>
+
+  <!-- Bottom gap annotations -->
+  <line x1="397.0" y1="402" x2="822.2" y2="402" stroke="#888" stroke-width="1" stroke-dasharray="3,2"/>
+<text x="609.6" y="400.0" text-anchor="middle" font-size="9" fill="#666" font-family="monospace">47.24"</text>
+<text x="166.3" y="400.0" text-anchor="middle" font-size="9" fill="#999" font-family="monospace">23.62"</text>
+<text x="1033.7" y="400.0" text-anchor="middle" font-size="9" fill="#999" font-family="monospace">23.62"</text>
+
+
+  <!-- Alignment lines (comparison only) -->
+  <line x1="242.1" y1="220" x2="334.8" y2="264" stroke="#ccc" stroke-width="1.5" stroke-dasharray="2,4" opacity="0.7"/>
+<line x1="606.3" y1="220" x2="874.8" y2="264" stroke="#ccc" stroke-width="1.5" stroke-dasharray="2,4" opacity="0.7"/>
+
+
+  <!-- Info panel -->
+  <rect x="20" y="424" width="1160" height="68" rx="4"
+        fill="white" stroke="#ddd" stroke-width="1"/>
+  <text font-size="10" fill="#444" font-family="monospace">
+    <tspan x="30" y="438">
+      竖排(上)：3 台 [iPad Pro 13", iPad Air 13", iPad (A16)]  |  X=27.997"  |  边缘 13.998"  |  总宽 36.01"  ✓ fits
+    </tspan>
+    <tspan x="30" dy="14">
+      横排(下)：2 台 [iPad Pro 11", iPad mini]  |  X=47.240"  |  边缘 23.620"  |  总宽 25.52"  ✓ fits
+    </tspan>
+    <tspan x="30" dy="14">模式：independent  |  类型：ipad-assortment  |  备注：两侧独立间距</tspan>
+  </text>
+
+  <!-- Warnings / pass -->
+  <text font-size="10" fill="#444" font-family="monospace">
+    <tspan x="30" dy="13" fill="#5CB85C">✓ 无告警</tspan>
+  </text>
+
+  <!-- Legend -->
+  <rect x="20" y="492" width="12" height="12" rx="2" fill="#4A90D9"/>
+  <text x="36" y="502" font-size="10" fill="#555">竖放 (Portrait)</text>
+  <rect x="140" y="492" width="12" height="12" rx="2" fill="#E8874A"/>
+  <text x="156" y="502" font-size="10" fill="#555">横放 (Landscape)</text>
+  <rect x="280" y="492" width="12" height="12" rx="2" fill="#5CB85C"/>
+  <text x="296" y="502" font-size="10" fill="#555">2×3 Product Sign (3"+1" gap)</text>
+  <text x="1180" y="502" text-anchor="end" font-size="9" fill="#bbb">
+    Generated: 2026-03-07
+  </text>
+</svg>

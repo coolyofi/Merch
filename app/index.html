@@ -15,34 +15,103 @@
 <div id="setup-overlay" class="overlay">
   <div class="setup-card">
     <div class="setup-header">
-      <div class="setup-icon">📐</div>
+      <div class="setup-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H3V8h2v4h2V8h2v4h2V8h2v4h2V8h2v4h2V8h2v8z"/></svg></div>
       <h2>新建桌子</h2>
-      <p class="setup-sub">配置好参数后，就可以开始搭积木式地摆放元素了。</p>
     </div>
     <div class="setup-body">
-      <div class="field">
-        <label>桌子名称</label>
-        <input type="text" id="setup-name" placeholder="我的桌子" maxlength="40" />
+
+      <!-- Q1 -->
+      <div class="wizard-q">
+        <div class="wizard-step-heading">
+          <span class="wizard-step-num">1</span>
+          <span>为这张桌子起个名字吧</span>
+        </div>
+        <input type="text" id="setup-name" class="wizard-text-input" placeholder="我的桌子" maxlength="40" />
       </div>
-      <div class="field">
-        <label>桌子宽度</label>
+
+      <!-- Q2 -->
+      <div class="wizard-q">
+        <div class="wizard-step-heading">
+          <span class="wizard-step-num">2</span>
+          <span>桌子有多宽？</span>
+        </div>
         <div class="preset-chips" id="setup-width-chips"></div>
-        <div class="field-row" style="margin-top:8px">
-          <input type="number" id="setup-width-custom" placeholder="自定义 (英寸)" min="24" max="480" step="1" />
+        <div class="wizard-custom-row">
+          <input type="number" id="setup-width-custom" class="wizard-text-input" placeholder="自定义 (英寸)" min="24" max="480" step="1" />
           <span class="field-unit">英寸</span>
         </div>
+        <input type="hidden" id="setup-depth" value="30" />
       </div>
-      <div class="field">
-        <label>桌子深度 <span class="label-hint">（标准 60"，每 5" 一条参考线）</span></label>
-        <div class="field-row">
-          <input type="number" id="setup-depth" value="60" min="12" max="120" step="1" />
-          <span class="field-unit">英寸</span>
+
+      <!-- Q3 -->
+      <div class="wizard-q">
+        <div class="wizard-step-heading">
+          <span class="wizard-step-num">3</span>
+          <span>前沿单独一排，还是前后双排？</span>
+        </div>
+        <div class="rail-choice-cards" id="setup-rail-cards">
+          <div class="rail-card active" data-rail="single">
+            <div class="rail-card-icon">▬</div>
+            <div class="rail-card-label">单排</div>
+            <div class="rail-card-desc">只有一条展示沿，从左到右排列。</div>
+          </div>
+          <div class="rail-card" data-rail="double">
+            <div class="rail-card-icon">⬒</div>
+            <div class="rail-card-label">双排</div>
+            <div class="rail-card-desc">前沿 + 后沿，对比展示用。</div>
+          </div>
         </div>
       </div>
-      <div class="field">
-        <label>排布模式</label>
-        <div class="mode-cards" id="setup-mode-cards"></div>
+
+      <!-- Q4: 单排也适用 — 产品系列 -->
+      <div class="wizard-q hidden" id="wizard-step-2">
+        <div class="wizard-step-heading">
+          <span class="wizard-step-num">4</span>
+          <span>这是什么产品系列的桌子？</span>
+        </div>
+        <div class="family-cards" id="setup-family-cards">
+          <div class="family-card active" data-family="ipad">
+            <div class="family-card-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><rect x="4" y="1" width="16" height="22" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="6" y="3.5" width="12" height="17" rx="0.8"/></svg></div>
+            <div class="family-card-name">iPad</div>
+          </div>
+          <div class="family-card coming-soon" data-family="iphone" title="即将支持">
+            <div class="family-card-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M17 2H7c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H7V4h10v16zm-5-1c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1z"/></svg></div>
+            <div class="family-card-name">iPhone</div>
+            <div class="family-card-badge">即将支持</div>
+          </div>
+          <div class="family-card coming-soon" data-family="mac" title="即将支持">
+            <div class="family-card-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M20 18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg></div>
+            <div class="family-card-name">Mac</div>
+            <div class="family-card-badge">即将支持</div>
+          </div>
+        </div>
       </div>
+
+      <!-- Q5: 仅 iPad + 双排 -->
+      <div class="wizard-q hidden" id="wizard-ipad-modes">
+        <div class="wizard-step-heading">
+          <span class="wizard-step-num">5</span>
+          <span>iPad 桌用哪种排列方式？</span>
+        </div>
+        <div class="ipad-mode-cards" id="setup-ipad-mode-cards">
+          <div class="ipad-mode-card active" data-ipad-mode="no-sign">
+            <div class="ipad-mode-title">无 2×3 展架标牌</div>
+            <div class="ipad-mode-desc">通用间距原则 X=(A-B)÷C，两端各 X÷2。组内多设备间距 Y：7ft:3" · 8ft:4" · 10ft+:5"。</div>
+            <div class="ipad-mode-tag">Riser · Smart Folio · 横屏陈列</div>
+          </div>
+          <div class="ipad-mode-card" data-ipad-mode="with-sign">
+            <div class="ipad-mode-title">含 2×3 展架标牌</div>
+            <div class="ipad-mode-desc">端距 X 固定（7/8ft:7" · 10ft+:8"），内部均分 (A_inner-B)÷(C-1)。后排标牌在设备右侧。</div>
+            <div class="ipad-mode-tag">标牌 + 设备 = 一个 Solution</div>
+          </div>
+          <div class="ipad-mode-card" data-ipad-mode="keyboard">
+            <div class="ipad-mode-title">Magic Keyboard 套装</div>
+            <div class="ipad-mode-desc">iPad + Keyboard 合拢为一个 Solution，通用间距原则居中排布，屏幕 65°，前沿置 Line 1。</div>
+            <div class="ipad-mode-tag">前沿置 Line 1</div>
+          </div>
+        </div>
+      </div>
+
     </div>
     <div class="setup-footer">
       <button class="btn-primary lg" id="setup-confirm-btn">开始布局 →</button>
@@ -58,7 +127,7 @@
   <!-- ── TOPBAR ────────────────────── -->
   <header class="topbar">
     <div class="brand">
-      <span class="brand-icon">📐</span>
+      <span class="brand-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H3V8h2v4h2V8h2v4h2V8h2v4h2V8h2v4h2V8h2v8z"/></svg></span>
       <span class="brand-title">陈列小助手</span>
     </div>
     <div class="step-nav">
@@ -72,6 +141,10 @@
     </div>
     <div class="topbar-right">
       <div class="table-pill" id="table-pill">— 未设置 —</div>
+      <button class="btn-ghost sm" id="refresh-elements-btn">刷新元素库</button>
+      <a class="btn-ghost sm" href="/app/manage.html" target="_blank">元素库管理</a>
+      <button class="btn-ghost sm" id="import-json-btn">导入 JSON</button>
+      <input type="file" id="import-json-input" accept=".json" style="display:none">
       <button class="btn-ghost sm" id="change-setup-btn">修改桌子</button>
     </div>
   </header>
@@ -89,34 +162,14 @@
         <input type="search" id="lib-search" placeholder="搜索元素…" />
       </div>
       <div class="lib-types" id="lib-types"></div>
+      <div class="lib-families" id="lib-families"></div>
       <div class="lib-list" id="lib-list"></div>
     </aside>
 
     <!-- Center: Rail builder -->
     <main class="builder-main">
 
-      <!-- Front Rail -->
-      <div class="rail-zone" id="front-zone">
-        <div class="rail-header">
-          <div class="rail-label front-label">
-            <span class="rail-dot front-dot"></span>
-            前沿 <span class="rail-sub">Front Rail</span>
-          </div>
-          <div class="rail-stats" id="front-stats"></div>
-          <button class="btn-ghost icon sm" id="front-clear-btn" title="清空">✕</button>
-        </div>
-        <div class="rail" id="front-rail">
-          <div class="rail-empty-hint" id="front-empty-hint">点击元素库中的 <strong>＋</strong> 加入前沿</div>
-        </div>
-        <div class="usage-bar-wrap">
-          <div class="usage-bar">
-            <div class="usage-fill" id="front-usage-fill"></div>
-            <div class="usage-label" id="front-usage-label">0 / 0"</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Back Rail (double modes only) -->
+      <!-- Back Rail (double modes only) — placed first in DOM so it renders above front in flex -->
       <div class="rail-zone" id="back-zone" style="display:none">
         <div class="rail-header">
           <div class="rail-label back-label">
@@ -124,7 +177,19 @@
             后沿 <span class="rail-sub">Back Rail</span>
           </div>
           <div class="rail-stats" id="back-stats"></div>
-          <button class="btn-ghost icon sm" id="back-clear-btn" title="清空">✕</button>
+          <div class="rail-quick-btns">
+            <button class="btn-ghost xs rail-quick" id="back-all-ls-btn" title="整条后沿横屏">↔ 全横屏</button>
+            <button class="btn-ghost xs rail-quick" id="back-all-sign-btn" title="整条后沿加 2×3 标牌"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg> 全加标牌</button>
+          </div>
+          <button class="btn-ghost icon sm" id="back-clear-btn" title="清空"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
+        </div>
+        <!-- Selection action toolbar (appears when 2+ items are selected) -->
+        <div class="rail-select-toolbar hidden" id="back-select-toolbar">
+          <span class="sel-icon">◈</span>
+          <span class="sel-label">产品解决方案</span>
+          <span class="sel-count">0 项已选</span>
+          <button class="btn-primary xs" id="back-group-sel-btn">组成 Solution</button>
+          <button class="btn-ghost xs" id="back-clear-sel-btn">取消选择</button>
         </div>
         <div class="rail" id="back-rail">
           <div class="rail-empty-hint">点击元素库中的 <strong>＋</strong> 加入后沿</div>
@@ -137,8 +202,52 @@
         </div>
       </div>
 
+      <!-- Front Rail -->
+      <div class="rail-zone" id="front-zone">
+        <div class="rail-header">
+          <div class="rail-label front-label">
+            <span class="rail-dot front-dot"></span>
+            前沿 <span class="rail-sub">Front Rail</span>
+          </div>
+          <div class="rail-stats" id="front-stats"></div>
+          <div class="rail-quick-btns">
+            <button class="btn-ghost xs rail-quick" id="front-all-ls-btn" title="整条前沿横屏">↔ 全横屏</button>
+            <button class="btn-ghost xs rail-quick" id="front-all-sign-btn" title="整条前沿加 2×3 标牌"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg> 全加标牌</button>
+          </div>
+          <button class="btn-ghost icon sm" id="front-clear-btn" title="清空"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
+        </div>
+        <!-- Selection action toolbar (appears when 2+ items are selected) -->
+        <div class="rail-select-toolbar hidden" id="front-select-toolbar">
+          <span class="sel-icon">◈</span>
+          <span class="sel-label">产品解决方案</span>
+          <span class="sel-count">0 项已选</span>
+          <button class="btn-primary xs" id="front-group-sel-btn">组成 Solution</button>
+          <button class="btn-ghost xs" id="front-clear-sel-btn">取消选择</button>
+        </div>
+        <div class="rail" id="front-rail">
+          <div class="rail-empty-hint" id="front-empty-hint">点击元素库中的 <strong>＋</strong> 加入前沿</div>
+        </div>
+        <div class="usage-bar-wrap">
+          <div class="usage-bar">
+            <div class="usage-fill" id="front-usage-fill"></div>
+            <div class="usage-label" id="front-usage-label">0 / 0"</div>
+          </div>
+        </div>
+      </div>
+
       <!-- Validation messages -->
       <div id="validation-msgs" class="validation-msgs"></div>
+
+      <!-- Spacing result panel -->
+      <div id="spacing-result" class="spacing-result hidden">
+        <div class="spacing-result-header">
+          <span class="spacing-result-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H3V8h2v4h2V8h2v4h2V8h2v4h2V8h2v4h2V8h2v8z"/></svg></span>
+          <span class="spacing-result-title">间距计算结果</span>
+          <button class="spacing-trace-toggle" id="spacing-trace-toggle" title="查看计算步骤">步骤 ▾</button>
+        </div>
+        <div class="spacing-chips" id="spacing-chips"></div>
+        <div class="spacing-trace hidden" id="spacing-trace"></div>
+      </div>
 
       <!-- Actions -->
       <div class="builder-actions">

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>iPad 成组间距 QA — 35 Cases</title>
+<style>
+  body{font-family:'PingFang SC',Arial,sans-serif;margin:24px;background:#f7f8fa}
+  h1{margin-bottom:4px}
+  .summary{display:flex;gap:16px;margin:12px 0 20px}
+  .badge{padding:8px 20px;border-radius:6px;font-size:15px;font-weight:bold;color:white}
+  table{width:100%;border-collapse:collapse;background:white;border-radius:8px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+  th{background:#1d1d1f;color:white;padding:8px 10px;text-align:left;font-size:12px}
+  td{padding:7px 10px;border-bottom:1px solid #eee;font-size:12px}
+  tr:last-child td{border-bottom:none}
+  tr:hover td{background:#f0f4ff}
+  a{color:#0066cc;text-decoration:none;font-weight:bold}
+  a:hover{text-decoration:underline}
+  .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:24px}
+  .card{background:white;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+  .card img{width:100%;display:block}
+  .card p{margin:4px 8px 8px;font-size:11px;color:#555}
+</style>
+</head>
+<body>
+<h1>iPad 成组间距验证 — QA 报告</h1>
+<p style="color:#666">生成时间：2026/3/7 16:02:57 · 共 35 个场景 · 全竖放 · 每组一块 2×3 标牌 · A系列(A16/mini) & B系列(Pro/Air) 分组</p>
+<div class="summary">
+  <div class="badge" style="background:#2a9d2a">✓ PASS 34</div>
+  <div class="badge" style="background:#d07000">△ WARN 0</div>
+  <div class="badge" style="background:#cc2222">✗ FAIL 0</div>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>编号</th><th>桌宽</th><th>场景</th>
+      <th>上排分组</th><th>下排分组</th>
+      <th>上排 B/X</th><th>下排 B/X</th>
+      <th>类型</th><th>结果</th>
+    </tr>
+  </thead>
+  <tbody><tr>
+    <td><a href="grp01.svg" target="_blank">GRP01</a></td>
+    <td>84"</td><td>S1</td>
+    <td>A6</td>
+    <td>B4</td>
+    <td style="font-size:11px">59.88" / X=24.120"</td>
+    <td style="font-size:11px">49.95" / X=34.050"</td>
+    <td>对比</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp02.svg" target="_blank">GRP02</a></td>
+    <td>84"</td><td>S2</td>
+    <td>A3 + A3</td>
+    <td>B4</td>
+    <td style="font-size:11px">62.88" / X=10.560"</td>
+    <td style="font-size:11px">49.95" / X=34.050"</td>
+    <td>系列</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp03.svg" target="_blank">GRP03</a></td>
+    <td>84"</td><td>S3</td>
+    <td>A4 + B2sml</td>
+    <td>B4 + A2</td>
+    <td style="font-size:11px">64.52" / X=9.740"</td>
+    <td style="font-size:11px">71.32" / X=6.340"</td>
+    <td>对比</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp04.svg" target="_blank">GRP04</a></td>
+    <td>84"</td><td>S4</td>
+    <td>A2 + A2 + Bair</td>
+    <td>B4 + A2</td>
+    <td style="font-size:11px">67.22" / X=5.593"</td>
+    <td style="font-size:11px">71.32" / X=6.340"</td>
+    <td>系列</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp05.svg" target="_blank">GRP05</a></td>
+    <td>84"</td><td>S5</td>
+    <td>A6 + B2pro</td>
+    <td>A3 + A3</td>
+    <td style="font-size:11px">0.00" / X=—"</td>
+    <td style="font-size:11px">62.88" / X=10.560"</td>
+    <td>对比</td>
+    <td><span style="background:#888;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">OVF</span></td>
+  </tr><tr>
+    <td><a href="grp06.svg" target="_blank">GRP06</a></td>
+    <td>84"</td><td>S6</td>
+    <td>A4 + A2</td>
+    <td>B4 + A2</td>
+    <td style="font-size:11px">62.88" / X=10.560"</td>
+    <td style="font-size:11px">71.32" / X=6.340"</td>
+    <td>对比</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp07.svg" target="_blank">GRP07</a></td>
+    <td>84"</td><td>S7</td>
+    <td>A2 + A2 + A2</td>
+    <td>B4 + B2big</td>
+    <td style="font-size:11px">64.11" / X=6.630"</td>
+    <td style="font-size:11px">75.89" / X=4.055"</td>
+    <td>系列</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp08.svg" target="_blank">GRP08</a></td>
+    <td>96"</td><td>S1</td>
+    <td>A6</td>
+    <td>B4</td>
+    <td style="font-size:11px">64.88" / X=31.120"</td>
+    <td style="font-size:11px">52.95" / X=43.050"</td>
+    <td>对比</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp09.svg" target="_blank">GRP09</a></td>
+    <td>96"</td><td>S2</td>
+    <td>A3 + A3</td>
+    <td>B4</td>
+    <td style="font-size:11px">66.88" / X=14.560"</td>
+    <td style="font-size:11px">52.95" / X=43.050"</td>
+    <td>系列</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp10.svg" target="_blank">GRP10</a></td>
+    <td>96"</td><td>S3</td>
+    <td>A4 + B2sml</td>
+    <td>B4 + A2</td>
+    <td style="font-size:11px">68.52" / X=13.740"</td>
+    <td style="font-size:11px">75.32" / X=10.340"</td>
+    <td>对比</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp11.svg" target="_blank">GRP11</a></td>
+    <td>96"</td><td>S4</td>
+    <td>A2 + A2 + Bair</td>
+    <td>B4 + A2</td>
+    <td style="font-size:11px">70.22" / X=8.593"</td>
+    <td style="font-size:11px">75.32" / X=10.340"</td>
+    <td>系列</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp12.svg" target="_blank">GRP12</a></td>
+    <td>96"</td><td>S5</td>
+    <td>A6 + B2pro</td>
+    <td>A3 + A3</td>
+    <td style="font-size:11px">90.35" / X=2.825"</td>
+    <td style="font-size:11px">66.88" / X=14.560"</td>
+    <td>对比</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp13.svg" target="_blank">GRP13</a></td>
+    <td>96"</td><td>S6</td>
+    <td>A4 + A2</td>
+    <td>B4 + A2</td>
+    <td style="font-size:11px">66.88" / X=14.560"</td>
+    <td style="font-size:11px">75.32" / X=10.340"</td>
+    <td>对比</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp14.svg" target="_blank">GRP14</a></td>
+    <td>96"</td><td>S7</td>
+    <td>A2 + A2 + A2</td>
+    <td>B4 + B2big</td>
+    <td style="font-size:11px">67.11" / X=9.630"</td>
+    <td style="font-size:11px">79.89" / X=8.055"</td>
+    <td>系列</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp15.svg" target="_blank">GRP15</a></td>
+    <td>120"</td><td>S1</td>
+    <td>A6</td>
+    <td>B4</td>
+    <td style="font-size:11px">68.88" / X=51.120"</td>
+    <td style="font-size:11px">52.95" / X=67.050"</td>
+    <td>对比</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp16.svg" target="_blank">GRP16</a></td>
+    <td>120"</td><td>S2</td>
+    <td>A3 + A3</td>
+    <td>B4</td>
+    <td style="font-size:11px">68.88" / X=25.560"</td>
+    <td style="font-size:11px">52.95" / X=67.050"</td>
+    <td>系列</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp17.svg" target="_blank">GRP17</a></td>
+    <td>120"</td><td>S3</td>
+    <td>A4 + B2sml</td>
+    <td>B4 + A2</td>
+    <td style="font-size:11px">70.52" / X=24.740"</td>
+    <td style="font-size:11px">75.32" / X=22.340"</td>
+    <td>对比</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp18.svg" target="_blank">GRP18</a></td>
+    <td>120"</td><td>S4</td>
+    <td>A2 + A2 + Bair</td>
+    <td>B4 + A2</td>
+    <td style="font-size:11px">70.22" / X=16.593"</td>
+    <td style="font-size:11px">75.32" / X=22.340"</td>
+    <td>系列</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp19.svg" target="_blank">GRP19</a></td>
+    <td>120"</td><td>S5</td>
+    <td>A6 + B2pro</td>
+    <td>A3 + A3</td>
+    <td style="font-size:11px">94.35" / X=12.825"</td>
+    <td style="font-size:11px">68.88" / X=25.560"</td>
+    <td>对比</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp20.svg" target="_blank">GRP20</a></td>
+    <td>120"</td><td>S6</td>
+    <td>A4 + A2</td>
+    <td>B4 + A2</td>
+    <td style="font-size:11px">68.88" / X=25.560"</td>
+    <td style="font-size:11px">75.32" / X=22.340"</td>
+    <td>对比</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp21.svg" target="_blank">GRP21</a></td>
+    <td>120"</td><td>S7</td>
+    <td>A2 + A2 + A2</td>
+    <td>B4 + B2big</td>
+    <td style="font-size:11px">67.11" / X=17.630"</td>
+    <td style="font-size:11px">79.89" / X=20.055"</td>
+    <td>系列</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp22.svg" target="_blank">GRP22</a></td>
+    <td>144"</td><td>S1</td>
+    <td>A6</td>
+    <td>B4</td>
+    <td style="font-size:11px">68.88" / X=75.120"</td>
+    <td style="font-size:11px">52.95" / X=91.050"</td>
+    <td>对比</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp23.svg" target="_blank">GRP23</a></td>
+    <td>144"</td><td>S2</td>
+    <td>A3 + A3</td>
+    <td>B4</td>
+    <td style="font-size:11px">68.88" / X=37.560"</td>
+    <td style="font-size:11px">52.95" / X=91.050"</td>
+    <td>系列</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp24.svg" target="_blank">GRP24</a></td>
+    <td>144"</td><td>S3</td>
+    <td>A4 + B2sml</td>
+    <td>B4 + A2</td>
+    <td style="font-size:11px">70.52" / X=36.740"</td>
+    <td style="font-size:11px">75.32" / X=34.340"</td>
+    <td>对比</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp25.svg" target="_blank">GRP25</a></td>
+    <td>144"</td><td>S4</td>
+    <td>A2 + A2 + Bair</td>
+    <td>B4 + A2</td>
+    <td style="font-size:11px">70.22" / X=24.593"</td>
+    <td style="font-size:11px">75.32" / X=34.340"</td>
+    <td>系列</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp26.svg" target="_blank">GRP26</a></td>
+    <td>144"</td><td>S5</td>
+    <td>A6 + B2pro</td>
+    <td>A3 + A3</td>
+    <td style="font-size:11px">94.35" / X=24.825"</td>
+    <td style="font-size:11px">68.88" / X=37.560"</td>
+    <td>对比</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp27.svg" target="_blank">GRP27</a></td>
+    <td>144"</td><td>S6</td>
+    <td>A4 + A2</td>
+    <td>B4 + A2</td>
+    <td style="font-size:11px">68.88" / X=37.560"</td>
+    <td style="font-size:11px">75.32" / X=34.340"</td>
+    <td>对比</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp28.svg" target="_blank">GRP28</a></td>
+    <td>144"</td><td>S7</td>
+    <td>A2 + A2 + A2</td>
+    <td>B4 + B2big</td>
+    <td style="font-size:11px">67.11" / X=25.630"</td>
+    <td style="font-size:11px">79.89" / X=32.055"</td>
+    <td>系列</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp29.svg" target="_blank">GRP29</a></td>
+    <td>180"</td><td>S1</td>
+    <td>A6</td>
+    <td>B4</td>
+    <td style="font-size:11px">68.88" / X=111.120"</td>
+    <td style="font-size:11px">52.95" / X=127.050"</td>
+    <td>对比</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp30.svg" target="_blank">GRP30</a></td>
+    <td>180"</td><td>S2</td>
+    <td>A3 + A3</td>
+    <td>B4</td>
+    <td style="font-size:11px">68.88" / X=55.560"</td>
+    <td style="font-size:11px">52.95" / X=127.050"</td>
+    <td>系列</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp31.svg" target="_blank">GRP31</a></td>
+    <td>180"</td><td>S3</td>
+    <td>A4 + B2sml</td>
+    <td>B4 + A2</td>
+    <td style="font-size:11px">70.52" / X=54.740"</td>
+    <td style="font-size:11px">75.32" / X=52.340"</td>
+    <td>对比</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp32.svg" target="_blank">GRP32</a></td>
+    <td>180"</td><td>S4</td>
+    <td>A2 + A2 + Bair</td>
+    <td>B4 + A2</td>
+    <td style="font-size:11px">70.22" / X=36.593"</td>
+    <td style="font-size:11px">75.32" / X=52.340"</td>
+    <td>系列</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp33.svg" target="_blank">GRP33</a></td>
+    <td>180"</td><td>S5</td>
+    <td>A6 + B2pro</td>
+    <td>A3 + A3</td>
+    <td style="font-size:11px">94.35" / X=42.825"</td>
+    <td style="font-size:11px">68.88" / X=55.560"</td>
+    <td>对比</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp34.svg" target="_blank">GRP34</a></td>
+    <td>180"</td><td>S6</td>
+    <td>A4 + A2</td>
+    <td>B4 + A2</td>
+    <td style="font-size:11px">68.88" / X=55.560"</td>
+    <td style="font-size:11px">75.32" / X=52.340"</td>
+    <td>对比</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr><tr>
+    <td><a href="grp35.svg" target="_blank">GRP35</a></td>
+    <td>180"</td><td>S7</td>
+    <td>A2 + A2 + A2</td>
+    <td>B4 + B2big</td>
+    <td style="font-size:11px">67.11" / X=37.630"</td>
+    <td style="font-size:11px">79.89" / X=50.055"</td>
+    <td>系列</td>
+    <td><span style="background:#2a9d2a;color:white;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold">PASS</span></td>
+  </tr></tbody>
+</table>
+<div class="grid">
+<div class="card">
+  <a href="grp01.svg" target="_blank">
+    <img src="grp01.svg" alt="GRP1" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP01</strong> 84" S1</p>
+</div>
+<div class="card">
+  <a href="grp02.svg" target="_blank">
+    <img src="grp02.svg" alt="GRP2" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP02</strong> 84" S2</p>
+</div>
+<div class="card">
+  <a href="grp03.svg" target="_blank">
+    <img src="grp03.svg" alt="GRP3" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP03</strong> 84" S3</p>
+</div>
+<div class="card">
+  <a href="grp04.svg" target="_blank">
+    <img src="grp04.svg" alt="GRP4" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP04</strong> 84" S4</p>
+</div>
+<div class="card">
+  <a href="grp05.svg" target="_blank">
+    <img src="grp05.svg" alt="GRP5" style="border-bottom:3px solid #cc2222"/>
+  </a>
+  <p><strong>GRP05</strong> 84" S5</p>
+</div>
+<div class="card">
+  <a href="grp06.svg" target="_blank">
+    <img src="grp06.svg" alt="GRP6" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP06</strong> 84" S6</p>
+</div>
+<div class="card">
+  <a href="grp07.svg" target="_blank">
+    <img src="grp07.svg" alt="GRP7" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP07</strong> 84" S7</p>
+</div>
+<div class="card">
+  <a href="grp08.svg" target="_blank">
+    <img src="grp08.svg" alt="GRP8" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP08</strong> 96" S1</p>
+</div>
+<div class="card">
+  <a href="grp09.svg" target="_blank">
+    <img src="grp09.svg" alt="GRP9" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP09</strong> 96" S2</p>
+</div>
+<div class="card">
+  <a href="grp10.svg" target="_blank">
+    <img src="grp10.svg" alt="GRP10" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP10</strong> 96" S3</p>
+</div>
+<div class="card">
+  <a href="grp11.svg" target="_blank">
+    <img src="grp11.svg" alt="GRP11" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP11</strong> 96" S4</p>
+</div>
+<div class="card">
+  <a href="grp12.svg" target="_blank">
+    <img src="grp12.svg" alt="GRP12" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP12</strong> 96" S5</p>
+</div>
+<div class="card">
+  <a href="grp13.svg" target="_blank">
+    <img src="grp13.svg" alt="GRP13" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP13</strong> 96" S6</p>
+</div>
+<div class="card">
+  <a href="grp14.svg" target="_blank">
+    <img src="grp14.svg" alt="GRP14" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP14</strong> 96" S7</p>
+</div>
+<div class="card">
+  <a href="grp15.svg" target="_blank">
+    <img src="grp15.svg" alt="GRP15" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP15</strong> 120" S1</p>
+</div>
+<div class="card">
+  <a href="grp16.svg" target="_blank">
+    <img src="grp16.svg" alt="GRP16" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP16</strong> 120" S2</p>
+</div>
+<div class="card">
+  <a href="grp17.svg" target="_blank">
+    <img src="grp17.svg" alt="GRP17" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP17</strong> 120" S3</p>
+</div>
+<div class="card">
+  <a href="grp18.svg" target="_blank">
+    <img src="grp18.svg" alt="GRP18" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP18</strong> 120" S4</p>
+</div>
+<div class="card">
+  <a href="grp19.svg" target="_blank">
+    <img src="grp19.svg" alt="GRP19" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP19</strong> 120" S5</p>
+</div>
+<div class="card">
+  <a href="grp20.svg" target="_blank">
+    <img src="grp20.svg" alt="GRP20" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP20</strong> 120" S6</p>
+</div>
+<div class="card">
+  <a href="grp21.svg" target="_blank">
+    <img src="grp21.svg" alt="GRP21" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP21</strong> 120" S7</p>
+</div>
+<div class="card">
+  <a href="grp22.svg" target="_blank">
+    <img src="grp22.svg" alt="GRP22" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP22</strong> 144" S1</p>
+</div>
+<div class="card">
+  <a href="grp23.svg" target="_blank">
+    <img src="grp23.svg" alt="GRP23" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP23</strong> 144" S2</p>
+</div>
+<div class="card">
+  <a href="grp24.svg" target="_blank">
+    <img src="grp24.svg" alt="GRP24" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP24</strong> 144" S3</p>
+</div>
+<div class="card">
+  <a href="grp25.svg" target="_blank">
+    <img src="grp25.svg" alt="GRP25" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP25</strong> 144" S4</p>
+</div>
+<div class="card">
+  <a href="grp26.svg" target="_blank">
+    <img src="grp26.svg" alt="GRP26" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP26</strong> 144" S5</p>
+</div>
+<div class="card">
+  <a href="grp27.svg" target="_blank">
+    <img src="grp27.svg" alt="GRP27" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP27</strong> 144" S6</p>
+</div>
+<div class="card">
+  <a href="grp28.svg" target="_blank">
+    <img src="grp28.svg" alt="GRP28" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP28</strong> 144" S7</p>
+</div>
+<div class="card">
+  <a href="grp29.svg" target="_blank">
+    <img src="grp29.svg" alt="GRP29" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP29</strong> 180" S1</p>
+</div>
+<div class="card">
+  <a href="grp30.svg" target="_blank">
+    <img src="grp30.svg" alt="GRP30" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP30</strong> 180" S2</p>
+</div>
+<div class="card">
+  <a href="grp31.svg" target="_blank">
+    <img src="grp31.svg" alt="GRP31" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP31</strong> 180" S3</p>
+</div>
+<div class="card">
+  <a href="grp32.svg" target="_blank">
+    <img src="grp32.svg" alt="GRP32" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP32</strong> 180" S4</p>
+</div>
+<div class="card">
+  <a href="grp33.svg" target="_blank">
+    <img src="grp33.svg" alt="GRP33" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP33</strong> 180" S5</p>
+</div>
+<div class="card">
+  <a href="grp34.svg" target="_blank">
+    <img src="grp34.svg" alt="GRP34" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP34</strong> 180" S6</p>
+</div>
+<div class="card">
+  <a href="grp35.svg" target="_blank">
+    <img src="grp35.svg" alt="GRP35" style="border-bottom:3px solid #2a9d2a"/>
+  </a>
+  <p><strong>GRP35</strong> 180" S7</p>
+</div>
+</div>
+<p style="margin-top:24px;color:#aaa;font-size:11px">
+  v2 签牌规则：同型号共用标牌 Y间距 · 换型号新标牌 Z间距 · calcIpadGrouped(hasSign=model-change) · X=(A-B)/C · edge=X/2
+</p>
+</body>
+</html>
